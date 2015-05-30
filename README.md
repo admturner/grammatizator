@@ -25,19 +25,27 @@ Find a copy of the GNU General Public License at <http://www.gnu.org/licenses/>.
 
 ---
 
-    "This last year – the first full year of the machine’s operation – it was estimated that at least one half of all the novels and stories published in the English language were produced by Adolph Knipe upon the Great Automatic Grammatizator.
-    
-    Does this surprise you?
-    
-    I doubt it.
-    
-    And worse is yet to come. Today, as the secret spreads, many more are hurrying to tie up with Mr. Knipe. And all the time the screw turns tighter for those who hesitate to sign their names.
-
-    This very moment, as I sit here listening to the howling of my nine starving children in the other room, I can feel my own hand creeping closer and closer to that golden contract that lies over on the other side of the desk.
-    
-    Give us strength, Oh Lord, to let our children starve."
-
-    - Roald Dahl, "[The Great Automatic Grammatizator](http://en.wikipedia.org/wiki/The_Great_Automatic_Grammatizator)," 1954.
+> "This last year – the first full year of the machine’s operation – 
+> it was estimated that at least one half of all the novels and 
+> stories published in the English language were produced by Adolph 
+> Knipe upon the Great Automatic Grammatizator.
+> 
+> Does this surprise you?
+>   
+> I doubt it.
+> 
+> And worse is yet to come. Today, as the secret spreads, many more 
+> are hurrying to tie up with Mr. Knipe. And all the time the screw 
+> turns tighter for those who hesitate to sign their names.
+> 
+> This very moment, as I sit here listening to the howling of my 
+> nine starving children in the other room, I can feel my own hand 
+> creeping closer and closer to that golden contract that lies over 
+> on the other side of the desk.
+> 
+> Give us strength, Oh Lord, to let our children starve."
+> 
+> -- Roald Dahl, "[The Great Automatic Grammatizator](http://en.wikipedia.org/wiki/The_Great_Automatic_Grammatizator)," 1954.
 
 ---
 
