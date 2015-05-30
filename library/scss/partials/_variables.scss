@@ -1,0 +1,72 @@
+/******************************************************************
+Theme Name: Grammatizator
+Author: Adam Turner
+
+Stylesheet: Variables
+
+Contents:
+- Colors
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+
+/*********************
+BREAKPOINTS
+
+Declaring major and minor breakpoints here.
+We're using content- and design-specific breakpoints, 
+rather than trying to target the ever-changing market
+of devices. We're also using ems instead of pixels to 
+help account for users who like to zooooooom.
+@see http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/
+
+target / context = result
+@todo Replace static breakpoint calls in scss files with these variables
+
+*********************
+$break-sml: 20em;
+$break-med: 30em;
+$break-lrg: 40em;
+$break-xl: 50em;
+
+// $tweak: ; */
+
+/*********************
+COLORS
+*********************/
+
+/* Utility */
+$black:             #323934;
+$white:             #fff;
+
+/* Neutrals */
+$light-gray:        #f8f9fa;
+$gray:              #eaedf2;
+$meta-gray:         #9fa6b4;
+$tan:               #eceee5;
+
+/* Site Colors */
+$yellow:			#ffe545; /* Keep: pop */
+$bluegray:          #5d777d; /* Keep: neutral-dark */
+$green:				#54bc84; /* Probably kill: accent-green */
+$red:        		#b24523; /* Keep: accent-red */
+$blue:              #3987fa; /*#2a72b9; /* 254dfe Keep: nav-color */
+$purple:			#39467f; /* Keep:  */
+
+/* Components */
+$alert-yellow:      #ebe16f;
+$alert-red:         #fbe3e4;
+$alert-green:       #e6efc2;
+$alert-blue:        #d5edf8;
+
+$text-color:        $black;
+
+$link-color:        $blue;
+$link-hover:        darken($link-color, 75%);
+
+$border-color:      $light-gray;
+$disabled-gray:     #cfcfcf;

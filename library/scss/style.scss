@@ -1,0 +1,139 @@
+/**
+Theme Name: Grammatizator
+Theme URI: https://github.com/admturner/grammatizator
+Description: This is a theme designed for the site Nursing Clio, a collaborative blog on the intersections between history, gender, and medicine. This site highlights content in the form of text -- both longform and short -- and historical images. For more information about Grammatizator or to view documentation, you can view the README file on the <a href="https://github.com/admturner/grammatizator/">Grammatizator GitHub page</a>. This site was built using the Bones Development Theme, by <a href="https://twitter.com/eddiemachado">@eddiemachado</a>. For more information about Bones, you can visit the <a href="https://github.com/eddiemachado/bones/issues" title="Bones Issues">Bones Issues</a> page on Github.
+Author: Adam Turner
+Author URI: http://adamturner.org
+
+Made with Bones: http://themble.com/bones :)
+
+Stylesheet: Main Stylesheet
+Version: 0.4
+
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl.html
+
+Here's where the magic happens. First we import partials -- everything
+in these should be universal from mobile on up. Everything else gets 
+called after that in separate media queries. The base mobile goes
+outside any query and is called at the beginning, after that we call 
+the rest of the styles inside media queries.
+
+@todo Move unneeded _base styles to one of the next two steps to save on mobile data/downloads
+*/
+
+/*********************
+IMPORTING PARTIALS
+These files are needed at the beginning so that we establish all
+our mixins, functions, and variables that we'll be using across
+the whole project.
+*********************/
+
+// normalize: http://necolas.github.io/normalize.css/
+@import "partials/normalize";
+
+// Sass variables
+@import "partials/variables";
+
+// typography
+@import "partials/typography";
+
+// Sass functions
+@import "partials/functions";
+
+// import mixins
+@import "partials/mixins";
+
+/*********************
+IMPORTING MODULES
+Modules are reusable blocks or elements we use throughout the project.
+We can break them up as much as we want or just keep them all in one.
+I mean, you can do whatever you want. The world is your oyster. Unless
+you hate oysters, then the world is your peanut butter & jelly sandwich.
+*********************/
+
+// alert boxes
+@import "modules/alerts";
+
+// buttons
+@import "modules/buttons";
+
+// forms (inputs & labels)
+@import "modules/forms";
+
+/*********************
+BASE (MOBILE) SIZE
+This are the mobile styles. It's what people see on their phones. If
+you set a great foundation, you won't need to add too many styles in
+the other stylesheets. Remember, keep it light: Speed is Important.
+*********************/
+
+// styles in base.scss
+@import "breakpoints/base";
+
+/*********************
+SMALLISH SCREENS
+This is for screen widths that pass the first step in our
+modular grid where things start to feel a little streched
+and small.
+*********************/
+@media only screen and (min-width: 31.952em) {
+
+	// ~511.227px and up: styles in _31.952up.scss
+	@import "breakpoints/31.952up";
+
+} // end of 31.952em media query
+
+/*********************
+MEDIUM SCREENS
+This is for screen widths that hit the width of our main content
+section at its maximum size (maximum for the site, just for the 
+article content).
+*********************/
+@media only screen and (min-width: 45em) {
+
+	// ~722px and up: styles in _45up.scss
+	@import "breakpoints/45up";
+
+} // end of 45em media query
+
+/*********************
+DESKTOP
+This is the average viewing window. So Desktops, Laptops, and
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+*********************/
+@media only screen and (min-width: 64.375em) {
+
+	// ~1030px and up: styles in _64.375em.scss
+	@import "breakpoints/64.375up";
+
+} // end of 64.375em media query
+
+/*********************
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*********************/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	// styles in 2x.scss
+	@import "breakpoints/2x";
+
+} // end of media query
+
+/*********************
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won't make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
+*********************/
+@media print {
+
+	// styles in print.scss
+	@import "partials/print";
+
+}
