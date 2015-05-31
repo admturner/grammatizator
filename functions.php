@@ -158,8 +158,9 @@ if ( ! isset( $content_width ) ) {
  * @since Grammatizator 0.4
  */
 add_image_size( 'gramm-small', 362 );
+add_image_size( 'gramm-xl', 1030 );
 add_image_size( 'gramm-feature', 1030, 400, true );
-// more feature sizes?
+// @todo more feature sizes?
 
 /**
  * Add image sizes to media manager dropdown
@@ -175,6 +176,7 @@ add_image_size( 'gramm-feature', 1030, 400, true );
 function gramm_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'gramm-small' => __('Small (362px)'),
+        'gramm-xl' => __('Extra large (1030px)'),
         'gramm-feature' => __('1030 by 400'),
     ) );
 }
