@@ -66,11 +66,11 @@ get_header();
 					<div class="bloginfo module-3">
 						<?php // 3. Write for us ?>
 						<h3>Write for Us</h3>
-						<p><?php echo wptexturize( 'We\'re always looking for both regular writers and one-time contributors to join our team. If you\'re interested in public history, consider writing for us.' ); ?></p>
+						<p><?php echo wptexturize( 'Consider writing for us. We\'re always looking for both regular writers and some-time contributors to join our team.' ); ?></p>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>write-for-us" class="btn-blue">Write for Nursing Clio &rarr;</a>
 					</div>
 				</aside>
-
+				
 				<div class="offset-columns">
 					<section class="recent-articles">
 						<?php // Left, column 1: More recent posts ?>

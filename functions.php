@@ -448,7 +448,7 @@ function gramm_list_authors( $args = '' ) {
             $bio = substr($bio, 0, strrpos($bio, ' ', $len)) . ' &hellip; <a href="' . esc_url( get_bloginfo( 'url' ) ) . '/about/meet-the-team/">More &rarr;</a>';
           }
         }
-        $return .= $bio;
+        $return .= wptexturize( $bio );
         $return .= '</p>';
       }
 
