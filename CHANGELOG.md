@@ -45,7 +45,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 0.7 update Unreleased
+## 0.5 update Unreleased
 
 ### To Do
 
@@ -54,15 +54,20 @@ Changelog formatting (http://semver.org/):
     + Change single post title from h1 to h2 (while keeping styling)
 - Determine feature image size and/or aspect ratio.
 - Probably reintroduce WP Likes button (see functions.php to dos)
+- Check all files for needed updates (the 404 page, for example).
 
 ---
 
-## 0.5 update 2015-05-31
+## 0.4.1 update 2015-05-31
 
-### To Do
+### Fixed
 
-- Check all files for needed updates (the 404 page, for example).
-- Darken link color to better pass WebAIM 
+- Darken link color to better pass WebAIM WCAG standards for contrast.
+- Nuke IE CSS error causing paragraph text to not render.
+
+### Changed
+
+- Replaced green with the bluegray color to reduce busyness
 
 ---
 

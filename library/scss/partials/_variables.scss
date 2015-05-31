@@ -50,12 +50,12 @@ $meta-gray:         #9fa6b4;
 $tan:               #eceee5;
 
 /* Site Colors */
-$yellow:			#ffe545; /* Keep: pop */
-$bluegray:          #5d777d; /* Keep: neutral-dark */
-$green:				#54bc84; /* Probably kill: accent-green */
-$red:        		#b24523; /* Keep: accent-red */
-$blue:              #2b65bc; /* */
-$purple:			#39467f; /* Keep:  */
+$yellow:			#ffe545;
+$bluegray:          #5d777d;
+$green:				#5d777d; /* @todo #54bc84; Probably kill: accent-green */
+$red:        		#b24523;
+$blue:              #2b65bc;
+$purple:			#39467f; /* @todo Delete - Not using */
 
 /* Components */
 $alert-yellow:      #ebe16f;
