@@ -68,6 +68,8 @@ Changelog formatting (http://semver.org/):
 ### Changed
 
 - Replaced green with the bluegray color to reduce busyness
+- Add wptexturize() filter to author description (bio) output
+- Add correct theme screenshot
 
 ---
 
