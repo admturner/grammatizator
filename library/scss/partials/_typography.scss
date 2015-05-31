@@ -23,12 +23,13 @@ I've edited it a bit, but it's a nice starting point.
 
 // font stacks
 $sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif: "Merriweather", "Georgia", Cambria, Times New Roman, Times, serif;
+$serif: "Merriweather", "Georgia", Cambria, "Times New Roman", Times, serif;
 
 /*
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
+/* @todo May be breaking IE < p > rendering. Turn back on with time to test
 p {
   -ms-word-wrap: break-word;
   word-break: break-word; //non-standart css for webkit
@@ -47,4 +48,4 @@ p {
       -ms-font-feature-settings: "liga", "dlig";
        -o-font-feature-settings: "liga", "dlig";
           font-feature-settings: "liga", "dlig";
-}
+} */

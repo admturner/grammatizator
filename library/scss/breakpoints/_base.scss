@@ -152,7 +152,7 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-	text-rendering: optimizelegibility;
+	/* text-rendering: optimizelegibility; @todo Maybe breaking IE. Replace when fixed. */
 	font-weight: 700; // Watch your weights, our imported fonts both use 700 weight for bold. @see http://css-tricks.com/watch-your-font-weight/
 	
 	/* removing text decoration from all headline links */
@@ -1196,7 +1196,11 @@ SIDEBARS & ASIDES
 	margin: 0 -2%;
 
 	.bloginfo {
-		background-color: $green;
+		background-color: $light-gray;
+
+		h3 {
+			color: $black;
+		}
 	}
 }
 

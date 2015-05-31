@@ -51,16 +51,18 @@ Changelog formatting (http://semver.org/):
 
 - Add Google Analytics
 - Run validator assessments
+    + Change single post title from h1 to h2 (while keeping styling)
 - Determine feature image size and/or aspect ratio.
 - Probably reintroduce WP Likes button (see functions.php to dos)
 
 ---
 
-## 0.5 update Unreleased
+## 0.5 update 2015-05-31
 
 ### To Do
 
 - Check all files for needed updates (the 404 page, for example).
+- Darken link color to better pass WebAIM 
 
 ---
 

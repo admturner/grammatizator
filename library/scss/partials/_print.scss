@@ -14,8 +14,8 @@ though, go for it.
     background: transparent !important;
     color: black !important;
     text-shadow: none !important;
-    filter:none !important;
-    -ms-filter: none !important;
+    /* filter:none !important; @todo May be causing problems. Check.
+    -ms-filter: none !important; */
   }
 
   a, a:visited {
@@ -56,21 +56,20 @@ though, go for it.
     max-width: 100% !important;
   }
 
-    @page {
+    /* @todo Parse error: @page {
       margin: 0.5cm;
-    }
+    } */
 
     p, h2, h3 {
       orphans: 3;
       widows: 3;
     }
 
-    h2,
-    h3 {
+    h2, h3 {
       page-break-after: avoid;
     }
 
-    // hide content people who print don't need to see
+    /* hide content people who print don't need to see */
     .sidebar,
     .page-navigation,
     .wp-prev-next,

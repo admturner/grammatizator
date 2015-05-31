@@ -8,10 +8,10 @@ Author URI: http://adamturner.org
 Made with Bones: http://themble.com/bones :)
 
 Stylesheet: Main Stylesheet
-Version: 0.1.0
+Version: 0.4
 
 License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/gpl.html
 
 Here's where the magic happens. First we import partials -- everything
 in these should be universal from mobile on up. Everything else gets 
@@ -87,8 +87,7 @@ template {
 html {
   font-family: sans-serif;
   /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
+  /* -ms-text-size-adjust: 100%; 2 @todo May be causing IE problems */
   -webkit-text-size-adjust: 100%;
   /* 2 */
 }
@@ -503,7 +502,7 @@ Stylesheet: Variables
 
 Contents:
 - Colors
-- 
+
 Here is where we declare all our variables like colors, fonts,
 base values, and defaults. We want to make sure this file ONLY
 contains variables that way our files don't get all messy.
@@ -521,11 +520,15 @@ help account for users who like to zooooooom.
 @see http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/
 
 target / context = result
+@todo Replace static breakpoint calls in scss files with these variables
 
-Base: 	min-width: 320px / 16px = 20em
-		max-width: 
+*********************
+$break-sml: 20em;
+$break-med: 30em;
+$break-lrg: 40em;
+$break-xl: 50em;
 
-*********************/
+// $tweak: ; */
 /*********************
 COLORS
 *********************/
@@ -536,7 +539,7 @@ COLORS
 /* Keep: neutral-dark */
 /* Probably kill: accent-green */
 /* Keep: accent-red */
-/*#2a72b9; /* 254dfe Keep: nav-color */
+/* */
 /* Keep:  */
 /* Components */
 /******************************************************************
@@ -564,23 +567,26 @@ I've edited it a bit, but it's a nice starting point.
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
+/* @todo May be breaking IE < p > rendering. Turn back on with time to test
 p {
   -ms-word-wrap: break-word;
-  word-break: break-word;
+  word-break: break-word; //non-standart css for webkit
   word-wrap: break-word;
+  // cleaning up the ragged lines and breaks
   -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
+     -moz-hyphens: auto;
+          hyphens: auto;
+  // sets a minimum number of characters before and after the break
   -webkit-hyphenate-before: 2;
-  -webkit-hyphenate-after: 3;
-  hyphenate-lines: 3;
+   -webkit-hyphenate-after: 3;
+           hyphenate-lines: 3;
+  // enabling fancy ligatures when available
   -webkit-font-feature-settings: "liga", "dlig";
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -ms-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig";
-}
-
+   -moz-font-feature-settings: "liga=1, dlig=1";
+      -ms-font-feature-settings: "liga", "dlig";
+       -o-font-feature-settings: "liga", "dlig";
+          font-feature-settings: "liga", "dlig";
+} */
 /******************************************************************
 Theme Name: Grammatizator
 Author: Adam Turner
@@ -800,19 +806,19 @@ and it will create a button dependant on those variables.
 .btn-blue, .comment-reply-link, #submit,
 #respond .form-submit input#comment-submit,
 .contact-submit input[type="submit"] {
-  background-color: #3987fa;
+  background-color: #2b65bc;
 }
 .btn-blue:hover, .comment-reply-link:hover, #submit:hover, .btn-blue:focus, .comment-reply-link:focus, #submit:focus,
 #respond .form-submit input#comment-submit:hover,
 #respond .form-submit input#comment-submit:focus,
 .contact-submit input[type="submit"]:hover,
 .contact-submit input[type="submit"]:focus {
-  background-color: #257bf9;
+  background-color: #183869;
 }
 .btn-blue:active, .comment-reply-link:active, #submit:active,
 #respond .form-submit input#comment-submit:active,
 .contact-submit input[type="submit"]:active {
-  background-color: #2078f9;
+  background-color: #6f9bde;
 }
 
 /******************************************************************
@@ -1117,6 +1123,7 @@ This are the mobile styles. It's what people see on their phones. If
 you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
 *********************/
+/* styles in base.scss */
 /******************************************************************
 Theme Name: Grammatizator
 Author: Adam Turner
@@ -1216,14 +1223,14 @@ WORDPRESS BODY CLASSES
 LINK STYLES
 *********************/
 a, a:visited {
-  color: #3987fa;
+  color: #2b65bc;
   text-decoration: none;
   /* on hover */
   /* on click */
   /* mobile tap color */
 }
 a:hover, a:focus, a:visited:hover, a:visited:focus {
-  color: black;
+  color: #84aae3;
 }
 a:link, a:visited:link {
   /*
@@ -1235,12 +1242,12 @@ a:link, a:visited:link {
 }
 
 .content-wrap p a, .content-wrap p a:visited {
-  border-bottom: 1px solid #9cc3fd;
+  border-bottom: 1px solid #6f9bde;
   /* on hover */
   /* on click */
 }
 .content-wrap p a:hover, .content-wrap p a:focus, .content-wrap p a:visited:hover, .content-wrap p a:visited:focus {
-  border-bottom: 1px solid #032a63;
+  border-bottom: 1px solid #d7e3f6;
 }
 
 /* end content links */
@@ -1248,7 +1255,7 @@ a:link, a:visited:link {
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  text-rendering: optimizelegibility;
+  /* text-rendering: optimizelegibility; @todo Maybe breaking IE. Replace when fixed. */
   font-weight: 700;
   /* removing text decoration from all headline links */
 }
@@ -1389,7 +1396,7 @@ and more scalable.
   margin-left: -4px;
   width: 40px;
   padding: 0;
-  background-color: #84b4fc;
+  background-color: #5a8dd9;
   color: #fff;
   text-indent: 100%;
   white-space: nowrap;
@@ -1413,7 +1420,7 @@ and more scalable.
     max-width: 24em;
     top: 4.594em;
     right: 0;
-    border-bottom: 3px solid #3987fa;
+    border-bottom: 3px solid #2b65bc;
   }
 
   .nav-jump {
@@ -1606,7 +1613,7 @@ POSTS & CONTENT STYLES
   margin: 0 .15em;
   padding: .25em;
   color: #fff;
-  background-color: #3987fa;
+  background-color: #2b65bc;
 }
 .article-supplement ul li a.share-twitter {
   background-color: #55acce;
@@ -1628,13 +1635,13 @@ POSTS & CONTENT STYLES
 }
 
 .entry-content p {
-  font-family: "Merriweather", "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: "Merriweather", "Georgia", Cambria, "Times New Roman", Times, serif;
 }
 .entry-content .intro {
   font-size: 1.1em;
 }
 .entry-content ul, .entry-content ol, .entry-content table, .entry-content dl {
-  font-family: "Merriweather", "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: "Merriweather", "Georgia", Cambria, "Times New Roman", Times, serif;
 }
 .entry-content ul, .entry-content ol {
   margin-left: 1.999em;
@@ -1826,7 +1833,7 @@ PAGE NAVI STYLES
   /*color: $meta-gray;*/
 }
 .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
-  background-color: #3987fa;
+  background-color: #2b65bc;
   color: #fff;
   border: none;
 }
@@ -2034,7 +2041,10 @@ SIDEBARS & ASIDES
   margin: 0 -2%;
 }
 .info-modules .bloginfo {
-  background-color: #54bc84;
+  background-color: #f8f9fa;
+}
+.info-modules .bloginfo h3 {
+  color: #323934;
 }
 
 .widgettitle {
@@ -2102,6 +2112,7 @@ modular grid where things start to feel a little streched
 and small.
 *********************/
 @media only screen and (min-width: 31.952em) {
+  /* ~511.227px and up: styles in _31.952up.scss */
   /******************************************************************
   Theme Name: Grammatizator
   Author: Adam Turner
@@ -2148,7 +2159,7 @@ and small.
     /* end global-nav .nav li.homeward */
   }
   .global-nav .nav li a:hover, .global-nav .nav li a:focus {
-    background-color: #3987fa;
+    background-color: #2b65bc;
     transition: background-color 0.24s ease-in-out;
   }
 
@@ -2192,6 +2203,7 @@ and small.
   FOOTER STYLES
   *********************/
 }
+/* end of 31.952em media query */
 /*********************
 MEDIUM SCREENS
 This is for screen widths that hit the width of our main content
@@ -2199,6 +2211,7 @@ section at its maximum size (maximum for the site, just for the
 article content).
 *********************/
 @media only screen and (min-width: 45em) {
+  /* ~722px and up: styles in _45up.scss */
   /******************************************************************
   Theme Name: Grammatizator
   Author: Adam Turner
@@ -2340,7 +2353,7 @@ article content).
     background: url(/wp-content/themes/grammatizator/library/assets/img/nc-icon_homeward-nav.svg) no-repeat center;
   }
   .global-nav .nav li.homeward a:hover, .global-nav .nav li.homeward a:focus {
-    background-color: none;
+    background-color: transparent;
   }
   .global-nav .nav li.nav-to-top {
     display: none;
@@ -2365,7 +2378,7 @@ article content).
 }
 @media only screen and (min-width: 45em) {
   .global-nav .search-form .search-submit:hover, .global-nav .search-form .search-submit:active {
-    background-color: #3987fa;
+    background-color: #2b65bc;
     transition: all 0.24s ease-in-out;
   }
 
@@ -2591,6 +2604,7 @@ article content).
 
   /* end .footer-links */
 }
+/* end of 45em media query */
 /*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
@@ -2598,6 +2612,7 @@ in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 *********************/
 @media only screen and (min-width: 64.375em) {
+  /* ~1030px and up: styles in _64.375em.scss */
   /******************************************************************
   Theme Name: Grammatizator
   Author: Adam Turner
@@ -2744,54 +2759,23 @@ you can add resource intensive styles.
 
   /* end .footer */
 }
+/* end of 64.375em media query */
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
 *********************/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /******************************************************************
-  Theme Name: Grammatizator 
-  Author: Adam Turner 
-  
-  Stylesheet: Retina Screens & Devices Stylesheet
-  
-  When handling retina screens you need to make adjustments, especially
-  if you're not using font icons. Here you can add them in one neat
-  place.
-  
-  ******************************************************************/
-  /* 
-  
-  EXAMPLE 
-  Let's say you have an image and you need to make sure it looks ok
-  on retina screens. Let's say we have an icon which dimension are
-  24px x 24px. In your regular stylesheets, it would look something
-  like this:
-  
-  .icon {
-  	width: 24px;
-  	height: 24px;
-  	background: url(img/test.png) no-repeat;
-  }
-  
-  For retina screens, we have to make some adjustments, so that image
-  doesn't look blurry. So, taking into account the image above and the
-  dimensions, this is what we would put in our retina stylesheet:
-  
-  .icon {
-  	background: url(img/test@2x.png) no-repeat;
-  	background-size: 24px 24px;
-  }
-  
-  So, you would create the same icon, but at double the resolution, meaning 
-  it would be 48px x 48px. You'd name it the same, but with a @2x at the end
-  (this is pretty standard practice). Set the background image so it matches
-  the original dimensions and you are good to go. 
-  
-  */
-}
+/* Causing odd validator issues. Since there's nothing there for now, just don't load it yet.
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	// styles in 2x.scss
+	@import "breakpoints/2x";
+
+} // end of media query */
 /*********************
 PRINT STYLESHEET
 Feel free to customize this. Remember to add things that won't make
@@ -2814,8 +2798,8 @@ be set to display none.
     background: transparent !important;
     color: black !important;
     text-shadow: none !important;
-    filter: none !important;
-    -ms-filter: none !important;
+    /* filter:none !important; @todo May be causing problems. Check.
+    -ms-filter: none !important; */
   }
 
   a, a:visited {
@@ -2852,19 +2836,19 @@ be set to display none.
     max-width: 100% !important;
   }
 
-  @page {
+  /* @todo Parse error: @page {
     margin: 0.5cm;
-  }
+  } */
   p, h2, h3 {
     orphans: 3;
     widows: 3;
   }
 
-  h2,
-  h3 {
+  h2, h3 {
     page-break-after: avoid;
   }
 
+  /* hide content people who print don't need to see */
   .sidebar,
   .page-navigation,
   .wp-prev-next,

@@ -54,7 +54,7 @@ $yellow:			#ffe545; /* Keep: pop */
 $bluegray:          #5d777d; /* Keep: neutral-dark */
 $green:				#54bc84; /* Probably kill: accent-green */
 $red:        		#b24523; /* Keep: accent-red */
-$blue:              #3987fa; /*#2a72b9; /* 254dfe Keep: nav-color */
+$blue:              #2b65bc; /* */
 $purple:			#39467f; /* Keep:  */
 
 /* Components */
@@ -66,7 +66,7 @@ $alert-blue:        #d5edf8;
 $text-color:        $black;
 
 $link-color:        $blue;
-$link-hover:        darken($link-color, 75%);
+$link-hover:        lighten($link-color, 25%);
 
 $border-color:      $light-gray;
 $disabled-gray:     #cfcfcf;

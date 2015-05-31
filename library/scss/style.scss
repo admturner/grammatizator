@@ -68,7 +68,7 @@ you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
 *********************/
 
-// styles in base.scss
+/* styles in base.scss */
 @import "breakpoints/base";
 
 /*********************
@@ -79,10 +79,10 @@ and small.
 *********************/
 @media only screen and (min-width: 31.952em) {
 
-	// ~511.227px and up: styles in _31.952up.scss
+	/* ~511.227px and up: styles in _31.952up.scss */
 	@import "breakpoints/31.952up";
 
-} // end of 31.952em media query
+} /* end of 31.952em media query */
 
 /*********************
 MEDIUM SCREENS
@@ -92,10 +92,10 @@ article content).
 *********************/
 @media only screen and (min-width: 45em) {
 
-	// ~722px and up: styles in _45up.scss
+	/* ~722px and up: styles in _45up.scss */
 	@import "breakpoints/45up";
 
-} // end of 45em media query
+} /* end of 45em media query */
 
 /*********************
 DESKTOP
@@ -105,10 +105,10 @@ you can add resource intensive styles.
 *********************/
 @media only screen and (min-width: 64.375em) {
 
-	// ~1030px and up: styles in _64.375em.scss
+	/* ~1030px and up: styles in _64.375em.scss */
 	@import "breakpoints/64.375up";
 
-} // end of 64.375em media query
+} /* end of 64.375em media query */
 
 /*********************
 RETINA (2x RESOLUTION DEVICES)
@@ -116,6 +116,9 @@ This applies to the retina iPhone (4s) and iPad (2,3) along with
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
 *********************/
+
+/* Causing odd validator issues. Since there's nothing there for now, just don't load it yet.
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min--moz-device-pixel-ratio: 1.5),
        only screen and (min-device-pixel-ratio: 1.5) {
@@ -123,7 +126,7 @@ query for retina AND a certain size if you want. Go Nuts.
 	// styles in 2x.scss
 	@import "breakpoints/2x";
 
-} // end of media query
+} // end of media query */
 
 /*********************
 PRINT STYLESHEET
