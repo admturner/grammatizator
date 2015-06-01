@@ -17,18 +17,20 @@ get_header();
 			<main id="main" class="content-wrap cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 			
 					<?php // Check for sticky posts, display in top-of-page call-out
+					$s = get_option( 'sticky_posts' );
 					$sargs = array(
 						'posts_per_page' => 1,
-						'post__in'  => get_option( 'sticky_posts' )
+						'post__in'  => $s,
+						'ignore_sticky_posts' => 1
 					);
 					$sticky = new WP_Query( $sargs );
 					// The Sticky Loop
 					while ( $sticky->have_posts() ) : $sticky->the_post();
-						?>
-						<article id="post-<?php the_ID(); ?>" <?php post_class('sticky article-layout cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-							<h3 itemprop="headline" rel="bookmark"><a href="<?php the_permalink(); ?>"><?php the_title(); ?> &rarr;</a></h3>
-						</article>
-						<?php 
+						if ( isset($s[0]) ) { ?>
+							<article id="post-<?php the_ID(); ?>" <?php post_class('sticky article-layout cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+								<h3 itemprop="headline" rel="bookmark"><a href="<?php the_permalink(); ?>"><?php the_title(); ?> &rarr;</a></h3>
+							</article>
+						<?php }
 					endwhile;
 					wp_reset_postdata();
 

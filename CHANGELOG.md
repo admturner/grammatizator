@@ -68,6 +68,8 @@ Changelog formatting (http://semver.org/):
 - Nuke IE CSS error causing paragraph text to not render.
 - Fix bug in footer.php calling wrong menu for global nav
 - Correct page to SVG icons from /img/ to /images/
+- Fix author bio wrap layout problem on Meet the Team page
+- Fix sticky post query on front page template to display nothing if no sticky posts
 
 ### Changed
 
