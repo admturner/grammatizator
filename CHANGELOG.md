@@ -43,6 +43,7 @@ Changelog formatting (http://semver.org/):
 - Get makefile working better
 - Add Autoprefixer added to makefile workflow (just in case)
 - Debug adminlinks problem in footer.php
+- Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
 
 ---
 
