@@ -42,6 +42,7 @@ Changelog formatting (http://semver.org/):
 - Replace hard-coded Topics list with a function to call categories dynamically (including description).
 - Get makefile working better
 - Add Autoprefixer added to makefile workflow (just in case)
+- Debug adminlinks problem in footer.php
 
 ---
 
@@ -64,6 +65,8 @@ Changelog formatting (http://semver.org/):
 
 - Darken link color to better pass WebAIM WCAG standards for contrast.
 - Nuke IE CSS error causing paragraph text to not render.
+- Fix bug in footer.php calling wrong menu for global nav
+- Correct page to SVG icons from /img/ to /images/
 
 ### Changed
 

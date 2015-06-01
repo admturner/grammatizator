@@ -5,15 +5,18 @@
 			<div class="footer-wrap cf">
 
 				<nav role="navigation" aria-label="<?php esc_html_e( 'Footer Navigation', 'bonestheme' ); ?>">
-					<?php /* Admin stuff */
-						if ( current_user_can( 'delete-posts' ) )
+					<?php /* Admin stuff 
+						if ( current_user_can( 'delete-posts' ) ) {
 							$adminlinks = '<li class="admin"><a href="' . esc_url( get_admin_url() ) . '">Backend</a></li><li class="admin"><a href="' . get_edit_post_link() . '">Edit this page</a></li>';
-					?>
-					<?php wp_nav_menu(array(
+						} 
+						' . $adminlinks . '
+						Add this back in when have time to debug it.
+						*/
+					wp_nav_menu(array(
 						'container' => false,                          // Remove the defaul <div> container, since we're using <nav>
 						'menu' => __( 'Footer Links', 'bonestheme' ),  // Menu name (for calling in the Admin area)
 						'theme_location' => 'footer-links',            // Where it's located in the theme
-						'items_wrap' => '<ul class="nav footer-nav cf">' . $adminlinks . '%3$s</ul>', // Customize the sprint() for the actual nav list to cut out the ID cruft
+						'items_wrap' => '<ul class="nav footer-nav cf">%3$s</ul>', // Customize the sprint() for the actual nav list to cut out the ID cruft
 						'fallback_cb' => 'bones_footer_links_fallback' // fallback function
 					)); ?>
 				</nav>
@@ -62,7 +65,7 @@
 			<?php wp_nav_menu(array(
 				'container' => false,                    			// remove nav container
 				'menu' => __( 'Global Nav Menu', 'bonestheme' ),  	// nav name
-				'theme_location' => 'main-nav',                 	// where it's located in the theme
+				'theme_location' => 'global-nav',                 	// where it's located in the theme
     			'items_wrap' => '<ul class="nav"><li class="homeward"><a href="' . esc_url( home_url( '/' ) ) . '">Home</a></li>%3$s<li class="nav-to-top"><a href="#logo">Top</a></li><li class="search">' . get_search_form( false ) . '</li></ul>', // Customize the sprint() for the actual nav list to cut out the ID cruft and add a "to top" link
     			'depth' => 0,                                   	// limit the depth of the nav
 				'fallback_cb' => ''                             	// fallback function (if there is one)

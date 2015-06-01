@@ -1386,7 +1386,7 @@ and more scalable.
 }
 .global-nav .search-form .search-submit {
   font-size: .7em;
-  background: url(/wp-content/themes/grammatizator/library/assets/img/search.svg) no-repeat center center;
+  background: url(/wp-content/themes/grammatizator/library/assets/images/search.svg) no-repeat center center;
   border: none;
   line-height: 40px;
   margin-left: -4px;
@@ -1428,7 +1428,7 @@ and more scalable.
     width: 2.414em;
     height: 35px;
     background-color: #fff;
-    background-image: url(/wp-content/themes/grammatizator/library/assets/img/menuwich.svg);
+    background-image: url(/wp-content/themes/grammatizator/library/assets/images/menuwich.svg);
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 3px;
@@ -2346,7 +2346,7 @@ article content).
     overflow: hidden;
     white-space: nowrap;
     vertical-align: middle;
-    background: url(/wp-content/themes/grammatizator/library/assets/img/nc-icon_homeward-nav.svg) no-repeat center;
+    background: url(/wp-content/themes/grammatizator/library/assets/images/nc-icon_homeward-nav.svg) no-repeat center;
   }
   .global-nav .nav li.homeward a:hover, .global-nav .nav li.homeward a:focus {
     background-color: transparent;
