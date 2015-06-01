@@ -375,6 +375,7 @@ function gramm_list_authors( $args = '' ) {
       'orderby' => 'name',
       'order' => 'ASC',
       'role' => '',
+      'include' => array(),
       'show_fullname' => true,
       'social_links' => true,
       'biolength' => 140,
@@ -387,7 +388,7 @@ function gramm_list_authors( $args = '' ) {
   $return = '';
 
   // Use this to get the paramenters we need for get_users() out of the default $args
-  $query_args = wp_array_slice_assoc( $args, array( 'orderby', 'order', 'role' ) );
+  $query_args = wp_array_slice_assoc( $args, array( 'orderby', 'order', 'role', 'include' ) );
   // Used to request only an array of user IDs from get_users()
   $query_args['fields'] = 'ids';
   $authors = get_users( $query_args );

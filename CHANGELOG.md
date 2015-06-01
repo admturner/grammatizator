@@ -44,6 +44,7 @@ Changelog formatting (http://semver.org/):
 - Add Autoprefixer added to makefile workflow (just in case)
 - Debug adminlinks problem in footer.php
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
+- Single post page bio "more" link add semantic title and link to ID on team page to go directly to correct user
 
 ---
 
@@ -51,7 +52,6 @@ Changelog formatting (http://semver.org/):
 
 ### To Do
 
-- Add Google Analytics
 - Run validator assessments
     + Change single post title from h1 to h2 (while keeping styling)
 - Determine feature image size and/or aspect ratio.
@@ -60,7 +60,26 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 0.4.1 update 2015-05-31
+## 0.4.2 update 2015-06-02
+
+### Changed
+
+- Add include array to custom get users function and shortcode
+- Change single post comments message from No comments to No comments yet
+- Remove publish-post capability from WP Author role to help prevent accidental publishing before Editor approval.
+    + NC extra: switch contributors > authors; subscribers > contributors.
+        * https://codex.wordpress.org/Function_Reference/remove_cap
+        * https://codex.wordpress.org/Roles_and_Capabilities
+        * FIX AUTHOR ATTRIBUTION ON 'MAKING WIC WORK' and 'PREGNANCY, FEAR, CONFORMITY'
+    + Also change email address for comments and contact form
+
+### Added
+
+- Google Analytics
+
+---
+
+## 0.4.1 update 2015-06-01
 
 ### Fixed
 

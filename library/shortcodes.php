@@ -129,6 +129,7 @@ function gramm_list_authors_shortcode( $args ) {
     'orderby' => 'name',
       'order' => 'ASC',
       'role' => '',
+      'include' => array(),
       'show_fullname' => true,
       'social_links' => true,
       'biolength' => 140,
