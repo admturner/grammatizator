@@ -232,7 +232,7 @@ add_filter( 'avatar_defaults', 'nc_default_avatar' );
 
 function nc_default_avatar ( $avatar_defaults ) {
     // Set URL where the image for the new avatar is located
-    $nc_avatar_url = get_template_directory_uri() . '/library/images/default-avatar.jpg';
+    $nc_avatar_url = get_template_directory_uri() . '/library/images/default-avatar.png';
     // Set the label for the field on the Settings >> Discussion page
     $avatar_defaults[$nc_avatar_url] = "Nursing Clio";
     return $avatar_defaults;

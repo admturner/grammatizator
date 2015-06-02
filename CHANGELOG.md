@@ -66,12 +66,12 @@ Changelog formatting (http://semver.org/):
 
 ### To Do
 
-- Add higher resolution version of default gravatar
 - Google Analytics
 
 ### Fixed
 
 - Remove stray figure closing tag from gramm_archive_content() in functions.php
+- Replace default gravatar with higher resolution version
 
 ### Changed
 
