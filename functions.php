@@ -40,7 +40,6 @@
  * @since Grammatizator 0.4
  * 
  * @todo Add function_exists() wrappers to allow use of Grammatizator as a parent theme
- * @todo Extend wp-title filter to wrap all ampersands with span.amp for fancy typography
  */
 
 /************** LOAD DEPENDENCIES **************/
@@ -139,6 +138,8 @@ add_action('wp_enqueue_scripts', 'gramm_fonts');
 /************* OEMBED SIZE OPTIONS *************/
 /**
  * Set default media width for if it's missing
+ * 
+ * @todo Move this inside action hook
  */
 if ( ! isset( $content_width ) ) {
 	$content_width = 723;
@@ -155,12 +156,12 @@ if ( ! isset( $content_width ) ) {
  *   - medium = 405
  *   - thumbnail = 181 (square, cropped)
  * 
+ * @todo Move inside action hook? Add more sizes?
  * @since Grammatizator 0.4
  */
 add_image_size( 'gramm-small', 362 );
 add_image_size( 'gramm-xl', 1030 );
 add_image_size( 'gramm-feature', 1030, 400, true );
-// @todo more feature sizes?
 
 /**
  * Add image sizes to media manager dropdown
@@ -224,6 +225,7 @@ add_filter( 'img_caption_shortcode', 'gramm_image_caption_filter', 10, 3 );
 /**
  * Add custom default avatar
  * 
+ * @todo Move inside action hook or filter?
  * @since Grammatizator 0.4
  */
 add_filter( 'avatar_defaults', 'nc_default_avatar' );
@@ -260,7 +262,6 @@ function bones_register_sidebars() {
 	));
   // You can put as many sidebars here as you want, just use register_sidebar()
 } // don't remove this bracket!
-
 
 /************* COMMENT LAYOUT ******************/
 /**
@@ -339,9 +340,9 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
     <aside class="article-supplement">
       <?php if ( !empty($caption) ) {
         $img = wp_prepare_attachment_for_js( $id );
-        echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>';
+        echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption>';
       } ?>  
-      <p><a href="#comments-title"><?php comments_number( 'No comments', 'One comment', '% comments' ); ?></a></p>
+      <p><a href="#comments-title"><?php comments_number( 'No comments yet', 'One comment', '% comments' ); ?></a></p>
       <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
     </aside>
     <section class="article-content excerpt entry-content cf" itemprop="articleBody">

@@ -29,53 +29,56 @@ Changelog formatting (http://semver.org/):
 
 - Decide what kind of commenting system we want to use for the long haul.
 - Decide whether JetPack is really what we want
+- Move too-specific content from functions.php (and shortcodes.php) into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files)
 
 ---
 
-## 1.0 release! Unreleased
+## 1.0 release! Unreleased (2015-06-07)
 
 ### To Do
 
+- Run validator assessments and correct as needed
 - Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
 - Finish updating readme.md
 - Replace our jquery library with the one from the Google CDN
 - Replace hard-coded Topics list with a function to call categories dynamically (including description).
-- Get makefile working better
-- Add Autoprefixer added to makefile workflow (just in case)
+- Get makefile working
+- Add Autoprefixer to makefile workflow (just in case)
 - Debug adminlinks problem in footer.php
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
 - Single post page bio "more" link add semantic title and link to ID on team page to go directly to correct user
+- Tidy styles (more whitespace on meet the team page)
 
 ---
 
-## 0.5 update Unreleased
+## 0.6 update Unreleased (2015-06-04)
 
 ### To Do
 
-- Run validator assessments
-    + Change single post title from h1 to h2 (while keeping styling)
+- Change single post title from h1 to h2 (while keeping styling)
 - Determine feature image size and/or aspect ratio.
 - Probably reintroduce WP Likes button (see functions.php to dos)
 - Check all files for needed updates (the 404 page, for example).
 
 ---
 
-## 0.4.2 update 2015-06-02
+## 0.5 update 2015-06-02
+
+### To Do
+
+- Add higher resolution version of default gravatar
+- Google Analytics
+
+### Fixed
+
+- Remove stray figure closing tag from gramm_archive_content() in functions.php
 
 ### Changed
 
 - Add include array to custom get users function and shortcode
-- Change single post comments message from No comments to No comments yet
-- Remove publish-post capability from WP Author role to help prevent accidental publishing before Editor approval.
-    + NC extra: switch contributors > authors; subscribers > contributors.
-        * https://codex.wordpress.org/Function_Reference/remove_cap
-        * https://codex.wordpress.org/Roles_and_Capabilities
-        * FIX AUTHOR ATTRIBUTION ON 'MAKING WIC WORK' and 'PREGNANCY, FEAR, CONFORMITY'
-    + Also change email address for comments and contact form
+- Change single post and gramm_archive_content() comments message from No comments to No comments yet
 
 ### Added
-
-- Google Analytics
 
 ---
 

@@ -37,7 +37,7 @@
 
                 <aside class="article-supplement">
                   <?php echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; ?>
-                  <p><a href="#comments-title"><?php comments_number( 'No comments', 'One comment', '% comments' ); ?></a></p>
+                  <p><a href="#comments-title"><?php comments_number( 'No comments yet', 'One comment', '% comments' ); ?></a></p>
                   <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
                   <p class="sharing">Share on:</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
                 </aside>
