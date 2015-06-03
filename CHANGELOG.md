@@ -76,6 +76,7 @@ Changelog formatting (http://semver.org/):
 
 ### Changed
 
+- Edit format-image.php to define content of attachment.php and remove comments on attachment posts
 - Add include array to custom get users function and shortcode
 - Change single post and gramm_archive_content() comments message from No comments to No comments yet
 
