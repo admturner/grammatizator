@@ -25,8 +25,9 @@
 
                 <section class="entry-content cf" itemprop="articleBody">
                   <?php
-                    // the content (pretty self explanatory huh)
-                    the_content();
+                    echo wp_get_attachment_image( get_the_ID(), 'large' );
+                    
+                    the_excerpt();
                   ?>
                 </section> <?php // end article section ?>
 
