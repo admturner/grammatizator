@@ -1,3 +1,5 @@
+**DELETE THIS INSTRUCTION SECTION (up to "User-agent") and place this file in your root directory.**
+
 User-agent: *
 Disallow: /cgi-bin/
 Disallow: /wp-admin/
