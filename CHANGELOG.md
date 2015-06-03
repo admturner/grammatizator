@@ -67,6 +67,7 @@ Changelog formatting (http://semver.org/):
 ### To Do
 
 - Google Analytics
+- Make auto twitter text better by adding author handle
 
 ### Fixed
 
@@ -79,6 +80,8 @@ Changelog formatting (http://semver.org/):
 - Change single post and gramm_archive_content() comments message from No comments to No comments yet
 
 ### Added
+
+- Add attachments.php to specify presentation of post attachments (usually images)
 
 ---
 
