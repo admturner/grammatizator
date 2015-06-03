@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /comment-page-
+Disallow: /trackback/
+Disallow: /xmlrpc.php
+Disallow: /feed/
+Allow: /wp-content/uploads/
+Allow: /wp-includes/js/
+Allow: /wp-content/themes/grammatizator/*.css$
+Allow: /wp-content/themes/grammatizator/library/css/
+Allow: /wp-content/themes/grammatizator/library/js/
+Allow: /wp-content/themes/grammatizator/library/assets/images/
+Allow: /wp-content/plugins/ricg-responsive-images/js/
+Sitemap: http://nursingclio.org/sitemap.xml

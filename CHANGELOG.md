@@ -62,6 +62,10 @@ Changelog formatting (http://semver.org/):
 - Check all files for needed updates (the 404 page, for example).
 - Make auto twitter text better by adding author handle
 
+### Added
+
+- Add robots-sample.txt in /library/assets/ as example, which inlucdes `allow` rules to prevent blocking CSS, JS, and image files that Google Searchbot now includes in testing for mobile friendliness
+
 ---
 
 ## 0.5 update 2015-06-02
