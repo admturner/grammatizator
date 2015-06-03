@@ -55,19 +55,16 @@ Changelog formatting (http://semver.org/):
 
 ### To Do
 
+- Google Analytics
 - Change single post title from h1 to h2 (while keeping styling)
 - Determine feature image size and/or aspect ratio.
 - Probably reintroduce WP Likes button (see functions.php to dos)
 - Check all files for needed updates (the 404 page, for example).
+- Make auto twitter text better by adding author handle
 
 ---
 
 ## 0.5 update 2015-06-02
-
-### To Do
-
-- Google Analytics
-- Make auto twitter text better by adding author handle
 
 ### Fixed
 
