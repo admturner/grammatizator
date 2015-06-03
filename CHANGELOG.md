@@ -64,12 +64,11 @@ Changelog formatting (http://semver.org/):
 
 ### Changed
 
-
-
 ### Added
 
 - Add robots-sample.txt in /library/assets/ as example, which inlucdes `allow` rules to prevent blocking CSS, JS, and image files that Google Searchbot now includes in testing for mobile friendliness
 - Instructions to robots-sample.txt on how to use it
+- Add LICENSE.txt
 
 ---
 
