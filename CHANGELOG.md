@@ -40,7 +40,6 @@ Changelog formatting (http://semver.org/):
 - Run validator assessments and correct as needed
 - Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
 - Finish updating readme.md
-- Replace our jquery library with the one from the Google CDN
 - Replace hard-coded Topics list with a function to call categories dynamically (including description).
 - Get makefile working
 - Add Autoprefixer to makefile workflow (just in case)
@@ -48,19 +47,23 @@ Changelog formatting (http://semver.org/):
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
 - Single post page bio "more" link add semantic title and link to ID on team page to go directly to correct user
 - Tidy styles (more whitespace on meet the team page)
+- Determine feature image size and/or aspect ratio for functions.php
+- Switch from using class="intro" on lead paragraphs to using a selector
+- Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
 
 ---
 
-## 0.6 update Unreleased (2015-06-04)
+## 0.6 update Unreleased (2015-06-)
 
 ### To Do
 
-- Google Analytics
 - Change single post title from h1 to h2 (while keeping styling)
-- Determine feature image size and/or aspect ratio.
 - Probably reintroduce WP Likes button (see functions.php to dos)
-- Check all files for needed updates (the 404 page, for example).
-- Make auto twitter text better by adding author handle
+- Make auto twitter text better by adding author handle (see http://jetpack.me/tag/open-graph/)
+
+### Fixed
+
+- Bug in user description excerpt function when cutoff includes style tags (tags not closing)
 
 ### Changed
 

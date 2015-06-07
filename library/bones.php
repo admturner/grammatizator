@@ -27,7 +27,7 @@
  * 
  * @package WordPress
  * @subpackage Grammatizator
- * @since Grammatizator
+ * @since Grammatizator 0.4
  */
 
 /************** < HEAD > CLEANUP ***************/
@@ -159,9 +159,6 @@ function bones_scripts_and_styles() {
 
 		$wp_styles->add_data( 'bones-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-		/*
-		@TODO Call jQuery using the google cdn. That way it stays cached and your site will load faster.
-		*/
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
 
@@ -197,7 +194,7 @@ function bones_theme_support() {
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
 
-	/* // adding post format support
+	/* adding post format support
 	add_theme_support( 'post-formats',
 		array(
 			'aside',             // title less blurb
@@ -210,8 +207,8 @@ function bones_theme_support() {
 			'audio',             // audio
 			'chat'               // chat transcript
 		)
-	);
-	*/
+	);*/
+	
 
 	// wp menus
 	add_theme_support( 'menus' );
