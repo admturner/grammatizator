@@ -109,7 +109,7 @@ add_shortcode('gpullquote', 'shortcode_gram_pullquote');
  * Shortcode calling the custom list of blog users, which can
  * be found in the theme's functions.php. That function is 
  * built based on WordPress' native wp_list_users function,
- * but returns more user info and uses the built in "role" 
+ * but this one returns more user info and uses the built in "role" 
  * parameter for the get_users() WordPress wrapper function
  * instead of a manual "exclude admin" setting. Roles should
  * be specified as: Admins = 'administrator'; Editors = 'editor';
@@ -117,24 +117,27 @@ add_shortcode('gpullquote', 'shortcode_gram_pullquote');
  * 'subscriber'.
  *
  * Here's an example for showing only editors, with bios trimmed
- * to 340 characters, and 40x40 pixel avatars:
+ * to 55 words, and 40x40 pixel avatars:
  * [grammusers role='editor' biolength='340' avatarsize='40']
  *
  * @uses get_users();
- * @since Grammatizator 0.4
+ * @uses wp_trim_words();
+ * @since Grammatizator 0.6
  */
 // Want a shortcode for this. Try this:
 function gramm_list_authors_shortcode( $args ) {
   extract(shortcode_atts(array(
-    'orderby' => 'name',
+      'orderby' => 'name',
       'order' => 'ASC',
       'role' => '',
       'include' => array(),
       'show_fullname' => true,
+      'show_grammtitle' => true,
       'social_links' => true,
-      'biolength' => 140,
+      'biolength' => 55,
       'avatarsize' => 90,
       'layout' => '',
+      'heading_tag' => 'h3',
       'echo' => true
   ), $args));
   

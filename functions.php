@@ -30,6 +30,7 @@
  *  - Active Sidebars
  *  - Comment Layout
  *  - Archive Page Layout
+ *  - Author List Functions
  *  - Donate Module
  *  - Theme Customize
  *  - User Profile Fields
@@ -359,15 +360,17 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
  * 
  * Custom function to generate a list of blog authors,
  * built based on WordPress' native wp_list_users function,
- * but returns more user info and uses the built in "role" 
+ * but this returns more user info and uses the built in "role" 
  * parameter for the get_users() WordPress wrapper function
  * instead of a manual "exclude admin" setting. Roles should
  * be specified as: Admins = 'administrator'; Editors = 'editor';
  * Authors = 'author'; Contributors = 'contributor'; Subscribers =
- * 'subscriber'.
+ * 'subscriber'. Bio length is in words, and if you want the whole
+ * bio (user description field) then enter 9999.
  *
  * @uses get_users();
- * @since Grammatizator 0.4
+ * @uses wp_trim_words();
+ * @since Grammatizator 0.6
  */
 function gramm_list_authors( $args = '' ) {
   global $wpdb;
@@ -378,10 +381,12 @@ function gramm_list_authors( $args = '' ) {
       'role' => '',
       'include' => array(),
       'show_fullname' => true,
+      'show_grammtitle' => true,
       'social_links' => true,
-      'biolength' => 140,
+      'biolength' => 55,
       'avatarsize' => 90,
       'layout' => '',
+      'heading_tag' => 'h3',
       'echo' => true
   );
   $args = wp_parse_args( $args, $defaults );
@@ -412,10 +417,12 @@ function gramm_list_authors( $args = '' ) {
     }
     
     // If the user has Nursing Clio title filled in, otherwise set it to Contributor as default
-    if ( get_the_author_meta( 'grammtitle', $author->ID ) ) {
-      $nctitle = get_the_author_meta( 'grammtitle', $author->ID );
-    } else {
-      $nctitle = 'Contributor';
+    if ( $args['show_grammtitle'] ) {
+      if ( get_the_author_meta( 'grammtitle', $author->ID ) ) {
+        $nctitle = '<p class="nc-title">' . get_the_author_meta( 'grammtitle', $author->ID ) . '</p>';
+      } else {
+        $nctitle = '<p class="nc-title">Contributor</p>';
+      }
     }
 
     // If user has Twitter field filled in prep it, otherwise reset
@@ -428,7 +435,7 @@ function gramm_list_authors( $args = '' ) {
     $authorlink = '<a class="fn" href="' . get_author_posts_url( $author->ID, $author->user_nicename ) . '" title="' . esc_attr( sprintf(__("Posts by %s"), $author->display_name) ) . '">' . $name . '</a>';
 
     // Start output
-    $return .= '<section class="author ' . $args['layout'] . ' vcard">';
+    $return .= '<section id="author-id-' . $author->ID . '" class="author ' . $args['layout'] . ' vcard">';
       if ( $args['avatarsize'] > 0 ) {
         // Do if avatarsize is greater than 0
         $return .= '<div class="avatar-wrap avatar-size-' . $args['avatarsize'] . 'px">';
@@ -437,18 +444,16 @@ function gramm_list_authors( $args = '' ) {
       }
 
       $return .= '<div class="bio-wrap">';
-      $return .= '<h3>' . $authorlink . '</h3>';
-      $return .= '<p class="nc-title">' . $nctitle . '</p>';
+      $return .= '<' . $args['heading_tag'] . '>' . $authorlink . '</' . $args['heading_tag'] . '>';
+      $return .= $nctitle;
       $return .= $twit;
       
       if ( $args['biolength'] > 0 && $bio ) {
-        // Do if biolength var is greater than zero
         $return .= '<p class="author-bio">';
+        // Trim if desired
         if ( $args['biolength'] < 9995 ) {
-          if ( strlen($bio) > $args['biolength'] ) {
-            $len = $args['biolength'] - strlen($bio);
-            $bio = substr($bio, 0, strrpos($bio, ' ', $len)) . ' &hellip; <a href="' . esc_url( get_bloginfo( 'url' ) ) . '/about/meet-the-team/">More &rarr;</a>';
-          }
+          $more = '&hellip; <a href="' . esc_url( get_site_url() . '/about/meet-the-team/#author-id-' . $author->ID ) . '" title="' . esc_attr( 'Read ' . $author->display_name . '&rsquo;s full bio' ) . '">' . ( !empty($author->first_name) ? $author->first_name : $author->display_name) . '&rsquo;s full bio &rarr;';
+          $bio = wp_trim_words( $bio, $args['biolength'], $more );
         }
         $return .= wptexturize( $bio );
         $return .= '</p>';

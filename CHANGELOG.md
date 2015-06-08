@@ -45,7 +45,6 @@ Changelog formatting (http://semver.org/):
 - Add Autoprefixer to makefile workflow (just in case)
 - Debug adminlinks problem in footer.php
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
-- Single post page bio "more" link add semantic title and link to ID on team page to go directly to correct user
 - Tidy styles (more whitespace on meet the team page)
 - Determine feature image size and/or aspect ratio for functions.php
 - Switch from using class="intro" on lead paragraphs to using a selector
@@ -60,10 +59,12 @@ Changelog formatting (http://semver.org/):
 - Change single post title from h1 to h2 (while keeping styling)
 - Probably reintroduce WP Likes button (see functions.php to dos)
 - Make auto twitter text better by adding author handle (see http://jetpack.me/tag/open-graph/)
+- Add semantic title and link to ID on team page to go directly to correct user from single post author bylines
+- Switch to shared function for displaying all author bylines/vcards
 
 ### Fixed
 
-- Bug in user description excerpt function when cutoff includes style tags (tags not closing)
+- Bug in user description excerpt function when cutoff includes style tags (tags not closing). Replaced with WP's own wp_trim_words() function.
 
 ### Changed
 
