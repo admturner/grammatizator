@@ -52,17 +52,19 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 0.6 update Unreleased (2015-06-)
+## 0.6 update Unreleased (2015-06-07)
 
 ### To Do
 
 - Change single post title from h1 to h2 (while keeping styling)
 - Probably reintroduce WP Likes button (see functions.php to dos)
 - Make auto twitter text better by adding author handle (see http://jetpack.me/tag/open-graph/)
+- Make search field more promient
 
 ### Fixed
 
 - Bug in user description excerpt function when cutoff includes style tags (tags not closing). Replaced with WP's own wp_trim_words() function.
+- Problem with WP admin Toolbar covering up top of page (where our global nav is... pesky Toolbar).
 
 ### Changed
 

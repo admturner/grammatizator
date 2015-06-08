@@ -8,7 +8,7 @@ Author URI: http://adamturner.org
 Made with Bones: http://themble.com/bones :)
 
 Stylesheet: Main Stylesheet
-Version: 0.4.1
+Version: 0.6
 
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -1354,7 +1354,7 @@ and more scalable.
 /* end .nav */
 .global-nav {
   background: #fff;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   /* end global-nav .nav */
   /* end .global-nav .search */
 }
@@ -1452,6 +1452,22 @@ and more scalable.
 
   .show-nav li.nav-to-top {
     display: none;
+  }
+
+  body.admin-bar .nav-jump {
+    top: 4.1em;
+  }
+  body.admin-bar .global-nav.fancy {
+    top: 7.45em;
+  }
+
+  html.no-js .nav-jump {
+    right: 1em;
+    width: 4em;
+    line-height: 32px;
+    text-align: center;
+    text-indent: 0;
+    background: #fff;
   }
 }
 /* end fancy-nav media query */
@@ -2382,6 +2398,16 @@ article content).
   }
 
   /* end .global-nav */
+  body.admin-bar .global-nav {
+    top: 32px;
+  }
+}
+@media only screen and (min-width: 45em) and (max-width: 782px) {
+  body.admin-bar .global-nav {
+    top: 46px;
+  }
+}
+@media only screen and (min-width: 45em) {
   .nav-jump {
     display: none;
   }

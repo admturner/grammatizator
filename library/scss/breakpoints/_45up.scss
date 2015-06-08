@@ -221,6 +221,19 @@ NAVIGATION STYLES
 
 } /* end .global-nav */
 
+body.admin-bar {
+	.global-nav {
+		top: 32px;
+	}
+}
+@media screen and ( max-width: 782px ) {
+	body.admin-bar {
+		.global-nav { 
+			top: 46px;
+		}
+	}
+}
+
 .nav-jump {
 	display: none;
 }

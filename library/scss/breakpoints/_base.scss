@@ -46,7 +46,7 @@ WORDPRESS BODY CLASSES
 .rtl {} /* for sites that are read right to left (i.e. hebrew) */
 .home {
 	.sticky {
-		background-color: $green;
+		background-color: $bluegray;
   		margin-top: 1.5em;
   		padding: 0 2%;
   		border-radius: 4px;
@@ -294,7 +294,7 @@ and more scalable.
 
 .global-nav {
 	background: $white;
-	background: white(.9);
+	background: white(.95);
 
 	.nav {
 
@@ -405,6 +405,23 @@ and more scalable.
 	.show-nav li.nav-to-top {
 		display: none;
 	}
+
+	body.admin-bar {
+		.nav-jump {
+			top: 4.1em;
+		}
+		.global-nav.fancy {
+			top: 7.45em;
+		}
+	}
+	html.no-js .nav-jump {
+		right: 1em;
+		width: 4em;
+		line-height: 32px;
+		text-align: center;
+		text-indent: 0;
+		background: $white;
+	}
 } /* end fancy-nav media query */
 
 /*********************
@@ -465,7 +482,7 @@ POSTS & CONTENT STYLES
 
 
 	footer {
-		border-top: 6px solid $green;
+		border-top: 6px solid $bluegray;
 
 		h5, p {
 			margin: 0;
@@ -572,7 +589,7 @@ POSTS & CONTENT STYLES
 }
 
 .article-supplement {
-	border: 1px solid $green;
+	border: 1px solid $bluegray;
 	background-color: $light-gray;
 	margin: 1.5em 0 .25em 0;
 	padding: .25em;
@@ -1046,7 +1063,7 @@ COMMENT STYLES
 	&.pingback {}
 	&.bypostauthor {
 		.vcard {
-			background-color: $green;
+			background-color: $bluegray;
 		}
 	}
 	&.comment-author {}
