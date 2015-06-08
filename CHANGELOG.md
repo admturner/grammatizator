@@ -73,6 +73,7 @@ Changelog formatting (http://semver.org/):
 - Finalize replace of green color with bluegray
 - Make search field more promient
 - Smooth transition animation on global nav
+- Google Analytics active, but moved to site-specific plugin and hooked to wp_head()
 
 ### Added
 
