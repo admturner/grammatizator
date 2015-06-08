@@ -535,7 +535,6 @@ COLORS
 /* Utility */
 /* Neutrals */
 /* Site Colors */
-/* @todo #54bc84; Probably kill: accent-green */
 /* @todo Delete - Not using */
 /* Components */
 /******************************************************************
@@ -1371,7 +1370,6 @@ and more scalable.
 }
 .global-nav .search-form {
   padding: 0;
-  border-radius: 3px;
   line-height: 0;
   white-space: nowrap;
 }
@@ -1383,6 +1381,11 @@ and more scalable.
   width: 80% !important;
   width: calc(100% - 64px) !important;
   margin: 0;
+  background-color: #323934;
+  border-radius: 0;
+}
+.global-nav .search-form input[type=search]:active, .global-nav .search-form input[type=search]:focus {
+  background-color: #d5edf8;
 }
 .global-nav .search-form .search-submit {
   font-size: .7em;
@@ -2387,8 +2390,14 @@ article content).
 @media only screen and (min-width: 45em) and (max-width: 910px) {
   .global-nav .nav .search {
     position: absolute;
-    right: -2%;
+    right: 0;
     top: 3.998em;
+  }
+  .global-nav .nav .search-form input[type=search] {
+    border-radius: 6px 0 0 6px;
+  }
+  .global-nav .nav .search-form .search-submit {
+    border-radius: 0 6px 6px 0;
   }
 }
 @media only screen and (min-width: 45em) {

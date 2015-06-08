@@ -315,7 +315,6 @@ and more scalable.
 
 	.search-form {
 		padding: 0;
-		border-radius: 3px;
 		line-height: 0;
 		white-space: nowrap;
 
@@ -328,6 +327,12 @@ and more scalable.
 			width: 80% !important;
 			width: calc(100% - 64px) !important;
 			margin: 0;
+			background-color: $black;
+  			border-radius: 0;
+
+  			&:active, &:focus {
+  				background-color: $alert-blue;
+  			}
 		}
 
 		.search-submit {

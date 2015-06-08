@@ -59,7 +59,6 @@ Changelog formatting (http://semver.org/):
 - Change single post title from h1 to h2 (while keeping styling)
 - Probably reintroduce WP Likes button (see functions.php to dos)
 - Make auto twitter text better by adding author handle (see http://jetpack.me/tag/open-graph/)
-- Make search field more promient
 
 ### Fixed
 
@@ -71,6 +70,7 @@ Changelog formatting (http://semver.org/):
 - Add semantic title and link to ID on team page to go directly to correct user from single post author bylines
 - Switch to shared function for displaying all author bylines/vcards
 - Finalize replace of green color with bluegray
+- Make search field more promient
 
 ### Added
 
