@@ -629,4 +629,36 @@ function gram_remove_jpshare() {
 }
 add_action( 'loop_start', 'gram_remove_jpshare' );
 
+/**
+ * Add post author twitter handle to OG meta
+ *
+ */
+function gramm_jpog_add_twitter_creator( $og_tags ) {
+  global $post;
+  $p = $post;
+
+  if ( is_single() ) {
+    if ( get_the_author_meta( 'twitter', $p->post_author ) ) {
+      $og_tags['twitter:creator'] = esc_attr( '@' . get_the_author_meta( 'twitter', $p->post_author ) );
+    }
+  }
+  
+  return $og_tags;
+}
+add_filter( 'jetpack_open_graph_tags', 'gramm_jpog_add_twitter_creator', 11 );
+
+function gramm_jpog_add_related( $related, $post_ID ) {
+  global $post;
+  $p = $post;
+
+  if ( is_single() ) {
+    if ( get_the_author_meta( 'twitter', $p->post_author ) ) {
+      $related[ get_the_author_meta( 'twitter', $p->post_author ) ] = '';
+    }
+  }
+  
+  return $related;
+}
+add_filter( 'jetpack_sharing_twitter_related', 'gramm_jpog_add_related', 10, 2 );
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>

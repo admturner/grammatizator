@@ -23,7 +23,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 1.5 Unreleased (YYYY-MM-DD)
+## 1.5 Unreleased (the future)
 
 ### To Do
 
@@ -50,15 +50,12 @@ Changelog formatting (http://semver.org/):
 - Switch from using class="intro" on lead paragraphs to using a selector
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
 - Probably reintroduce WP Likes button (see functions.php to dos)
+- Change single post title from h1 to h2 (while keeping styling)
+- Keep working on making JetPack share with Twitter button include both site handle and author handle in auto text (see https://github.com/Automattic/jetpack/blob/master/modules/sharedaddy/sharing-sources.php and https://github.com/Automattic/Co-Authors-Plus-Social-Pack/blob/master/co-authors-plus-social-pack.php)
 
 ---
 
-## 0.6 update Unreleased (2015-06-07)
-
-### To Do
-
-- Change single post title from h1 to h2 (while keeping styling)
-- Make auto twitter text better by adding author handle (see http://jetpack.me/tag/open-graph/)
+## 0.6 update (2015-06-08)
 
 ### Fixed
 
@@ -80,6 +77,8 @@ Changelog formatting (http://semver.org/):
 - Add robots-sample.txt in /library/assets/ as example, which inlucdes `allow` rules to prevent blocking CSS, JS, and image files that Google Searchbot now includes in testing for mobile friendliness
 - Instructions to robots-sample.txt on how to use it
 - Add LICENSE.txt
+- Include author Twitter handle when present in single post < head > meta tag 'twitter:creator' (see http://jetpack.me/tag/open-graph/)
+- Include author Twitter handle when present in 'related' field of JetPack share with Twitter button auto text
 
 ---
 
