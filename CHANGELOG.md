@@ -59,14 +59,15 @@ Changelog formatting (http://semver.org/):
 - Change single post title from h1 to h2 (while keeping styling)
 - Probably reintroduce WP Likes button (see functions.php to dos)
 - Make auto twitter text better by adding author handle (see http://jetpack.me/tag/open-graph/)
-- Add semantic title and link to ID on team page to go directly to correct user from single post author bylines
-- Switch to shared function for displaying all author bylines/vcards
 
 ### Fixed
 
 - Bug in user description excerpt function when cutoff includes style tags (tags not closing). Replaced with WP's own wp_trim_words() function.
 
 ### Changed
+
+- Add semantic title and link to ID on team page to go directly to correct user from single post author bylines
+- Switch to shared function for displaying all author bylines/vcards
 
 ### Added
 

@@ -52,22 +52,8 @@
                 <footer class="article-footer">
 
                   <h4>About the Author</h4>
-                  <div class="byline author vcard">
-                    <div class="avatar-wrap">
-                      <?php echo get_avatar( get_the_author_meta( 'ID' ), 128 ); ?>
-                    </div>
-                    <div class="bio-wrap">
-                      <h5><a class="fn" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a></h5>
-                      <p class="author-bio">
-                        <?php $str = get_the_author_meta( 'description' );
-                        if ( strlen($str) > 320 ) {
-                          $len = 320 - strlen($str);
-                          $str = substr($str, 0, strrpos($str, ' ', $len)) . ' &hellip; <a href="' . esc_url( get_bloginfo( 'url' ) ) . '/about/meet-the-team/">More &rarr;</a>';
-                        }
-                        echo $str; ?>
-                      </p>
-                    </div>
-                  </div>
+
+                  <?php gramm_list_authors( 'include='.get_the_author_meta( 'ID' ).'&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' ); ?>
 
                 </footer> <?php // end article footer ?>
 
