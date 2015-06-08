@@ -70,6 +70,7 @@ Changelog formatting (http://semver.org/):
 
 - Add semantic title and link to ID on team page to go directly to correct user from single post author bylines
 - Switch to shared function for displaying all author bylines/vcards
+- Finalize replace of green color with bluegray
 
 ### Added
 
