@@ -23,7 +23,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 1.5 Unreleased
+## 1.5 Unreleased (YYYY-MM-DD)
 
 ### To Do
 
@@ -33,7 +33,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 1.0 release! Unreleased (2015-06-07)
+## 1.0 release! Unreleased (2015-06-DD)
 
 ### To Do
 
@@ -49,6 +49,7 @@ Changelog formatting (http://semver.org/):
 - Determine feature image size and/or aspect ratio for functions.php
 - Switch from using class="intro" on lead paragraphs to using a selector
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
+- Probably reintroduce WP Likes button (see functions.php to dos)
 
 ---
 
@@ -57,13 +58,13 @@ Changelog formatting (http://semver.org/):
 ### To Do
 
 - Change single post title from h1 to h2 (while keeping styling)
-- Probably reintroduce WP Likes button (see functions.php to dos)
 - Make auto twitter text better by adding author handle (see http://jetpack.me/tag/open-graph/)
 
 ### Fixed
 
 - Bug in user description excerpt function when cutoff includes style tags (tags not closing). Replaced with WP's own wp_trim_words() function.
-- Problem with WP admin Toolbar covering up top of page (where our global nav is... pesky Toolbar).
+- Problem with WP admin Toolbar covering up top of page (where our global nav is... pesky Toolbar)
+- Correct dates and a typo
 
 ### Changed
 
@@ -107,7 +108,7 @@ Changelog formatting (http://semver.org/):
 - Darken link color to better pass WebAIM WCAG standards for contrast.
 - Nuke IE CSS error causing paragraph text to not render.
 - Fix bug in footer.php calling wrong menu for global nav
-- Correct page to SVG icons from /img/ to /images/
+- Correct path to SVG icons from /img/ to /images/
 - Fix author bio wrap layout problem on Meet the Team page
 - Fix sticky post query on front page template to display nothing if no sticky posts
 
