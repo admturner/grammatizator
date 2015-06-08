@@ -71,6 +71,7 @@ Changelog formatting (http://semver.org/):
 - Switch to shared function for displaying all author bylines/vcards
 - Finalize replace of green color with bluegray
 - Make search field more promient
+- Smooth transition animation on global nav
 
 ### Added
 

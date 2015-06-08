@@ -72,9 +72,10 @@ NAVIGATION STYLES
 		li {
 		
 			a {
+				transition: background-color 0.25s ease-in-out, color .2s ease-in-out;
+
 				&:hover, &:focus {
 					background-color: $link-color;
-					transition: background-color 0.24s ease-in-out;
 				}
 			}
 

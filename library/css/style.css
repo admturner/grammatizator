@@ -2176,9 +2176,11 @@ and small.
     /* end global-nav .nav li */
     /* end global-nav .nav li.homeward */
   }
+  .global-nav .nav li a {
+    transition: background-color 0.25s ease-in-out, color .2s ease-in-out;
+  }
   .global-nav .nav li a:hover, .global-nav .nav li a:focus {
     background-color: #2b65bc;
-    transition: background-color 0.24s ease-in-out;
   }
 
   /* end .global-nav */
