@@ -64,6 +64,7 @@ Changelog formatting (http://semver.org/):
 ### Removed
 
 - Cut call for feature image caption in article supplement section in the archive format
+- Delete comments_number() display from article supplement section in archive template
 
 ---
 

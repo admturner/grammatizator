@@ -343,7 +343,6 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
     </section>
     <footer class="article-footer">
       <aside class="article-supplement">
-        <p><a href="#comments-title"><?php comments_number( 'No comments yet', 'One comment', '% comments' ); ?></a></p>
         <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
       </aside>
     </footer>
