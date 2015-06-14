@@ -59,7 +59,11 @@ Changelog formatting (http://semver.org/):
 
 ### Changed
 
-- Moved article supplement section in archive template into article footer
+- Move article supplement section in archive template into article footer
+
+### Removed
+
+- Cut call for feature image caption in article supplement section in the archive format
 
 ---
 
