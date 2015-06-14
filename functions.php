@@ -338,18 +338,18 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
         ); ?>
       </p>
     </header><?php // end article header ?>
-    <aside class="article-supplement">
-      <?php if ( !empty($caption) ) {
-        $img = wp_prepare_attachment_for_js( $id );
-        echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption>';
-      } ?>  
-      <p><a href="#comments-title"><?php comments_number( 'No comments yet', 'One comment', '% comments' ); ?></a></p>
-      <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-    </aside>
     <section class="article-content excerpt entry-content cf" itemprop="articleBody">
       <?php the_excerpt(); ?>
     </section>
     <footer class="article-footer">
+      <aside class="article-supplement">
+        <?php if ( !empty($caption) ) {
+          $img = wp_prepare_attachment_for_js( $id );
+          echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption>';
+        } ?>  
+        <p><a href="#comments-title"><?php comments_number( 'No comments yet', 'One comment', '% comments' ); ?></a></p>
+        <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+      </aside>
     </footer>
   </article><?php // end archive page excerpt format
 }

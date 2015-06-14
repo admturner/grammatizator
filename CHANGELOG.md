@@ -55,6 +55,14 @@ Changelog formatting (http://semver.org/):
 
 ---
 
+## 0.7 update (unreleased)
+
+### Changed
+
+- Moved article supplement section in archive template into article footer
+
+---
+
 ## 0.6 update (2015-06-08)
 
 ### Fixed
