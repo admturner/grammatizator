@@ -63,6 +63,7 @@ Changelog formatting (http://semver.org/):
 - Move article supplement section in single post template above article footer and rename "Filed under" to "Tags"
 - Move sharing links on single post template back to top by themselves
 - Replace < figcaption > with a < p > tag in article supplement section of single post template
+- Simplify article supplement section styles
 
 ### Removed
 

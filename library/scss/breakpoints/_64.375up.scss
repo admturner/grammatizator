@@ -75,7 +75,6 @@ WORDPRESS BODY CLASSES
 .page {
 
 	.article-layout {
-
 		.article-content {
 			.intro {
 				margin: 0 0 1.5em;
@@ -118,13 +117,15 @@ WORDPRESS BODY CLASSES
 POSTS & CONTENT STYLES
 *********************/
 
-.article-supplement {
+/* .article-supplement {
 	overflow: hidden;
-}
+} */
 
 .article-layout {
 
-	.article-content, .byline {
+	.article-content, 
+	.article-supplement, 
+	.byline {
 		width: 70.72%; /* cp(722.875, 1022.146); */
 		margin: 0 auto;
 

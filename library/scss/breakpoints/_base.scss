@@ -594,13 +594,11 @@ POSTS & CONTENT STYLES
 }
 
 .article-supplement {
-	border: 1px solid $bluegray;
-	background-color: $light-gray;
-	margin: 1.5em 0 .25em 0;
-	padding: .25em;
+	border-top: 3px solid $gray;
+	padding-top: .75em;
 
 	p {
-		margin: 0 0 .25em;
+		margin: 0 0 .75em;
 	}
 
 	div, .sharing {

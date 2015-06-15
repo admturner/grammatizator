@@ -1610,13 +1610,11 @@ POSTS & CONTENT STYLES
 }
 
 .article-supplement {
-  border: 1px solid #5d777d;
-  background-color: #f8f9fa;
-  margin: 1.5em 0 .25em 0;
-  padding: .25em;
+  border-top: 3px solid #eaedf2;
+  padding-top: .75em;
 }
 .article-supplement p {
-  margin: 0 0 .25em;
+  margin: 0 0 .75em;
 }
 .article-supplement div, .article-supplement .sharing {
   display: inline-block;
@@ -2214,14 +2212,6 @@ and small.
   .hentry footer {
     margin-bottom: 1.5em;
   }
-
-  .article-supplement {
-    margin-bottom: 1.5em;
-  }
-
-  /*********************
-  FOOTER STYLES
-  *********************/
 }
 /* end of 31.952em media query */
 /*********************
@@ -2285,9 +2275,7 @@ article content).
   }
   .nav li {
     position: relative;
-    /*
-    plan your menus and drop-downs wisely.
-    */
+    /* plan your menus and drop-downs wisely. */
     /* showing sub-menus */
   }
   .nav li a {
@@ -2451,6 +2439,12 @@ article content).
   }
 }
 @media only screen and (min-width: 45em) {
+  .home .recent-articles article {
+    		/*.article-supplement {
+    			overflow: hidden;
+      			margin-top: .25em;
+    		}*/
+  }
   .home .recent-articles article .excerpt p {
     margin-top: .25em;
     font-size: 1.1em;
@@ -2458,10 +2452,6 @@ article content).
   .home .recent-articles article .wp-feature {
     float: left;
     margin-right: 1.5em;
-  }
-  .home .recent-articles article .article-supplement {
-    overflow: hidden;
-    margin-top: .25em;
   }
 
   /* end .home */
@@ -2516,16 +2506,6 @@ article content).
     margin-left: 0;
   }
 
-  .article-layout .article-supplement {
-    max-width: 22.597em;
-    float: right;
-    margin-left: 1.56%;
-    margin-bottom: 1.5em;
-    padding: 0 .75em;
-  }
-  .article-layout .article-supplement p {
-    margin: 0 0 1em;
-  }
   .article-layout .article-content .intro {
     margin-top: 1.5em;
   }
@@ -2750,16 +2730,19 @@ you can add resource intensive styles.
   /*********************
   POSTS & CONTENT STYLES
   *********************/
-  .article-supplement {
-    overflow: hidden;
-  }
-
-  .article-layout .article-content, .article-layout .byline {
+  /* .article-supplement {
+  	overflow: hidden;
+  } */
+  .article-layout .article-content,
+  .article-layout .article-supplement,
+  .article-layout .byline {
     width: 70.72%;
     /* cp(722.875, 1022.146); */
     margin: 0 auto;
   }
-  .article-layout .article-content .intro, .article-layout .byline .intro {
+  .article-layout .article-content .intro,
+  .article-layout .article-supplement .intro,
+  .article-layout .byline .intro {
     margin-left: -20.70%;
     /* cp(722.875, 149.64); */
   }
