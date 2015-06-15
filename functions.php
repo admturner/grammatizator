@@ -447,7 +447,14 @@ function gramm_list_authors( $args = '' ) {
         $return .= '<p class="author-bio">';
         // Trim if desired
         if ( $args['biolength'] < 9995 ) {
-          $more = '&hellip; <a href="' . esc_url( get_site_url() . '/about/meet-the-team/#author-id-' . $author->ID ) . '" title="' . esc_attr( 'Read ' . $author->display_name . '&rsquo;s full bio' ) . '">' . ( !empty($author->first_name) ? $author->first_name : $author->display_name) . '&rsquo;s full bio &rarr;';
+          $authrole = get_the_author_meta( 'roles', $author->ID );
+          if ( in_array('contributor', $authrole) ) {
+            $morelink = get_author_posts_url( $author->ID, $author->user_nicename );
+          } else {
+            $morelink = esc_url( get_site_url() . '/about/meet-the-team/#author-id-' . $author->ID );
+          }
+
+          $more = '&hellip; <a href="' . $morelink . '" title="' . esc_attr( 'Read ' . $author->display_name . '&rsquo;s full bio' ) . '">' . ( !empty($author->first_name) ? $author->first_name : $author->display_name) . '&rsquo;s full bio &rarr;';
           $bio = wp_trim_words( $bio, $args['biolength'], $more );
         }
         $return .= wptexturize( $bio );
