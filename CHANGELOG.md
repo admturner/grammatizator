@@ -68,6 +68,7 @@ Changelog formatting (http://semver.org/):
 
 ### Added
 
+- author.php template for displaying individual author archives
 - first-of-child pseudo-selector to supplement class="intro" for lead paragraph styling
 
 ### Removed

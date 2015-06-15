@@ -80,7 +80,17 @@ WORDPRESS BODY CLASSES
 .attachment {} /* attatchment page */
 	.attachmentid-1 {} /* individual attatchment page (i.e. body.attachmentid-763) */
 	.attachment-mime-type {} /* style mime type pages */
-.author {}  /* author page */
+.author {
+
+	.byline {
+		border-bottom: 3px solid $gray;
+
+		.avatar-wrap {
+			margin-top: 1.5em;
+		}
+	}
+
+	}  /* author page */
 	.author-nicename {} /* user nicename (i.e. body.author-samueladams) */
 	.author-paged-1 {} /* paged author archives (i.e. body.author-paged-4) for page 4 */
 .category {} /* category page */

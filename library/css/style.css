@@ -1265,6 +1265,13 @@ WORDPRESS BODY CLASSES
 /* attatchment page */
 /* individual attatchment page (i.e. body.attachmentid-763) */
 /* style mime type pages */
+.author .byline {
+  border-bottom: 3px solid #eaedf2;
+}
+.author .byline .avatar-wrap {
+  margin-top: 1.5em;
+}
+
 /* author page */
 /* user nicename (i.e. body.author-samueladams) */
 /* paged author archives (i.e. body.author-paged-4) for page 4 */
