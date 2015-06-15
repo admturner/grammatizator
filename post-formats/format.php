@@ -45,7 +45,7 @@
                 </section> <?php // end article section ?>
 
                 <aside class="article-supplement">
-                  <?php echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; ?>
+                  <?php echo '<p id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; ?>
                   <?php the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
                 </aside>
 
