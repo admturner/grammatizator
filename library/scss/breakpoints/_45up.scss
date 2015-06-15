@@ -356,10 +356,9 @@ POSTS & CONTENT STYLES
 	font-size: .95em;
 }
 
-.article-layout {
-	.article-content {
-		.intro,
-		p:first-of-type {
+.single {
+	.entry-content {
+		.intro, p:first-of-type {
 			margin-top: .75em;
 		}
 	}

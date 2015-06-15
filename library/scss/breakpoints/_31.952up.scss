@@ -112,16 +112,14 @@ POSTS & CONTENT STYLES
 
 } /* end .entry-content */
 
-.article-layout {
-
-	.article-content {
-		.intro,
-		p:first-of-type {
+.single {
+	.entry-content {
+		.intro, p:first-of-type {
 			font-size: 1.25em;
 			margin-top: .5em;
 		}
 	}
-} /* end .article-layout */
+}
 
 .wp-caption {
 	margin-bottom: 1.25em;

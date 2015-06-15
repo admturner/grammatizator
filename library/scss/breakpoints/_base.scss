@@ -88,6 +88,9 @@ WORDPRESS BODY CLASSES
 		.avatar-wrap {
 			margin-top: 1.5em;
 		}
+		.nc-title, .social-links {
+			margin: .5em 0;
+		}
 	}
 
 	}  /* author page */
@@ -645,15 +648,18 @@ POSTS & CONTENT STYLES
 	}
 }
 
+.single {
+	.entry-content {
+		.intro, p:first-of-type {
+			font-size: 1.1em;
+		}
+	}
+}
+
 .entry-content {
 
 	p {
 		font-family: $serif;
-	}
-
-	.intro,
-	p:first-of-type {
-		font-size: 1.1em;
 	}
 
 	ul, ol, table, dl {

@@ -1271,6 +1271,9 @@ WORDPRESS BODY CLASSES
 .author .byline .avatar-wrap {
   margin-top: 1.5em;
 }
+.author .byline .nc-title, .author .byline .social-links {
+  margin: .5em 0;
+}
 
 /* author page */
 /* user nicename (i.e. body.author-samueladams) */
@@ -1724,12 +1727,12 @@ POSTS & CONTENT STYLES
   font-size: .9em;
 }
 
+.single .entry-content .intro, .single .entry-content p:first-of-type {
+  font-size: 1.1em;
+}
+
 .entry-content p {
   font-family: "Merriweather", "Georgia", Cambria, "Times New Roman", Times, serif;
-}
-.entry-content .intro,
-.entry-content p:first-of-type {
-  font-size: 1.1em;
 }
 .entry-content ul, .entry-content ol, .entry-content table, .entry-content dl {
   font-family: "Merriweather", "Georgia", Cambria, "Times New Roman", Times, serif;
@@ -2267,13 +2270,11 @@ and small.
   }
 
   /* end .entry-content */
-  .article-layout .article-content .intro,
-  .article-layout .article-content p:first-of-type {
+  .single .entry-content .intro, .single .entry-content p:first-of-type {
     font-size: 1.25em;
     margin-top: .5em;
   }
 
-  /* end .article-layout */
   .wp-caption, .wp-feature {
     margin-bottom: 1.25em;
   }
@@ -2586,8 +2587,7 @@ article content).
     font-size: .95em;
   }
 
-  .article-layout .article-content .intro,
-  .article-layout .article-content p:first-of-type {
+  .single .entry-content .intro, .single .entry-content p:first-of-type {
     margin-top: .75em;
   }
 
@@ -2783,13 +2783,17 @@ you can add resource intensive styles.
 
   /* end .home */
   .page {
+    /*.article-layout {
+    	.article-content {
+    		.intro,
+    		p:first-of-type {
+    			margin: 0 0 1.5em;
+    		}
+    	}
+    }*/
     /* end .meet-the-team */
     /* The Topics page category list */
     /* end .topic-categories */
-  }
-  .page .article-layout .article-content .intro,
-  .page .article-layout .article-content p:first-of-type {
-    margin: 0 0 1.5em;
   }
   .page .the-team-container {
     margin-left: -20.70%;

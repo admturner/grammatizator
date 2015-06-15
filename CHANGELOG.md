@@ -45,7 +45,6 @@ Changelog formatting (http://semver.org/):
 - Add Autoprefixer to makefile workflow (just in case)
 - Debug adminlinks problem in footer.php
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
-- Tidy styles (more whitespace on meet the team page)
 - Determine feature image size and/or aspect ratio for functions.php
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
 - Probably reintroduce WP Likes button (see functions.php to dos)
