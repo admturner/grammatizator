@@ -344,11 +344,15 @@ POSTS & CONTENT STYLES
 	margin-left: 0;
 }
 
+.sharing-container {
+	font-size: .95em;
+}
+
 .article-layout {
 	.article-content {
 		.intro,
 		p:first-of-type {
-			margin-top: 1.5em;
+			margin-top: .75em;
 		}
 	}
 }

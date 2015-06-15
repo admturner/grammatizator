@@ -63,6 +63,8 @@ Changelog formatting (http://semver.org/):
 - Move sharing links on single post template back to top by themselves
 - Replace < figcaption > with a < p > tag in article supplement section of single post template
 - Simplify article supplement section styles
+- Stop outdenting lead paragraph
+- Simplify sharing link display around lead paragraph
 
 ### Added
 

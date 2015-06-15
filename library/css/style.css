@@ -757,7 +757,9 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 *********************/
 .btn-minimal, .btn-blue, .comment-reply-link, #submit,
 #respond .form-submit input#comment-submit,
-.contact-submit input[type="submit"] {
+.contact-submit input[type="submit"], ul.sharing li a, ul.sharing li a:visited,
+.sharing-container ul li a,
+.sharing-container ul li a:visited {
   display: inline-block;
   position: relative;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -775,9 +777,11 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 }
 .btn-minimal:hover, .btn-blue:hover, .comment-reply-link:hover, #submit:hover,
 #respond .form-submit input#comment-submit:hover,
-.contact-submit input[type="submit"]:hover, .btn-minimal:focus, .btn-blue:focus, .comment-reply-link:focus, #submit:focus,
+.contact-submit input[type="submit"]:hover, ul.sharing li a:hover,
+.sharing-container ul li a:hover, .btn-minimal:focus, .btn-blue:focus, .comment-reply-link:focus, #submit:focus,
 #respond .form-submit input#comment-submit:focus,
-.contact-submit input[type="submit"]:focus {
+.contact-submit input[type="submit"]:focus, ul.sharing li a:focus,
+.sharing-container ul li a:focus {
   color: #fff;
   text-decoration: none;
   border-bottom: none;
@@ -816,6 +820,87 @@ and it will create a button dependant on those variables.
   background-color: #6f9bde;
 }
 
+/*
+Our sharing buttons
+*/
+ul.sharing,
+.sharing-container ul {
+  /* end li */
+  /* Later, creating image links for wider screens */
+  /*
+  @media only screen and (min-width: 45em) {
+    li {
+      a, a:visited {
+        background-image: url(/wp-content/themes/grammatizator/library/assets/images/menuwich.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: 0 2px 6px rgba(150, 150, 150, 0.18), 0 2px 6px rgba(150, 150, 150, 0.18)
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 3em;
+      }
+    }
+  }*/
+}
+ul.sharing li,
+.sharing-container ul li {
+  /* end twitter */
+  /* end facebook */
+  /* end google plus */
+}
+ul.sharing li a, ul.sharing li a:visited,
+.sharing-container ul li a,
+.sharing-container ul li a:visited {
+  margin: 0 .15em;
+}
+ul.sharing li a.share-twitter,
+.sharing-container ul li a.share-twitter {
+  background-color: #55acce;
+}
+@media only screen and (min-width: 31.952em) {
+  ul.sharing li a.share-twitter:hover, ul.sharing li a.share-twitter:focus,
+  .sharing-container ul li a.share-twitter:hover,
+  .sharing-container ul li a.share-twitter:focus {
+    background-color: #2a7593;
+  }
+  ul.sharing li a.share-twitter:active,
+  .sharing-container ul li a.share-twitter:active {
+    background-color: #a4d3e5;
+  }
+}
+ul.sharing li a.share-facebook,
+.sharing-container ul li a.share-facebook {
+  background-color: #4e69a2;
+}
+@media only screen and (min-width: 31.952em) {
+  ul.sharing li a.share-facebook:hover, ul.sharing li a.share-facebook:focus,
+  .sharing-container ul li a.share-facebook:hover,
+  .sharing-container ul li a.share-facebook:focus {
+    background-color: #2d3c5d;
+  }
+  ul.sharing li a.share-facebook:active,
+  .sharing-container ul li a.share-facebook:active {
+    background-color: #8ea1c8;
+  }
+}
+ul.sharing li a.share-google-plus-1,
+.sharing-container ul li a.share-google-plus-1 {
+  background-color: #dd4b39;
+}
+@media only screen and (min-width: 31.952em) {
+  ul.sharing li a.share-google-plus-1:hover, ul.sharing li a.share-google-plus-1:focus,
+  .sharing-container ul li a.share-google-plus-1:hover,
+  .sharing-container ul li a.share-google-plus-1:focus {
+    background-color: #96271a;
+  }
+  ul.sharing li a.share-google-plus-1:active,
+  .sharing-container ul li a.share-google-plus-1:active {
+    background-color: #ec9a90;
+  }
+}
+
+/* end .sharing */
 /******************************************************************
 Theme Name: Grammatizator
 Author: Adam Turner
@@ -1609,36 +1694,31 @@ POSTS & CONTENT STYLES
   font-weight: 700;
 }
 
+.sharing-container {
+  text-align: right;
+  font-size: .8em;
+}
+.sharing-container p {
+  margin: 0;
+  text-transform: uppercase;
+}
+.sharing-container div {
+  display: inline-block;
+}
+.sharing-container ul {
+  margin: .25em 0;
+}
+.sharing-container ul li {
+  display: inline-block;
+  margin-bottom: .5em;
+}
+
 .article-supplement {
   border-top: 3px solid #eaedf2;
   padding-top: .75em;
 }
 .article-supplement p {
   margin: 0 0 .75em;
-}
-.article-supplement div, .article-supplement .sharing {
-  display: inline-block;
-}
-.article-supplement ul {
-  margin: .25em 0;
-}
-.article-supplement ul li {
-  display: inline-block;
-}
-.article-supplement ul li a, .article-supplement ul li a:visited {
-  margin: 0 .15em;
-  padding: .25em;
-  color: #fff;
-  background-color: #2b65bc;
-}
-.article-supplement ul li a.share-twitter {
-  background-color: #55acce;
-}
-.article-supplement ul li a.share-facebook {
-  background-color: #4e69a2;
-}
-.article-supplement ul li a.share-google-plus-1 {
-  background-color: #dd4b39;
 }
 
 /* end article supplement */
@@ -2200,6 +2280,7 @@ and small.
   .article-layout .article-content .intro,
   .article-layout .article-content p:first-of-type {
     font-size: 1.25em;
+    margin-top: .5em;
   }
 
   /* end .article-layout */
@@ -2508,9 +2589,13 @@ article content).
     margin-left: 0;
   }
 
+  .sharing-container {
+    font-size: .95em;
+  }
+
   .article-layout .article-content .intro,
   .article-layout .article-content p:first-of-type {
-    margin-top: 1.5em;
+    margin-top: .75em;
   }
 
   .entry-content {
@@ -2734,24 +2819,19 @@ you can add resource intensive styles.
   /*********************
   POSTS & CONTENT STYLES
   *********************/
-  /* .article-supplement {
-  	overflow: hidden;
-  } */
+  .sharing-container {
+    float: right;
+    max-width: 12.51132%;
+    margin-top: .75em;
+    font-size: 1em;
+  }
+
   .article-layout .article-content,
   .article-layout .article-supplement,
   .article-layout .byline {
     width: 70.72%;
     /* cp(722.875, 1022.146); */
     margin: 0 auto;
-  }
-  .article-layout .article-content .intro,
-  .article-layout .article-content p:first-of-type,
-  .article-layout .article-supplement .intro,
-  .article-layout .article-supplement p:first-of-type,
-  .article-layout .byline .intro,
-  .article-layout .byline p:first-of-type {
-    margin-left: -20.70%;
-    /* cp(722.875, 149.64); */
   }
 
   /* end article-layout */

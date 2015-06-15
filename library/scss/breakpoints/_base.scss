@@ -593,41 +593,33 @@ POSTS & CONTENT STYLES
 	font-weight: 700;
 }
 
+.sharing-container {
+	text-align: right;
+	font-size: .8em;
+
+	p {
+  		margin: 0;
+  		text-transform: uppercase;
+  	}
+  	div {
+    	display: inline-block;
+  	}
+  	ul {
+    	margin: .25em 0;
+
+    	li {
+    		display: inline-block;
+    		margin-bottom: .5em;
+		}
+	}
+}
+
 .article-supplement {
 	border-top: 3px solid $gray;
 	padding-top: .75em;
 
 	p {
 		margin: 0 0 .75em;
-	}
-
-	div, .sharing {
-		display: inline-block;
-	}
-
-	ul {
-		margin: .25em 0;
-
-	 	li {
-			display: inline-block;
-
-			a, a:visited {
-				margin: 0 .15em;
-				padding: .25em;
-					color: $white;
-					background-color: $link-color;
-			}
-
-			a.share-twitter {
-				background-color: #55acce;
-			}
-			a.share-facebook {
-				background-color: #4e69a2;
-			}
-			a.share-google-plus-1 {
-				background-color: #dd4b39;
-			}
-		}
 	}
 } /* end article supplement */
 

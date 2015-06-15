@@ -33,7 +33,9 @@
 
                   </p>
 
-                  <p class="sharing">Share on:</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
+                  <div class="sharing-container">
+                    <p>Sharing</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
+                  </div>
 
                 </header><?php // end article header ?>
 
