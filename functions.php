@@ -341,10 +341,10 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
     <section class="article-content excerpt entry-content cf" itemprop="articleBody">
       <?php the_excerpt(); ?>
     </section>
+    <aside class="article-supplement">
+      <?php the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+    </aside>
     <footer class="article-footer">
-      <aside class="article-supplement">
-        <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-      </aside>
     </footer>
   </article><?php // end archive page excerpt format
 }
