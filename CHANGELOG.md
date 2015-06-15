@@ -47,7 +47,6 @@ Changelog formatting (http://semver.org/):
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
 - Tidy styles (more whitespace on meet the team page)
 - Determine feature image size and/or aspect ratio for functions.php
-- Switch from using class="intro" on lead paragraphs to using a selector
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
 - Probably reintroduce WP Likes button (see functions.php to dos)
 - Change single post title from h1 to h2 (while keeping styling)
@@ -64,6 +63,10 @@ Changelog formatting (http://semver.org/):
 - Move sharing links on single post template back to top by themselves
 - Replace < figcaption > with a < p > tag in article supplement section of single post template
 - Simplify article supplement section styles
+
+### Added
+
+- first-of-child pseudo-selector to supplement class="intro" for lead paragraph styling
 
 ### Removed
 

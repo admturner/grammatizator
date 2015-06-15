@@ -346,7 +346,8 @@ POSTS & CONTENT STYLES
 
 .article-layout {
 	.article-content {
-		.intro {
+		.intro,
+		p:first-of-type {
 			margin-top: 1.5em;
 		}
 	}

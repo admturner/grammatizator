@@ -1653,7 +1653,8 @@ POSTS & CONTENT STYLES
 .entry-content p {
   font-family: "Merriweather", "Georgia", Cambria, "Times New Roman", Times, serif;
 }
-.entry-content .intro {
+.entry-content .intro,
+.entry-content p:first-of-type {
   font-size: 1.1em;
 }
 .entry-content ul, .entry-content ol, .entry-content table, .entry-content dl {
@@ -2196,7 +2197,8 @@ and small.
   }
 
   /* end .entry-content */
-  .article-layout .article-content .intro {
+  .article-layout .article-content .intro,
+  .article-layout .article-content p:first-of-type {
     font-size: 1.25em;
   }
 
@@ -2506,7 +2508,8 @@ article content).
     margin-left: 0;
   }
 
-  .article-layout .article-content .intro {
+  .article-layout .article-content .intro,
+  .article-layout .article-content p:first-of-type {
     margin-top: 1.5em;
   }
 
@@ -2700,7 +2703,8 @@ you can add resource intensive styles.
     /* The Topics page category list */
     /* end .topic-categories */
   }
-  .page .article-layout .article-content .intro {
+  .page .article-layout .article-content .intro,
+  .page .article-layout .article-content p:first-of-type {
     margin: 0 0 1.5em;
   }
   .page .the-team-container {
@@ -2741,8 +2745,11 @@ you can add resource intensive styles.
     margin: 0 auto;
   }
   .article-layout .article-content .intro,
+  .article-layout .article-content p:first-of-type,
   .article-layout .article-supplement .intro,
-  .article-layout .byline .intro {
+  .article-layout .article-supplement p:first-of-type,
+  .article-layout .byline .intro,
+  .article-layout .byline p:first-of-type {
     margin-left: -20.70%;
     /* cp(722.875, 149.64); */
   }

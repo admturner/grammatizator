@@ -76,7 +76,8 @@ WORDPRESS BODY CLASSES
 
 	.article-layout {
 		.article-content {
-			.intro {
+			.intro,
+			p:first-of-type {
 				margin: 0 0 1.5em;
 			}
 		}
@@ -129,7 +130,8 @@ POSTS & CONTENT STYLES
 		width: 70.72%; /* cp(722.875, 1022.146); */
 		margin: 0 auto;
 
-		.intro {
+		.intro,
+		p:first-of-type {
 			margin-left: -20.70%; /* cp(722.875, 149.64); */
 		}
 	}

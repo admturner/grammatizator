@@ -646,7 +646,8 @@ POSTS & CONTENT STYLES
 		font-family: $serif;
 	}
 
-	.intro {
+	.intro,
+	p:first-of-type {
 		font-size: 1.1em;
 	}
 
