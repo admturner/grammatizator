@@ -64,6 +64,8 @@ Changelog formatting (http://semver.org/):
 - Simplify article supplement section styles
 - Stop outdenting lead paragraph
 - Simplify sharing link display around lead paragraph
+- Compress CSS using SASS compress tool
+- Move "human readable" expanded CSS to /library/assets/css/
 
 ### Added
 
