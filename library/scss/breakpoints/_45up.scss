@@ -289,6 +289,14 @@ WORDPRESS BODY CLASSES
 		p {
 			font-size: 1em;
 		}
+
+		.byline {
+			.bio-wrap {
+				.author-bio {
+					margin-left: 24.70%;
+				}
+			}
+		}
 	}
 
 	/* The Topics page category list */
@@ -530,7 +538,35 @@ FOOTER STYLES
 *********************/
 
 .footer {
-	
+
+	.bloginfo, 
+	.copyright {
+		a, a:visited {
+			
+			&:hover, &:focus {
+				color: $white;
+			}
+			&:active {
+				color: lighten($link-color, 90%);
+			}
+		}
+	}
+
+	.footer-nav {
+		li {
+			a, a:visited {
+				border-radius: 5px;
+
+				&:hover, &:focus {
+					background-color: lighten($black, 13%);
+				}
+				&:active {
+					background-color: darken($black, 15%);
+				}
+			}
+		}
+	}
+
 	.footer-wrap {
 		margin: 2.827em auto;
 		max-width: 53.173em;
@@ -550,24 +586,3 @@ FOOTER STYLES
 		padding-top: 1.5em;
 	}
 }
-
-/*
-you'll probably need to do quite a bit
-of overriding here if you styled them for
-mobile. Make sure to double check these!
-*/
-.footer-links {
-	ul {
-		li {
-			a {
-				&:hover {}
-			}
-			/*
-			be careful with the depth of your menus.
-			it's very rare to have multi-depth menus in
-			the footer.
-			*/
-			ul {}
-		}
-	}
-} /* end .footer-links */

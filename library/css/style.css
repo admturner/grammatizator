@@ -826,22 +826,6 @@ Our sharing buttons
 ul.sharing,
 .sharing-container ul {
   /* end li */
-  /* Later, creating image links for wider screens */
-  /*
-  @media only screen and (min-width: 45em) {
-    li {
-      a, a:visited {
-        background-image: url(/wp-content/themes/grammatizator/library/assets/images/menuwich.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        box-shadow: 0 2px 6px rgba(150, 150, 150, 0.18), 0 2px 6px rgba(150, 150, 150, 0.18)
-        text-indent: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        max-width: 3em;
-      }
-    }
-  }*/
 }
 ul.sharing li,
 .sharing-container ul li {
@@ -1643,6 +1627,9 @@ POSTS & CONTENT STYLES
 }
 .page .the-team-container .byline {
   clear: both;
+  margin-bottom: 1.5em;
+  padding-bottom: .75em;
+  border-bottom: 1px solid #fafbfc;
 }
 .page .the-team-container .byline .avatar-wrap {
   margin-right: 4%;
@@ -1714,7 +1701,7 @@ POSTS & CONTENT STYLES
 }
 
 .article-supplement {
-  border-top: 3px solid #eaedf2;
+  border-top: 1px solid #eaedf2;
   padding-top: .75em;
 }
 .article-supplement p {
@@ -2189,12 +2176,8 @@ FOOTER STYLES
   border-bottom: 1px solid #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
-.footer .footer-nav .admin a, .footer .footer-nav .admin a:visited {
-  background-color: #b24523;
-  margin-right: .25em;
-}
 .footer .follow li {
-  padding: .5em;
+  padding: .5em .5em .5em 0;
 }
 
 /* end footer */
@@ -2545,6 +2528,9 @@ article content).
   .page .the-team-container p {
     font-size: 1em;
   }
+  .page .the-team-container .byline .bio-wrap .author-bio {
+    margin-left: 24.70%;
+  }
   .page .topic-categories .cat-item {
     list-style-type: none;
     font-size: 1.5em;
@@ -2676,6 +2662,27 @@ article content).
   /*********************
   FOOTER STYLES
   *********************/
+  .footer .bloginfo a:hover, .footer .bloginfo a:focus, .footer .bloginfo a:visited:hover, .footer .bloginfo a:visited:focus,
+  .footer .copyright a:hover,
+  .footer .copyright a:focus,
+  .footer .copyright a:visited:hover,
+  .footer .copyright a:visited:focus {
+    color: #fff;
+  }
+  .footer .bloginfo a:active, .footer .bloginfo a:visited:active,
+  .footer .copyright a:active,
+  .footer .copyright a:visited:active {
+    color: white;
+  }
+  .footer .footer-nav li a, .footer .footer-nav li a:visited {
+    border-radius: 5px;
+  }
+  .footer .footer-nav li a:hover, .footer .footer-nav li a:focus, .footer .footer-nav li a:visited:hover, .footer .footer-nav li a:visited:focus {
+    background-color: #515c54;
+  }
+  .footer .footer-nav li a:active, .footer .footer-nav li a:visited:active {
+    background-color: #0e100f;
+  }
   .footer .footer-wrap {
     margin: 2.827em auto;
     max-width: 53.173em;
@@ -2692,21 +2699,6 @@ article content).
     margin-bottom: -1.5em;
     padding-top: 1.5em;
   }
-
-  /*
-  you'll probably need to do quite a bit
-  of overriding here if you styled them for
-  mobile. Make sure to double check these!
-  */
-  .footer-links ul li {
-    /*
-    be careful with the depth of your menus.
-    it's very rare to have multi-depth menus in
-    the footer.
-    */
-  }
-
-  /* end .footer-links */
 }
 /* end of 45em media query */
 /*********************
@@ -2773,7 +2765,7 @@ you can add resource intensive styles.
   }
   .home .latest-articles article:first-of-type header figure {
     float: left;
-    width: 53.48%;
+    max-width: 53.48%;
     margin-right: 3%;
   }
   .home .latest-articles article:not(:first-of-type) {
@@ -2840,7 +2832,7 @@ you can add resource intensive styles.
   }
   .archive-layout header figure {
     float: left;
-    width: 53.48%;
+    max-width: 53.48%;
     margin-right: 3%;
   }
 

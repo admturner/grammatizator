@@ -57,7 +57,7 @@ WORDPRESS BODY CLASSES
 			header {
 				figure {
 					float: left;
-					width: 53.48%;
+					max-width: 53.48%;
 					margin-right: 3%;
 				}
 			}
@@ -141,7 +141,7 @@ POSTS & CONTENT STYLES
 	header {
 		figure {
 			float: left;
-			width: 53.48%;
+			max-width: 53.48%;
 			margin-right: 3%;
 		}
 	}

@@ -30,15 +30,15 @@
 					<h3>Subscribe</h3>
 					<p>Want regular updates sent right to your digital door?</p>
 					<ul>
-						<li class="email"><a href="<?php echo esc_url( home_url( '/' ) ); ?>subscribe/">Subscribe to email updates</a></li>
-						<li class="rss"><a href="<?php echo esc_url( home_url( '/' ) ); ?>feed/">Subscribe using RSS</a></li>
+						<li class="email"><a rel="nofollow" href="<?php echo esc_url( home_url( '/' ) ); ?>subscribe/">Subscribe to email updates</a></li>
+						<li class="rss"><a rel="nofollow" href="<?php echo esc_url( home_url( '/' ) ); ?>feed/">Subscribe using RSS</a></li>
 					</ul>
 
 					<h3>Socializing</h3>
 					<p>Find, follow, and connect with us on these other platforms.</p>
-					<ul>
-						<li><a class="facebook" href="<?php echo esc_url( 'https://www.facebook.com/NursingClio' ); ?>">Facebook</a></li>
-						<li><a class="twitter" href="<?php echo esc_url( 'https://twitter.com/nursingclio' ); ?>">Twitter</a></li>
+					<ul class="sharing inline-items">
+						<li><a class="share-facebook" rel="nofollow" href="<?php echo esc_url( 'https://www.facebook.com/NursingClio' ); ?>">Facebook</a></li>
+						<li><a class="share-twitter" rel="nofollow" title="Nursing Clio on Twitter @nursingclio" href="<?php echo esc_url( 'https://twitter.com/nursingclio' ); ?>">Twitter</a></li>
 					</ul>
 				</div>
 

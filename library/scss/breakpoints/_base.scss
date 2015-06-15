@@ -532,6 +532,9 @@ POSTS & CONTENT STYLES
 	.the-team-container {
 		.byline {
 			clear: both;
+			margin-bottom: 1.5em;
+  			padding-bottom: .75em;
+  			border-bottom: 1px solid lighten($gray, 5%);
 			
 			.avatar-wrap {
 				margin-right: 4%;
@@ -615,7 +618,7 @@ POSTS & CONTENT STYLES
 }
 
 .article-supplement {
-	border-top: 3px solid $gray;
+	border-top: 1px solid $gray;
 	padding-top: .75em;
 
 	p {
@@ -1272,7 +1275,6 @@ FOOTER STYLES
 		padding-left: 2%;
 		font-weight: normal;
 		color: $black;
-
 	}
 
 	a, a:visited {
@@ -1286,20 +1288,9 @@ FOOTER STYLES
 			border-bottom: 1px solid white(.5);
 		}
 	}
-
-	.footer-nav {
-
-		.admin {
-			a, a:visited {
-				background-color: $red;
-				margin-right: .25em;
-			}
-		}
-	}
-
 	.follow {
 		li {
-			padding: .5em;
+			padding: .5em .5em .5em 0;
 		}
 	}
 } /* end footer */
