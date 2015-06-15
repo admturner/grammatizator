@@ -60,6 +60,7 @@ Changelog formatting (http://semver.org/):
 ### Changed
 
 - Move article supplement section in archive template above article footer and rename "Filed under" to "Tags"
+- Move article supplement section in single post template above article footer and rename "Filed under" to "Tags"
 
 ### Removed
 

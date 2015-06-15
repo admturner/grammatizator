@@ -35,19 +35,19 @@
 
                 </header><?php // end article header ?>
 
-                <aside class="article-supplement">
-                  <?php echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; ?>
-                  <p><a href="#comments-title"><?php comments_number( 'No comments yet', 'One comment', '% comments' ); ?></a></p>
-                  <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-                  <p class="sharing">Share on:</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
-                </aside>
-
                 <section class="article-content entry-content cf" itemprop="articleBody">
                   
                   <?php the_content(); ?>
                   <?php // @todo Add Like buttons back in. ?>
 
                 </section> <?php // end article section ?>
+
+                <aside class="article-supplement">
+                  <?php echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; ?>
+                  <p><a href="#comments-title"><?php comments_number( 'No comments yet', 'One comment', '% comments' ); ?></a></p>
+                  <?php the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+                  <p class="sharing">Share on:</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
+                </aside>
 
                 <footer class="article-footer">
 
