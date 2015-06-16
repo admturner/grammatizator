@@ -40,14 +40,12 @@ Changelog formatting (http://semver.org/):
 - Run validator assessments and correct as needed
 - Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
 - Finish updating readme.md
-- Replace hard-coded Topics list with a function to call categories dynamically (including description).
 - Get makefile working
 - Add Autoprefixer to makefile workflow (just in case)
 - Debug adminlinks problem in footer.php
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
 - Determine feature image size and/or aspect ratio for functions.php
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
-- Probably reintroduce WP Likes button (see functions.php to dos)
 - Change single post title from h1 to h2 (while keeping styling)
 - Keep working on making JetPack share with Twitter button include both site handle and author handle in auto text (see https://github.com/Automattic/jetpack/blob/master/modules/sharedaddy/sharing-sources.php and https://github.com/Automattic/Co-Authors-Plus-Social-Pack/blob/master/co-authors-plus-social-pack.php)
 
@@ -72,6 +70,7 @@ Changelog formatting (http://semver.org/):
 
 - author.php template for displaying individual author archives
 - first-of-child pseudo-selector to supplement class="intro" for lead paragraph styling
+- Class call for WP Likes button in single post format.php template (off by default because it's crufty crud)
 
 ### Removed
 

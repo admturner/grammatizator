@@ -616,10 +616,12 @@ add_action( 'edit_user_profile_update', 'gramm_save_profile_fields' );
 /************* JETPACK ADJUSTMENTS *************/
 
 /**
- * Remove Jetpack Share Styles
+ * Remove Jetpack Share Insert
  * 
- * @todo Reintroduce the WP Like button
- * @since Grammatizator 0.4
+ * Prevents auto display of Jetpack sharing links and
+ * "like" button, to allow for manual insertion
+ * 
+ * @since Grammatizator 0.7
  */
 function gram_remove_jpshare() {
     remove_filter( 'the_content', 'sharing_display', 19 );
