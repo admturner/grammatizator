@@ -52,6 +52,10 @@ Changelog formatting (http://semver.org/):
 
 ## 0.7 update (unreleased)
 
+### Fixed
+
+- Correct donate link in footer.php
+
 ### Changed
 
 - Move article supplement section in archive template above article footer and rename "Filed under" to "Tags"
