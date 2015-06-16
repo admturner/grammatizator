@@ -30,6 +30,7 @@ Changelog formatting (http://semver.org/):
 - Decide what kind of commenting system we want to use for the long haul.
 - Decide whether JetPack is really what we want
 - Move too-specific content from functions.php (and shortcodes.php) into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files)
+- Update README.md to reflect move of NC-specific functions to plugin
 
 ---
 
@@ -39,10 +40,8 @@ Changelog formatting (http://semver.org/):
 
 - Run validator assessments and correct as needed
 - Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
-- Finish updating readme.md
 - Get makefile working
 - Add Autoprefixer to makefile workflow (just in case)
-- Debug adminlinks problem in footer.php
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
 - Determine feature image size and/or aspect ratio for functions.php
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
