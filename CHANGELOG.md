@@ -44,9 +44,11 @@ Changelog formatting (http://semver.org/):
 
 ### To Do
 
+- Style image galleries
 - Run validator assessments and correct as needed
 - Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
 - Get makefile working
+- Conpress JS
 - Add Autoprefixer to makefile workflow (just in case)
 - Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
 - Determine feature image size and/or aspect ratio for functions.php
@@ -56,7 +58,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 0.7 update (unreleased)
+## 0.7 update (2015-06-22)
 
 ### Fixed
 
@@ -74,6 +76,7 @@ Changelog formatting (http://semver.org/):
 - Compress CSS using SASS compress tool
 - Move "human readable" expanded CSS to /library/assets/css/
 - Conditionally direct users to author archive page for Contributors because full bios not on "Meet the Team" page
+- Switch to BY-NC-SA Creative Commons License
 
 ### Added
 
