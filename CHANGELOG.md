@@ -2,10 +2,16 @@
 
 This theme is built on/around/in/through Eddie Machado's eminently solid Bones starter theme. See [Bones Change Log & History](#bones-change-log--history) below.
 
-Grammatizator is a theme specially built and designed for the group-run, multi-authored public history website *Nursing Clio*. Learn more about it at: http://nursingclio.org/. For more information about Grammatizator visit: http://adamturner.org/.
+Grammatizator is (for now) a theme specially built and designed for the group-run, multi-authored public history website *Nursing Clio*. Learn more about it at: http://nursingclio.org/. For more information about Grammatizator visit: http://adamturner.org/.
 
 Author: Adam Turner
 URL: https://github.com/admturner/grammatizator
+ _    _   _         _                         _
+| |  | | (_)       | |                       | |
+| |__| |  _   __  |_ _|  ___     __  __  __  | |
+|  __  | | | / _|  | |  / _ \  |' _| \ \/ /  |_|
+| |  | | | | \__\  | | | (_) | | |    \  /    _
+|_|  |_| |_| | _/  |_|  \___/  |_|    /_/    (_)
 
 <!-- 
 Changelog formatting (http://semver.org/): 
