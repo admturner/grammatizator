@@ -74,6 +74,7 @@ Changelog formatting (http://semver.org/):
 - author.php template for displaying individual author archives
 - first-of-child pseudo-selector to supplement class="intro" for lead paragraph styling
 - Class call for WP Likes button in single post format.php template (off by default because it's crufty crud)
+- Poem styles tied to aside class="poem"
 
 ### Removed
 
