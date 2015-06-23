@@ -6,12 +6,6 @@ Grammatizator is (for now) a theme specially built and designed for the group-ru
 
 Author: Adam Turner
 URL: https://github.com/admturner/grammatizator
- _    _   _         _                         _
-| |  | | (_)       | |                       | |
-| |__| |  _   __  |_ _|  ___     __  __  __  | |
-|  __  | | | / _|  | |  / _ \  |' _| \ \/ /  |_|
-| |  | | | | \__\  | | | (_) | | |    \  /    _
-|_|  |_| |_| | _/  |_|  \___/  |_|    /_/    (_)
 
 <!-- 
 Changelog formatting (http://semver.org/): 
@@ -29,7 +23,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 1.5 Unreleased (the future)
+## 1.5 unreleased (the future)
 
 ### To Do
 
@@ -40,7 +34,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 1.0 release! Unreleased (2015-06-DD)
+## 1.0 release! (the future)
 
 ### To Do
 
@@ -55,6 +49,18 @@ Changelog formatting (http://semver.org/):
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
 - Change single post title from h1 to h2 (while keeping styling)
 - Keep working on making JetPack share with Twitter button include both site handle and author handle in auto text (see https://github.com/Automattic/jetpack/blob/master/modules/sharedaddy/sharing-sources.php and https://github.com/Automattic/Co-Authors-Plus-Social-Pack/blob/master/co-authors-plus-social-pack.php)
+
+---
+
+## 0.7.1 bugfix (the future)
+
+### To Do
+
+- BUG: Comments (on old posts, at least, listed as None even when there are comments)
+
+### Fixed
+
+- 
 
 ---
 
