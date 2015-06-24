@@ -49,7 +49,7 @@
 				</div>
 
 				<?php // @todo Move this (and other static content here) to a widget or custom module of some kind, and create a license or use page to specify that special cases can be negotiated ?>
-				<p class="source-org copyright cf">Except where otherwise noted, all content is licensed by the credited writer under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA License</a>. <?php bloginfo( 'name' ); ?> is powered by <a href="http://wordpress.org/" rel="generator">WordPress</a>, coffee, and community. Please consider <a href="<?php echo esc_url( home_url( '/' ) ); ?>how-we-use-donations/">donating</a> to help keep us going. <a href="https://github.com/admturner/grammatizator">Grammatizator</a> theme by Adam Turner, built on <a href="http://themble.com/bones/">Bones</a>.</p>
+				<p class="source-org copyright cf">Except where otherwise noted, all content is licensed by the credited writer under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA License</a>. <?php bloginfo( 'name' ); ?> is powered by <a href="http://wordpress.org/" rel="generator">WordPress</a>, coffee, and community. Please consider <a href="<?php echo esc_url( home_url( '/' ) ); ?>how-we-use-donations/">donating</a> to help keep us going. <a href="https://github.com/admturner/grammatizator">Grammatizator</a> theme by Adam Turner, built on <a href="http://themble.com/bones/">Bones</a>.</p>
 
 			</div>
 

@@ -60,7 +60,7 @@ Changelog formatting (http://semver.org/):
 
 ### Fixed
 
-- 
+- Wrong link in footer.php
 
 ---
 
