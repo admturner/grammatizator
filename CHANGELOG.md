@@ -52,14 +52,17 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 0.7.1 bugfix (the future)
+## 0.7.2 bugfix (the future)
 
 ### To Do
 
 - BUG: Comments (on old posts, at least, listed as None even when there are comments)
 
+## 0.7.1 bugfix (2015-07-08)
+
 ### Fixed
 
+- Fix path to placeholder avatar for mobile use
 - Wrong link in footer.php
 
 ---

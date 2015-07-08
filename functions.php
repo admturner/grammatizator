@@ -290,7 +290,7 @@ function bones_comments( $comment, $args, $depth ) {
         ?>
         <?php $bgauthemail = get_comment_author_email(); ?>
         <div class="grav">
-          <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=64" class="load-gravatar avatar avatar-64 photo" height="64" width="64" src="<?php echo get_template_directory_uri(); ?>/library/images/default-avatar.jpg" />
+          <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=64" class="load-gravatar avatar avatar-64 photo" height="64" width="64" src="<?php echo get_template_directory_uri(); ?>/library/images/default-avatar.png" />
         </div>
         <?php printf(__( '<cite class="fn">%1$s</cite>', 'bonestheme' ), get_comment_author_link() ) ?>
         <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'bonestheme' )); ?> </a></time>
