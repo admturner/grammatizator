@@ -58,6 +58,7 @@ Changelog formatting (http://semver.org/):
 ### Changed
 
 - Update archive.php pages gramm_archive() function for content
+- Alter "page not found" message for main blog archive
 
 ## 0.7.1 bugfix (2015-07-08)
 

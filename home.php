@@ -30,14 +30,11 @@
 
 					<article id="post-not-found" class="article-layout hentry cf">
 						<header class="article-header">
-							<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
+							<h1><?php _e( 'Oops! No Posts Found', 'bonestheme' ); ?></h1>
 						</header>
 						<section class="entry-content">
-							<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
+							<p><?php _e( 'We can\'t seem to find any articles that match what you\'re looking for. Perhaps try searching for it.', 'bonestheme' ); ?></p>
 						</section>
-						<footer class="article-footer">
-							<p><?php _e( 'This is the error message in the archive.php template.', 'bonestheme' ); ?></p>
-						</footer>
 					</article>
 
 				<?php endif; ?>
