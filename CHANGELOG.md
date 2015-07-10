@@ -60,6 +60,10 @@ Changelog formatting (http://semver.org/):
 - Update archive.php pages gramm_archive() function for content
 - Alter "page not found" message for main blog archive
 
+### Removed
+
+- Delete sidebar from archive pages
+
 ## 0.7.1 bugfix (2015-07-08)
 
 ### Fixed
