@@ -38,6 +38,7 @@ Changelog formatting (http://semver.org/):
 
 ### To Do
 
+- BUG: Comments (on old posts, at least, listed as None even when there are comments)
 - Style image galleries
 - Run validator assessments and correct as needed
 - Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
@@ -52,11 +53,11 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 0.7.2 bugfix (the future)
+## 0.8 update (the future)
 
-### To Do
+### Changed
 
-- BUG: Comments (on old posts, at least, listed as None even when there are comments)
+- Update archive.php pages gramm_archive() function for content
 
 ## 0.7.1 bugfix (2015-07-08)
 
