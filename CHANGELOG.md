@@ -59,6 +59,9 @@ Changelog formatting (http://semver.org/):
 
 - Update archive.php pages gramm_archive() function for content
 - Alter "page not found" message for main blog archive
+- Only display author info on author page if author has posts
+- Make sure author exists before displaying info on author page
+- Tidy unneeded php opens/closes in author.php
 
 ### Removed
 

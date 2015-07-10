@@ -14,28 +14,33 @@ get_header(); ?>
 				<?php
 				the_archive_title( '<h1 class="page-title">Posts by ', '</h1>' );
 				the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-				
-				<div class="the-team-container">
-					<?php gramm_list_authors( 'include=' . get_the_author_meta( 'ID' ) . '&layout=byline&biolength=9999&avatarsize=180' ); ?>
-				</div>
 
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				if (have_posts()) : 
 
-					<?php gramm_archive_content( 'medium' ); ?>
+					// Only displays author info if author has posts
+					// Make sure author exists
+					if ( is_author( get_the_author_meta( 'ID' ) ) ) {
+						?><div class="the-team-container">
+							<?php gramm_list_authors( 'include=' . get_the_author_meta( 'ID' ) . '&layout=byline&biolength=9999&avatarsize=180' ); ?>
+						</div><?php 
+					}
 
-				<?php endwhile; ?>
+					while (have_posts()) : the_post();
 
-					<?php bones_page_navi(); ?>
+						gramm_archive_content( 'medium' );
 
-				<?php else : ?>
+					endwhile;
+
+					bones_page_navi();
+
+				else : ?>
 
 					<article id="post-not-found" class="article-layout hentry cf">
 						<header class="article-header">
-							<h1><?php _e( 'Oops! No Posts Found', 'bonestheme' ); ?></h1>
+							<h1><?php _e( 'No posts by this author (yet)', 'bonestheme' ); ?></h1>
 						</header>
 						<section class="entry-content">
-							<p><?php _e( 'We can\'t seem to find any articles that match what you\'re looking for. Perhaps try searching for it.', 'bonestheme' ); ?></p>
+							<p><?php _e( 'This author doesn\'t seem to have any published posts yet. Perhaps try searching for something related.', 'bonestheme' ); ?></p>
 						</section>
 					</article>
 
