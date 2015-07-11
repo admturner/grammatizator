@@ -63,6 +63,10 @@ Changelog formatting (http://semver.org/):
 - Make sure author exists before displaying info on author page
 - Tidy unneeded php opens/closes in author.php
 
+### Added
+
+- Celebration images to assets
+
 ### Removed
 
 - Delete sidebar from archive pages

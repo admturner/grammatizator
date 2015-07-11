@@ -1798,6 +1798,10 @@ POSTS & CONTENT STYLES
 .entry-content aside.quote {
   margin-bottom: 1.5em;
 }
+.entry-content aside.poem {
+  padding: 0 1.5em;
+  border: 1px solid #eaedf2;
+}
 .entry-content dd {
   margin-left: 1em;
   font-size: 0.9em;
