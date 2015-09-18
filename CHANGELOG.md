@@ -29,7 +29,6 @@ Changelog formatting (http://semver.org/):
 
 - Decide what kind of commenting system we want to use for the long haul.
 - Decide whether JetPack is really what we want
-- Update README.md to reflect move of NC-specific functions to plugin
 
 ---
 
@@ -56,7 +55,8 @@ Changelog formatting (http://semver.org/):
 
 ### Todo
 
-- Generalize theme: Move too-specific content from functions.php into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files)
+- Move too-specific content from functions.php into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files) [Search: todo Generalize]
+- Update README.md to reflect move of NC-specific functions to plugin
 
 ### Changed
 

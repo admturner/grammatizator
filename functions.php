@@ -40,7 +40,7 @@
  * @subpackage Grammatizator
  * @since Grammatizator 0.4
  * 
- * @todo Add function_exists() wrappers to allow use of Grammatizator as a parent theme
+ * @todo Generalize: Add function_exists() wrappers to allow use of Grammatizator as a parent theme
  */
 
 /************** LOAD DEPENDENCIES **************/
@@ -133,7 +133,6 @@ add_action( 'after_setup_theme', 'bones_ahoy' );
 function gramm_fonts() {
   wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400italic,700italic,400,700');
 }
-
 add_action('wp_enqueue_scripts', 'gramm_fonts');
 
 /************* OEMBED SIZE OPTIONS *************/
@@ -226,11 +225,9 @@ add_filter( 'img_caption_shortcode', 'gramm_image_caption_filter', 10, 3 );
 /**
  * Add custom default avatar
  * 
- * @todo Move inside action hook or filter?
+ * @todo Generalize: Revise to make generalized to Grammatizator theme
  * @since Grammatizator 0.4
  */
-add_filter( 'avatar_defaults', 'nc_default_avatar' );
-
 function nc_default_avatar ( $avatar_defaults ) {
     // Set URL where the image for the new avatar is located
     $nc_avatar_url = get_template_directory_uri() . '/library/images/default-avatar.png';
@@ -238,6 +235,7 @@ function nc_default_avatar ( $avatar_defaults ) {
     $avatar_defaults[$nc_avatar_url] = "Nursing Clio";
     return $avatar_defaults;
 }
+add_filter( 'avatar_defaults', 'nc_default_avatar' );
 
 /************* ACTIVE SIDEBARS *****************/
 /**
@@ -249,7 +247,7 @@ function nc_default_avatar ( $avatar_defaults ) {
  * 
  * @since Bones 1.71
  * 
- * @todo Set these to sidebars desired for Grammatizator
+ * @todo Generalize: Consider adding some more optional sidebar locations for a more general Grammatizator theme (maybe footer and homepage modules should be in widgets?)
  */
 function bones_register_sidebars() {
 	register_sidebar(array(
@@ -261,7 +259,6 @@ function bones_register_sidebars() {
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-  // You can put as many sidebars here as you want, just use register_sidebar()
 } // don't remove this bracket!
 
 /************* COMMENT LAYOUT ******************/
@@ -318,6 +315,7 @@ function bones_comments( $comment, $args, $depth ) {
  * Moved here in order to allow for handling images differently
  * in different places. It should occur in a WordPress Loop.
  *
+ * @todo Generalize: Move this - to /post-formats/ perhaps?
  * @since Grammatizator 0.4
  */
 function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
@@ -363,6 +361,7 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
  * 'subscriber'. Bio length is in words, and if you want the whole
  * bio (user description field) then enter 9999.
  *
+ * @todo Generalize: Figure out what is general functionality and what is NC-specific
  * @uses get_users();
  * @uses wp_trim_words();
  * @since Grammatizator 0.6
@@ -479,6 +478,7 @@ function gramm_list_authors( $args = '' ) {
  * A reusable call-to-action section to display a
  * request for donations.
  * 
+ * @todo Generalize: Figure out how to make this a widget
  * @since Grammatizator 0.4
  */
 function gramm_donate_module() { ?>
@@ -544,6 +544,8 @@ add_action( 'customize_register', 'bones_theme_customizer' );
  * usermeta data. Copied from Justin Tadlock's tutorial on this topic: 
  * {@link http://justintadlock.com/archives/2009/09/10/adding-and-using-custom-user-profile-fields}
  *
+ * @todo Generalize: remove NC-specific fields to plugin
+ * @todo Error: Investigate PHP error on one of these methods
  * @since Grammatizator 0.4
  */
 function gramm_add_profile_fields( $user ) { 
@@ -614,7 +616,6 @@ add_action( 'personal_options_update', 'gramm_save_profile_fields' );
 add_action( 'edit_user_profile_update', 'gramm_save_profile_fields' );
 
 /************* JETPACK ADJUSTMENTS *************/
-
 /**
  * Remove Jetpack Share Insert
  * 

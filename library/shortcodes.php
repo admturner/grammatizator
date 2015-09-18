@@ -12,6 +12,7 @@
  * Built on Bones by Eddie Machado {@link http://themble.com/bones/}
  *
  * @todo Clean up formatting of PHP comments.
+ * @todo Generalize: Add if (!function_exists()) check to prevent clashes
  * 
  * @package WordPress
  * @subpackage Grammatizator
