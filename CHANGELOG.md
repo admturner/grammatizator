@@ -29,7 +29,6 @@ Changelog formatting (http://semver.org/):
 
 - Decide what kind of commenting system we want to use for the long haul.
 - Decide whether JetPack is really what we want
-- Move too-specific content from functions.php (and shortcodes.php) into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files)
 - Update README.md to reflect move of NC-specific functions to plugin
 
 ---
@@ -55,6 +54,10 @@ Changelog formatting (http://semver.org/):
 
 ## 0.8 update (the future)
 
+### Todo
+
+- Generalize theme: Move too-specific content from functions.php into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files)
+
 ### Changed
 
 - Update archive.php pages gramm_archive() function for content
@@ -62,6 +65,7 @@ Changelog formatting (http://semver.org/):
 - Only display author info on author page if author has posts
 - Make sure author exists before displaying info on author page
 - Tidy unneeded php opens/closes in author.php
+- Recompressed production CSS
 
 ### Added
 

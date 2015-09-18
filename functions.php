@@ -202,7 +202,7 @@ add_filter( 'image_size_names_choose', 'gramm_custom_image_sizes' );
  */
 function gramm_image_caption_filter( $val, $attr, $content = null ) {
   
-  // Not worried abut captions in feeds, so just return the output immediately.
+  // Not worried about captions in feeds, so just return the output immediately.
   if ( is_feed() )
     return $val;
 

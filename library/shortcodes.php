@@ -151,7 +151,7 @@ function gramm_list_authors_shortcode( $args ) {
 add_shortcode( 'grammusers', 'gramm_list_authors_shortcode' );
 
 /**
- * [Custom] List Categories Shortcode
+ * Custom List Categories Shortcode
  *
  * This is a shortcode for fetching the category list.
  *
