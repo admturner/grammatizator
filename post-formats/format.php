@@ -48,7 +48,9 @@
 
                 <aside class="article-supplement">
                   <?php 
-                    echo '<p id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>';
+                    if ( has_post_thumbnail() ) { 
+                      echo '<p id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; 
+                    }
                     the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' );
                     /* Adds Jetpack "Like" button iframe back in.
                     // @todo Uncomment if we need this crufty crap (don't forget to activate the JP likes module)
