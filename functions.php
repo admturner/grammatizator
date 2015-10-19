@@ -411,6 +411,7 @@ function gramm_list_authors( $args = '' ) {
     }
     
     // If the user has Nursing Clio title filled in, otherwise set it to Contributor as default
+    // TODO Remove nctitle functionality to external plugin
     if ( $args['show_grammtitle'] ) {
       if ( get_the_author_meta( 'grammtitle', $author->ID ) ) {
         $nctitle = '<p class="nc-title">' . get_the_author_meta( 'grammtitle', $author->ID ) . '</p>';
