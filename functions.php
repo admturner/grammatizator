@@ -418,6 +418,8 @@ function gramm_list_authors( $args = '' ) {
       } else {
         $nctitle = '<p class="nc-title">Contributor</p>';
       }
+    } else {
+      $nctitle = '';
     }
 
     // If user has Twitter field filled in prep it, otherwise reset
