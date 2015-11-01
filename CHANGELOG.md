@@ -66,6 +66,7 @@ Changelog formatting (http://semver.org/):
 - Make sure author exists before displaying info on author page
 - Tidy unneeded php opens/closes in author.php
 - Recompressed production CSS
+- Move margin from first paragraph tag to article header to allow for more varied article content
 
 ### Added
 

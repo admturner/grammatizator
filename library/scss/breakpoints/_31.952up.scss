@@ -104,19 +104,19 @@ POSTS & CONTENT STYLES
 
 /* entry content */
 .entry-content {
-	
 	p {
 		font-size: 1.125em;
 		margin: 0 0 1.5em;
 	}
-
 } /* end .entry-content */
 
 .single {
 	.entry-content {
+		.article-header {
+			margin-bottom: .5em;
+		}
 		.intro, p:first-of-type {
 			font-size: 1.25em;
-			margin-top: .5em;
 		}
 	}
 }

@@ -2274,9 +2274,11 @@ and small.
   }
 
   /* end .entry-content */
+  .single .entry-content .article-header {
+    margin-bottom: .5em;
+  }
   .single .entry-content .intro, .single .entry-content p:first-of-type {
     font-size: 1.25em;
-    margin-top: .5em;
   }
 
   .wp-caption, .wp-feature {
@@ -2591,8 +2593,8 @@ article content).
     font-size: .95em;
   }
 
-  .single .entry-content .intro, .single .entry-content p:first-of-type {
-    margin-top: .75em;
+  .single .article-layout .article-header {
+    margin-bottom: .75em;
   }
 
   .entry-content {
