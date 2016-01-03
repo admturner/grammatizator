@@ -26,8 +26,8 @@
 
                   <p class="entry-details entry-meta">
 
-                    <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &#9830; %2$s',
-                       '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>',
+                    <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &bull; %2$s',
+                       '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>' . gramm_has_multiple_authors(),
                        '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'                       
                     ); ?>
 
@@ -66,7 +66,24 @@
 
                   <h4>About the Author</h4>
 
-                  <?php gramm_list_authors( 'include='.get_the_author_meta( 'ID' ).'&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' ); ?>
+                  <?php 
+                    $multiauthor_values = get_post_custom_values( 'Additional author username' );
+                    if ( !$multiauthor_values ) {
+                      gramm_list_authors( 'include=' . get_the_author_meta( 'ID' ) . '&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' );
+                    } else {
+                      // First create array with standard post author ID
+                      $authors = get_the_author_meta( 'ID' );
+                      // Now loop through custom meta values
+                      foreach ( $multiauthor_values as $key => $value ) {
+                        // Get each additional author's metadata
+                        $addauthor = get_user_by( 'login', $value );
+                        // Push additional author's user ID to the array
+                        $authors .= ', ' . $addauthor->ID;
+                      }
+                      // Feed array to custom list authors function
+                      gramm_list_authors( 'include=' . $authors . '&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' );
+                    }
+                  ?>
 
                 </footer> <?php // end article footer ?>
 

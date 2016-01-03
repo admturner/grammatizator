@@ -75,6 +75,7 @@ Changelog formatting (http://semver.org/):
 
 ### Added
 
+- Functions to allow listing multiple authors using custom post metadata fields
 - Celebration images to assets
 
 ### Removed

@@ -160,8 +160,7 @@ if ( ! isset( $content_width ) ) {
  * @since Grammatizator 0.4
  */
 add_image_size( 'gramm-small', 362 );
-add_image_size( 'gramm-xl', 1030 );
-add_image_size( 'gramm-feature', 1030, 400, true );
+add_image_size( 'gramm-feature', 1024 );
 
 /**
  * Add image sizes to media manager dropdown
@@ -177,8 +176,7 @@ add_image_size( 'gramm-feature', 1030, 400, true );
 function gramm_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'gramm-small' => __('Small (362px)'),
-        'gramm-xl' => __('Extra large (1030px)'),
-        'gramm-feature' => __('1030 by 400'),
+        'gramm-feature' => __('Feature (1024px')
     ) );
 }
 add_filter( 'image_size_names_choose', 'gramm_custom_image_sizes' );
@@ -330,8 +328,8 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
       <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
       <h2 class="entry-title single-title" itemprop="headline" rel="bookmark"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
       <p class="entry-details entry-meta">
-        <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &#9830; %2$s',
-           '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>',
+        <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &bull; %2$s',
+           '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>' . gramm_has_multiple_authors(),
            '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'                       
         ); ?>
       </p>
@@ -465,13 +463,35 @@ function gramm_list_authors( $args = '' ) {
 
       $return .= '</div>';
     $return .= '</section>'; // End output
-  } /* End foreach loop */
+  } // End foreach loop
 
   if ( ! $args['echo'] ) {
     return $return;
   }
 
   echo $return;
+}
+
+/**
+ * Include Multiple Authors
+ * 
+ * Check for multiple authors listed using WordPress's built in custom
+ * post fields. List them if they exist.
+ * 
+ * @uses WP Custom Fields
+ * @since Grammatizator 0.8
+ */
+function gramm_has_multiple_authors() {
+  $multiauthor_values = get_post_custom_values( 'Additional author username' );
+  if ( $multiauthor_values ) {
+    $penult = count($multiauthor_values) - 1;
+    $return = '';
+    foreach ( $multiauthor_values as $key => $value ) {
+      $addauthor = get_user_by( 'login', $value );
+      $return .= ($key != $penult ? ', ' : ', and ') . ' <a href="' . get_author_posts_url( $addauthor->ID ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . $addauthor->first_name. ' ' . $addauthor->last_name . '</a>';
+    }
+    return $return;
+  }
 }
 
 /************** DONATE MODULE ******************/
