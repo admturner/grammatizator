@@ -1,4 +1,4 @@
-# Grammatizator 0.8
+# Grammatizator 0.8.1
 
 A word-centric and minimalist theme for WordPress, built atop the great [Bones](http://themble.com/bones) starter theme by Eddie Machado (learn more about Bones [below](#about-bones)). This isn't a child theme, but it can be used as a parent theme. It's built using HTML5 and aims to maximize accessibility and responsiveness. If you notice bugs, holes, or Things That Could Be Better, I'm entirely open to contribution. Just let me know. :)
 
