@@ -23,7 +23,7 @@ Changelog formatting (http://semver.org/):
 
 ---
 
-## 1.5 unreleased (the future)
+<!-- ## 1.5 unreleased (the future)
 
 ### To Do
 
@@ -50,6 +50,7 @@ Changelog formatting (http://semver.org/):
 - Keep working on making JetPack share with Twitter button include both site handle and author handle in auto text (see https://github.com/Automattic/jetpack/blob/master/modules/sharedaddy/sharing-sources.php and https://github.com/Automattic/Co-Authors-Plus-Social-Pack/blob/master/co-authors-plus-social-pack.php)
 
 ---
+-->
 
 ## 0.8 update (the future)
 
@@ -57,6 +58,10 @@ Changelog formatting (http://semver.org/):
 
 - Move too-specific content from functions.php into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files) [Search: todo Generalize]
 - Update README.md to reflect move of NC-specific functions to plugin
+
+### Fixed
+
+- Call to undefined variable: tag_arr in /library/bones.php
 
 ### Changed
 
