@@ -44,7 +44,6 @@ Changelog formatting (http://semver.org/):
 - Compress JS
 - Add Autoprefixer to makefile workflow (just in case)
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
-- Change single post title from h1 to h2 (while keeping styling)
 - Keep working on making JetPack share with Twitter button include both site handle and author handle in auto text (see https://github.com/Automattic/jetpack/blob/master/modules/sharedaddy/sharing-sources.php and https://github.com/Automattic/Co-Authors-Plus-Social-Pack/blob/master/co-authors-plus-social-pack.php)
 
 ---
@@ -64,6 +63,7 @@ Changelog formatting (http://semver.org/):
 
 ### Changed
 
+- Single post title from h1 to h2 (while keeping styling) for accessibility hierarchy
 - Sanitize user input for Twitter and Grammatizator Title user meta profile fields
 - Update archive.php pages gramm_archive() function for content
 - Alter "page not found" message for main blog archive

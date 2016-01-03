@@ -22,7 +22,7 @@
                   
                   <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
 
-                  <h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
+                  <h2 class="entry-title single-title h1" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
 
                   <p class="entry-details entry-meta">
 
