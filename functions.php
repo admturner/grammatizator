@@ -630,9 +630,13 @@ function gramm_save_profile_fields( $user_id ) {
   // first check permissions
   if ( !current_user_can( 'edit_user', $user_id ) )
     return false;
-  // Copy and paste this line for additional fields. Make sure to change the field ID.
-  update_usermeta( $user_id, 'twitter', $_POST['twitter'] );
-  update_usermeta( $user_id, 'grammtitle', $_POST['grammtitle'] );
+  
+  // sanitize Twitter handle to remove `@` symbol
+  $grammtitle = sanitize_text_field( $_POST['grammtitle'] );
+  $twitter = sanitize_text_field( str_replace( '@', '', $_POST['twitter'] ) );
+
+  update_user_meta( $user_id, 'twitter', $twitter );
+  update_user_meta( $user_id, 'grammtitle', $grammtitle );
 }
 
 add_action( 'personal_options_update', 'gramm_save_profile_fields' );

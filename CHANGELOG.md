@@ -43,8 +43,6 @@ Changelog formatting (http://semver.org/):
 - Get makefile working
 - Compress JS
 - Add Autoprefixer to makefile workflow (just in case)
-- Debug: "Notice: update_usermeta is deprecated since version 3.0! Use update_user_meta() instead. in /home/nursingclio/nursingclio.org/wp-includes/functions.php on line 3391"
-- Determine feature image size and/or aspect ratio for functions.php
 - Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
 - Change single post title from h1 to h2 (while keeping styling)
 - Keep working on making JetPack share with Twitter button include both site handle and author handle in auto text (see https://github.com/Automattic/jetpack/blob/master/modules/sharedaddy/sharing-sources.php and https://github.com/Automattic/Co-Authors-Plus-Social-Pack/blob/master/co-authors-plus-social-pack.php)
@@ -52,7 +50,7 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
-## 0.8 update (the future)
+## 0.8.1 update 2016-01-02
 
 ### Todo
 
@@ -62,9 +60,11 @@ Changelog formatting (http://semver.org/):
 ### Fixed
 
 - Call to undefined variable: tag_arr in /library/bones.php
+- Switch to using update_user_meta() instead of update_usermeta() (deprecated since version 3.0)
 
 ### Changed
 
+- Sanitize user input for Twitter and Grammatizator Title user meta profile fields
 - Update archive.php pages gramm_archive() function for content
 - Alter "page not found" message for main blog archive
 - Only display author info on author page if author has posts
