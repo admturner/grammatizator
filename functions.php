@@ -436,7 +436,7 @@ function gramm_list_authors( $args = '' ) {
     $authorlink = '<a class="fn" href="' . get_author_posts_url( $author->ID, $author->user_nicename ) . '" title="' . esc_attr( sprintf(__("Posts by %s"), $author->display_name) ) . '">' . $name . '</a>';
 
     // Start output
-    $return .= '<section id="author-id-' . $author->ID . '" class="author ' . $args['layout'] . ' vcard">';
+    $return .= '<section id="author-id-' . $author->ID . '" class="author ' . $args['layout'] . ' vcard cf">';
       if ( $args['avatarsize'] > 0 ) {
         // Do if avatarsize is greater than 0
         $return .= '<div class="avatar-wrap avatar-size-' . $args['avatarsize'] . 'px">';

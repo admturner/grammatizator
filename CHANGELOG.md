@@ -56,7 +56,7 @@ Changelog formatting (http://semver.org/):
 ### Fixed
 
 - Missing translation textdomain
-- 
+- Missing clearfix and margin for multiple author bios
 
 ---
 

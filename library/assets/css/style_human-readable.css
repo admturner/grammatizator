@@ -2926,7 +2926,7 @@ you can add resource intensive styles.
   .article-layout .byline {
     width: 70.72%;
     /* cp(722.875, 1022.146); */
-    margin: 0 auto;
+    margin: 0 auto 1.5em;
   }
 
   /* end article-layout */
