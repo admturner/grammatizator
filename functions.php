@@ -183,8 +183,8 @@ add_image_size( 'gramm-feature', 1024, 405, true );
  */
 function gramm_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
-        'gramm-small' => __('Small (362px)'),
-        'gramm-feature' => __('Feature (1024px')
+        'gramm-small' => __('Small (362px)', 'bonestheme'),
+        'gramm-feature' => __('Feature (1024 by 405)', 'bonestheme')
     ) );
 }
 add_filter( 'image_size_names_choose', 'gramm_custom_image_sizes' );

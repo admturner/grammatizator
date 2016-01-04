@@ -51,6 +51,15 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
+## 0.8.3 bugfix 2016-01-04
+
+### Fixed
+
+- Missing translation textdomain
+- 
+
+---
+
 ## 0.8.2 update 2016-01-03
 
 ### Fixed
