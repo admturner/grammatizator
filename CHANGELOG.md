@@ -36,8 +36,10 @@ Changelog formatting (http://semver.org/):
 
 ### To Do
 
+- Move too-specific content from functions.php into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files) [Search: todo Generalize]
+- Update README.md to reflect move of NC-specific functions to plugin
 - BUG: Comments (on old posts, at least, listed as None even when there are comments)
-- Style image galleries
+- Finish styling image galleries (especially to account for multiple image sizes)
 - Run validator assessments and correct as needed
 - Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
 - Get makefile working
@@ -49,12 +51,7 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
-## 0.8.1 update 2016-01-02
-
-### Todo
-
-- Move too-specific content from functions.php into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files) [Search: todo Generalize]
-- Update README.md to reflect move of NC-specific functions to plugin
+## 0.8.2 update 2016-01-03
 
 ### Fixed
 
@@ -63,6 +60,8 @@ Changelog formatting (http://semver.org/):
 
 ### Changed
 
+- Brought index.php and single-custom_type.php into line with other layouts
+- Replace content of format-gallery.php with format.php
 - Single post title from h1 to h2 (while keeping styling) for accessibility hierarchy
 - Sanitize user input for Twitter and Grammatizator Title user meta profile fields
 - Update archive.php pages gramm_archive() function for content
@@ -75,6 +74,9 @@ Changelog formatting (http://semver.org/):
 
 ### Added
 
+- library/inc/template-tags.php as better home for custom template tags
+- Template tag grammatizator_post_thumbnail to produce feature image content
+- Template tag grammatizator_post_thumbnail_caption to produce feature image caption
 - Modest support for image gallery columns
 - Functions to allow listing multiple authors using custom post metadata fields
 - Celebration images to assets
@@ -82,6 +84,8 @@ Changelog formatting (http://semver.org/):
 ### Removed
 
 - Delete sidebar from archive pages
+
+---
 
 ## 0.7.1 bugfix (2015-07-08)
 

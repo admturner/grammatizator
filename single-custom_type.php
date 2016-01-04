@@ -25,13 +25,7 @@
 
                 <header class="article-header">
 
-                  <?php if ( has_post_thumbnail() ) {
-                      $id = get_post_thumbnail_id();
-                      $img = wp_prepare_attachment_for_js( $id );
-                      echo '<figure id="attachment_' . $id . '" aria-describedby="figcaption_' . $id . '" class="wp-feature" itemscope itemtype="http://schema.org/ImageObject">';
-                        the_post_thumbnail( 'large' );
-                      echo '</figure>';
-                  } ?>
+                  <?php grammatizator_post_thumbnail( 'large' ); ?>
                   
                   <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
 
@@ -46,24 +40,31 @@
 
                   </p>
 
+                  <div class="sharing-container">
+                    <p>Sharing</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
+                  </div>
+
                 </header><?php // end article header ?>
-
-                <aside class="article-supplement">
-
-                  <?php echo '<figcaption id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; ?>
-
-                  <p><a href="#comments-title"><?php comments_number( 'No comments', 'One comment', '% comments' ); ?></a></p>
-
-                  <?php the_tags( '<p class="tag-titles"><span>' . __( 'Filed under:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-
-                  <p class="sharing">Share on:</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
-                </aside>
 
                 <section class="article-content entry-content cf" itemprop="articleBody">
                   
                   <?php the_content(); ?>
 
                 </section> <?php // end article section ?>
+
+                <aside class="article-supplement">
+                  <?php 
+                    grammatizator_post_thumbnail_caption();
+
+                    the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' );
+                    /* Adds Jetpack "Like" button iframe back in.
+                    // @todo Uncomment if we need this crufty crap (don't forget to activate the JP likes module)
+                    if ( class_exists( 'Jetpack_Likes' ) ) {
+                      $gramm_likes = new Jetpack_Likes;
+                      echo $gramm_likes->post_likes( '' );
+                    } */
+                  ?>
+                </aside>
 
                 <footer class="article-footer">
 

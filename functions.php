@@ -41,25 +41,36 @@
  * @since Grammatizator 0.4
  * 
  * @todo Generalize: Add function_exists() wrappers to allow use of Grammatizator as a parent theme
+ * @todo Move template tags to library/inc/template-tags.php
  */
 
 /************** LOAD DEPENDENCIES **************/
 /**
- * Load Bones Core (if you remove this, the theme will break)
+ * Load Bones Core
  *
  * @since Bones 1.71
  */
-require_once( 'library/bones.php' );
+require_once get_template_directory() . '/library/inc/bones.php';
 
-// Customize The Wordpress Admin. Edit the file library/admin.php if you'd like.
-require_once( 'library/admin.php' );
+/**
+ * Customize The Wordpress Admin
+ * 
+ * @since Bones 1.71
+ */
+require_once get_template_directory() . '/library/inc/admin.php';
+
+/**
+ * @since Grammatizator 0.8.1
+ */
+require_once get_template_directory() . '/library/inc/template-tags.php';
 
 /** 
  * Load Grammatizator shortcodes
  *
  * @since Grammatizator 0.4
+ * @todo Maybe move these to a companion helper plugin
  */
-include_once( 'library/shortcodes.php' );
+require_once get_template_directory() . '/library/inc/shortcodes.php';
 
 /***************** LAUNCH BONES ***************/
 /**
@@ -79,9 +90,6 @@ function bones_ahoy() {
 
   // Get language support going, if you need it
   load_theme_textdomain( 'bonestheme', get_template_directory() . '/library/translation' );
-
-  // USE THIS TEMPLATE TO CREATE CUSTOM POST TYPES EASILY
-  require_once( 'library/custom-post-type.php' );
 
   // Launching Bones operation cleanup
   add_action( 'init', 'bones_head_cleanup' );
@@ -160,7 +168,7 @@ if ( ! isset( $content_width ) ) {
  * @since Grammatizator 0.4
  */
 add_image_size( 'gramm-small', 362 );
-add_image_size( 'gramm-feature', 1024 );
+add_image_size( 'gramm-feature', 1024, 405, true );
 
 /**
  * Add image sizes to media manager dropdown
@@ -319,12 +327,10 @@ function bones_comments( $comment, $args, $depth ) {
 function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class('archive-layout cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
     <header class="article-header">
-      <?php if ( has_post_thumbnail() && !empty( $featuresize ) ) {
-        $id = get_post_thumbnail_id();
-        echo '<figure id="attachment_' . $id . '" class="wp-feature" itemscope itemtype="http://schema.org/ImageObject">';
-          the_post_thumbnail( $featuresize );
-        echo '</figure>';
+      <?php if ( !empty( $featuresize ) ) {
+          grammatizator_post_thumbnail( $featuresize );
       } ?>
+
       <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
       <h2 class="entry-title single-title" itemprop="headline" rel="bookmark"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
       <p class="entry-details entry-meta">
@@ -693,4 +699,3 @@ function gramm_jpog_add_related( $related, $post_ID ) {
 }
 add_filter( 'jetpack_sharing_twitter_related', 'gramm_jpog_add_related', 10, 2 );
 
-/* DON'T DELETE THIS CLOSING TAG */ ?>

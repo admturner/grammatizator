@@ -12,13 +12,7 @@
 
                 <header class="article-header">
 
-                  <?php if ( has_post_thumbnail() ) {
-                      $id = get_post_thumbnail_id();
-                      $img = wp_prepare_attachment_for_js( $id );
-                      echo '<figure id="attachment_' . $id . '" aria-describedby="figcaption_' . $id . '" class="wp-feature" itemscope itemtype="http://schema.org/ImageObject">';
-                        the_post_thumbnail( 'large' );
-                      echo '</figure>';
-                  } ?>
+                  <?php grammatizator_post_thumbnail( 'large' ); ?>
                   
                   <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
 
@@ -48,9 +42,8 @@
 
                 <aside class="article-supplement">
                   <?php 
-                    if ( has_post_thumbnail() ) { 
-                      echo '<p id="figcaption_' . $id . '" class="wp-caption-text" itemprop="description">Headline image: ' . $img['caption'] .'</figcaption></figure>'; 
-                    }
+                    grammatizator_post_thumbnail_caption();
+
                     the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' );
                     /* Adds Jetpack "Like" button iframe back in.
                     // @todo Uncomment if we need this crufty crap (don't forget to activate the JP likes module)
@@ -59,14 +52,13 @@
                       echo $gramm_likes->post_likes( '' );
                     } */
                   ?>
-
                 </aside>
 
                 <footer class="article-footer">
 
                   <h4>About the Author</h4>
 
-                  <?php 
+                  <?php // @todo Move this to /library/inc/template-tags.php
                     $multiauthor_values = get_post_custom_values( 'Additional author username' );
                     if ( !$multiauthor_values ) {
                       gramm_list_authors( 'include=' . get_the_author_meta( 'ID' ) . '&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' );
