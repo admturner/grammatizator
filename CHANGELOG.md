@@ -51,6 +51,14 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
+## 0.8.4 formatfix 2016-02-12
+
+### Fixed
+
+- Remove excessive margins and padding on gallery layouts
+
+---
+
 ## 0.8.3 bugfix 2016-01-04
 
 ### Fixed
