@@ -16,4 +16,4 @@ Allow: /wp-content/themes/grammatizator/library/css/
 Allow: /wp-content/themes/grammatizator/library/js/
 Allow: /wp-content/themes/grammatizator/library/assets/images/
 Allow: /wp-content/plugins/ricg-responsive-images/js/
-Sitemap: http://nursingclio.org/sitemap.xml
+Sitemap: https://nursingclio.org/sitemap.xml

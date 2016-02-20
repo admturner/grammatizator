@@ -2,7 +2,7 @@
 
 A word-centric and minimalist theme for WordPress, built atop the great [Bones](http://themble.com/bones) starter theme by Eddie Machado (learn more about Bones [below](#about-bones)). This isn't a child theme, but it can be used as a parent theme. It's built using HTML5 and aims to maximize accessibility and responsiveness. If you notice bugs, holes, or Things That Could Be Better, I'm entirely open to contribution. Just let me know. :)
 
-**IMPORTANT NOTE ON USAGE**: If you choose to use this theme for yourself, please note that it was built for 1 site in particular -- [Nursing Clio](http://nursgingclio.org/) -- and so *cannot* be dropped in to another site without editing the theme files directly. I hope to change this in future versions, but for now them's the breaks.
+**IMPORTANT NOTE ON USAGE**: If you choose to use this theme for yourself, please note that it was built for 1 site in particular -- [Nursing Clio](https://nursgingclio.org/) -- and so *cannot* be dropped in to another site without editing the theme files directly. I hope to change this in future versions, but for now them's the breaks.
 
 Designed and Built by: Adam Turner
 <https://github.com/admturner/grammatizator>

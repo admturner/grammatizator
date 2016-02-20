@@ -5,7 +5,7 @@
  * This file handles the admin area and functions. You can use this file to 
  * make changes to the dashboard. This file is called by the functions file.
  * 
- * Adjusted by: Adam Turner {@link http://adamturner.org/}
+ * Adjusted by: Adam Turner {@link https://adamturner.org/}
  * Developed by: Eddie Machado {@link http://themble.com/bones/}
  * Special Thanks for code & inspiration to: @jackmcconnell 
  * {@link http://www.voltronik.co.uk/} and Digging into WP 
