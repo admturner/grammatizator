@@ -51,11 +51,21 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
+## 0.9.1 formatfix 2016-02-21
+
+### Fixed
+
+- Correct font family and size for `p` tags within `blockquote` tags
+
+---
+
 ## 0.9 update 2016-02-20
 
 ### Changed
 
 - Switch to https protocol
+
+---
 
 ## 0.8.4 formatfix 2016-02-12
 

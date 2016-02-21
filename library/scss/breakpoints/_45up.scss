@@ -384,8 +384,9 @@ POSTS & CONTENT STYLES
 	}
 
 	/* Blockquotes */
-	figure.quote {
-		font-size: 1.15em;
+	figure.quote blockquote,
+	figure.quote p {
+		font-size: 1.15rem;
 	}
 
 	/* Pull quotes */
