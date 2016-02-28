@@ -53,6 +53,10 @@ Changelog formatting (http://semver.org/):
 
 ## 0.9.2 update FUTURE
 
+### Changed
+
+- Update default icon with higher res version
+
 ### Added
 
 - Space for Facebook app_id (todo: Move this to plugin or set as WP option)
