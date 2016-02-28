@@ -680,7 +680,10 @@ function gramm_jpog_add_twitter_creator( $og_tags ) {
       $og_tags['twitter:creator'] = esc_attr( '@' . get_the_author_meta( 'twitter', $p->post_author ) );
     }
   }
-  
+
+  // always include <meta property="fb:app_id" content="your_app_id" />
+  $og_tags['fb:app_id'] = esc_attr( '1685806704992498' );
+
   return $og_tags;
 }
 add_filter( 'jetpack_open_graph_tags', 'gramm_jpog_add_twitter_creator', 11 );

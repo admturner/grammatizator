@@ -51,6 +51,14 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
+## 0.9.2 update FUTURE
+
+### Added
+
+- Space for Facebook app_id (todo: Move this to plugin or set as WP option)
+
+---
+
 ## 0.9.1 formatfix 2016-02-21
 
 ### Fixed
