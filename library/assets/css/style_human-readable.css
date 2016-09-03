@@ -1970,8 +1970,8 @@ POSTS & CONTENT STYLES
 		.size-medium {}
 		.size-thumbnail {}
 */
-/* 
-	A flexible youtube embed container 
+/*
+	A flexible youtube embed container
 	Following techinque from Rachel McCollin's http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
 	Which is itself based on Thierry Koblenz's http://alistapart.com/article/creating-intrinsic-ratios-for-video
 */
@@ -2134,8 +2134,8 @@ COMMENT STYLES
 .comment:not(.depth-1) {
   margin-left: 2em;
 }
-.comment.bypostauthor .vcard {
-  background-color: #5d777d;
+.comment.bypostauthor article {
+  border: 3px solid #b24523;
 }
 
 /* comment meta */
