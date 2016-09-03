@@ -831,6 +831,7 @@ ul.sharing li,
 .sharing-container ul li {
   /* end twitter */
   /* end facebook */
+  /* end instagram */
   /* end google plus */
 }
 ul.sharing li a, ul.sharing li a:visited,
@@ -866,6 +867,21 @@ ul.sharing li a.share-facebook,
   ul.sharing li a.share-facebook:active,
   .sharing-container ul li a.share-facebook:active {
     background-color: #8ea1c8;
+  }
+}
+ul.sharing li a.share-instagram,
+.sharing-container ul li a.share-instagram {
+  background-color: #cd486b;
+}
+@media only screen and (min-width: 31.952em) {
+  ul.sharing li a.share-instagram:hover, ul.sharing li a.share-instagram:focus,
+  .sharing-container ul li a.share-instagram:hover,
+  .sharing-container ul li a.share-instagram:focus {
+    background-color: #892640;
+  }
+  ul.sharing li a.share-instagram:active,
+  .sharing-container ul li a.share-instagram:active {
+    background-color: #e398ac;
   }
 }
 ul.sharing li a.share-google-plus-1,

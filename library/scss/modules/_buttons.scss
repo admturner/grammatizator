@@ -67,7 +67,7 @@ and it will create a button dependant on those variables.
 
 } // end minimal button
 
-.btn-blue, 
+.btn-blue,
 #respond .form-submit input#comment-submit,
 .contact-submit input[type="submit"] {
   @extend %btn; // here we load the btn defaults
@@ -89,7 +89,7 @@ Our sharing buttons
 */
 ul.sharing,
 .sharing-container ul {
-  
+
     li {
       a, a:visited {
         @extend %btn;
@@ -125,6 +125,21 @@ ul.sharing,
           } // end active
         }
       } /* end facebook */
+
+      a.share-instagram {
+        background-color: #cd486b;
+        
+        @media only screen and (min-width: 31.952em) {
+          &:hover,
+          &:focus {
+            background-color: darken(#cd486b, 20%);
+          } // end hover
+
+          &:active {
+            background-color: lighten(#cd486b, 20%);
+          } // end active
+        }
+      } /* end instagram */
 
       a.share-google-plus-1 {
         background-color: #dd4b39;
