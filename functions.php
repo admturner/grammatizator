@@ -679,6 +679,9 @@ function gramm_jpog_add_twitter_creator( $og_tags ) {
     if ( get_the_author_meta( 'twitter', $p->post_author ) ) {
       $og_tags['twitter:creator'] = esc_attr( '@' . get_the_author_meta( 'twitter', $p->post_author ) );
     }
+  } else {
+    // if not a post page, set the og:image property to the site logo
+    $og_tags['og:image'] = esc_url( get_template_directory_uri() . '/library/images/nc-icon_300x300.jpg' );
   }
 
   // always include <meta property="fb:app_id" content="your_app_id" />
