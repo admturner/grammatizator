@@ -5,10 +5,10 @@
 			<div class="footer-wrap cf">
 
 				<nav role="navigation" aria-label="<?php esc_html_e( 'Footer Navigation', 'bonestheme' ); ?>">
-					<?php /* Admin stuff 
+					<?php /* Admin stuff
 						if ( current_user_can( 'delete-posts' ) ) {
 							$adminlinks = '<li class="admin"><a href="' . esc_url( get_admin_url() ) . '">Backend</a></li><li class="admin"><a href="' . get_edit_post_link() . '">Edit this page</a></li>';
-						} 
+						}
 						' . $adminlinks . '
 						Add this back in when have time to debug it.
 						*/
@@ -39,6 +39,7 @@
 					<ul class="sharing inline-items">
 						<li><a class="share-facebook" rel="nofollow" href="<?php echo esc_url( 'https://www.facebook.com/NursingClio' ); ?>">Facebook</a></li>
 						<li><a class="share-twitter" rel="nofollow" title="Nursing Clio on Twitter @nursingclio" href="<?php echo esc_url( 'https://twitter.com/nursingclio' ); ?>">Twitter</a></li>
+						<li><a class="share-instagram" rel="nofollow" title="Nursing Clio on Instagram @nursingclio" href="<?php echo esc_url( 'https://www.instagram.com/nursingclio/' ); ?>">Instagram</a></li>
 					</ul>
 				</div>
 
@@ -55,10 +56,10 @@
 
 		</footer>
 
-		<?php 
+		<?php
 			/**
 			 * Global navigation using the footer-anchor method
-			 * 
+			 *
 			 * @todo Create a fallback function (in functions.php) just in case
 			 */
 		?>
