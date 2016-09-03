@@ -7,8 +7,8 @@ Grammatizator is (for now) a theme specially built and designed for the group-ru
 Author: Adam Turner
 URL: https://github.com/admturner/grammatizator
 
-<!-- 
-Changelog formatting (http://semver.org/): 
+<!--
+Changelog formatting (http://semver.org/):
 
 ## Major.MinorAddorDeprec.Bugfix YYYY-MM-DD
 
@@ -51,7 +51,12 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
-## 0.9.2 update FUTURE
+## 0.9.2 update 2016-09-03
+
+### Fixed
+
+- CSS issue where Firefox doesn't recognize percentage values for text-indent
+- Mis-styling of comments by post author
 
 ### Changed
 
@@ -59,7 +64,8 @@ Changelog formatting (http://semver.org/):
 
 ### Added
 
-- Space for Facebook app_id (todo: Move this to plugin or set as WP option)
+- Add Instagram link to sharing footer (move to dynamic instead of hard-coded content)
+- Add space for Facebook app_id (todo: Move this to plugin or set as WP option)
 
 ---
 

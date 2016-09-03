@@ -140,10 +140,10 @@ NAVIGATION STYLES
 	top: 0;
 	width: 100%;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
-	
+
 	.nav {
 		margin: 0 1em;
-		
+
 		li {
 			display: inline-block;
 
@@ -153,11 +153,11 @@ NAVIGATION STYLES
 				text-transform: uppercase;
 			}
 		} /* end global-nav .nav li */
-		
+
 		li.homeward {
 			vertical-align: middle;
 			margin: .3em .414em .5em .818em;
-			
+
 			a {
 				width: 24px;
 				height: 24px;
@@ -168,9 +168,19 @@ NAVIGATION STYLES
 				white-space: nowrap;
 				vertical-align: middle;
 				background: url(/wp-content/themes/grammatizator/library/assets/images/nc-icon_homeward-nav.svg) no-repeat center;
-				
+
 				&:hover, &:focus {
 					background-color: transparent;
+				}
+			}
+
+			/* Firefox doesn't understand percentage values for
+			   text-indent, so use this to target FF with a px
+			   version
+			*/
+			@-moz-document url-prefix() {
+				a {
+					text-indent: -9999px;
 				}
 			}
 
@@ -228,7 +238,7 @@ body.admin-bar {
 }
 @media screen and ( max-width: 782px ) {
 	body.admin-bar {
-		.global-nav { 
+		.global-nav {
 			top: 46px;
 		}
 	}
@@ -539,10 +549,10 @@ FOOTER STYLES
 
 .footer {
 
-	.bloginfo, 
+	.bloginfo,
 	.copyright {
 		a, a:visited {
-			
+
 			&:hover, &:focus {
 				color: $white;
 			}

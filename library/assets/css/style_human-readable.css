@@ -2533,6 +2533,10 @@ article content).
   .global-nav .nav li.homeward {
     vertical-align: middle;
     margin: .3em .414em .5em .818em;
+    /* Firefox doesn't understand percentage values for
+       text-indent, so use this to target FF with a px
+       version
+    */
   }
   .global-nav .nav li.homeward a {
     width: 24px;
@@ -2547,6 +2551,11 @@ article content).
   }
   .global-nav .nav li.homeward a:hover, .global-nav .nav li.homeward a:focus {
     background-color: transparent;
+  }
+  @-moz-document url-prefix() {
+    .global-nav .nav li.homeward a {
+      text-indent: -9999px;
+    }
   }
   .global-nav .nav li.nav-to-top {
     display: none;
