@@ -167,7 +167,7 @@ H1, H2, H3, H4, H5 STYLES
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	/* text-rendering: optimizelegibility; @todo Maybe breaking IE. Replace when fixed. */
 	font-weight: 700; // Watch your weights, our imported fonts both use 700 weight for bold. @see http://css-tricks.com/watch-your-font-weight/
-	
+
 	/* removing text decoration from all headline links */
 	a, a:visited, a:hover, a:active {
 		text-decoration: none;
@@ -225,7 +225,7 @@ HEADER STYLES
 			margin-left: 2%;
 			color: $yellow;
 			border: none;
-			
+
 			// @todo Don't really need this here. Move to larger breakpoint file
 			&:hover, &:focus {
 				color: $meta-gray;
@@ -251,7 +251,7 @@ and more scalable.
 
 	li {
 		display: inline-block;
-		
+
 		a {
 			display: block;
 			text-decoration: none;
@@ -372,7 +372,7 @@ and more scalable.
 
 /* @todo Test if this media query is necessary to keep menu from screwing up at larger sizes */
 @media only screen and (max-width: 45em) {
-	
+
 	.global-nav {
 		.search-form {
 			/* Move input[type=search] {} size rules from above into here if ever fancy up the big search */
@@ -470,7 +470,7 @@ POSTS & CONTENT STYLES
 	display: inline-block;
 	vertical-align: top;
 	margin-bottom: 1em;
-	
+
 	.bio-wrap {
 		text-align: center;
 		font-size: .8em;
@@ -491,7 +491,7 @@ POSTS & CONTENT STYLES
 
 .hentry {
 	margin-bottom: 1.5em;
-	
+
 	header {
 		a, a:visited {
 			color: $black;
@@ -548,7 +548,7 @@ POSTS & CONTENT STYLES
 			margin-bottom: 1.5em;
   			padding-bottom: .75em;
   			border-bottom: 1px solid lighten($gray, 5%);
-			
+
 			.avatar-wrap {
 				margin-right: 4%;
 				margin-bottom: 1.5em;
@@ -558,8 +558,8 @@ POSTS & CONTENT STYLES
 				margin: 0;
 				display: block;
 
-				.nc-title, 
-				.social-links, 
+				.nc-title,
+				.social-links,
 				.author-bio {
 					margin: .5em 0;
 				}
@@ -734,7 +734,7 @@ POSTS & CONTENT STYLES
 
 	.quote {
 		margin-bottom: 1.5em;
-		
+
 		figcaption {
 			text-align: right;
 			margin: .25em .5em;
@@ -917,8 +917,8 @@ POSTS & CONTENT STYLES
 		.size-thumbnail {}
 */
 
-/* 
-	A flexible youtube embed container 
+/*
+	A flexible youtube embed container
 	Following techinque from Rachel McCollin's http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
 	Which is itself based on Thierry Koblenz's http://alistapart.com/article/creating-intrinsic-ratios-for-video
 */
@@ -1149,8 +1149,8 @@ COMMENT STYLES
 	&.children {}
 	&.pingback {}
 	&.bypostauthor {
-		.vcard {
-			background-color: $bluegray;
+		article {
+			border: 3px solid $red;
 		}
 	}
 	&.comment-author {}
