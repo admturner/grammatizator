@@ -1,15 +1,15 @@
 <?php
-/** 
+/**
  * Welcome to Bones :)
  * This is the core Bones file where most of the
  * main functions & features reside. If you have
  * any custom functions, it's best to put them
  * in the functions.php file.
- * 
+ *
  * Developed by: Eddie Machado
  * @link http://themble.com/bones/
  * All since Bones 1.71
- * 
+ *
  * Revised by: Adam Turner
  * @link https://github.com/admturner/grammatizator
  *
@@ -24,7 +24,7 @@
  *  - customizing the post excerpt
  *  - custom google+ integration
  *  - adding custom fields to user profiles
- * 
+ *
  * @package WordPress
  * @subpackage Grammatizator
  * @since Grammatizator 0.4
@@ -33,7 +33,7 @@
 /************** < HEAD > CLEANUP ***************/
 /**
  * WP_HEAD Goodness
- * 
+ *
  * The default wordpress head is a mess. Let's clean it up by
  * removing all the junk we don't need.
  *
@@ -208,7 +208,7 @@ function bones_theme_support() {
 			'chat'               // chat transcript
 		)
 	);*/
-	
+
 
 	// wp menus
 	add_theme_support( 'menus' );
@@ -253,7 +253,7 @@ function bones_related_posts() {
 			</div>
 		<?php } else { ?>
 			<!-- No related posts yet. -->
-			<?php // echo '<p class="no_related_post">' . __( 'No Related Posts Yet!', 'bonestheme' ) . '</p>';			
+			<?php // echo '<p class="no_related_post">' . __( 'No Related Posts Yet!', 'bonestheme' ) . '</p>';
 		}
 	}
 	wp_reset_postdata();
