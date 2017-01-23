@@ -51,7 +51,7 @@ NAVIGATION STYLES
 	border: 0;
 
 	ul {
-		background: $black;
+		background: $color-black;
 		margin-top: 0;
 	}
 	li {
@@ -195,7 +195,7 @@ NAVIGATION STYLES
 		li.current-page-item,
 		li.current-page-ancestor {
 			a {
-				color: $black;
+				color: $color-black;
 			}
 		}  /* end current highlighters */
 
@@ -220,6 +220,7 @@ NAVIGATION STYLES
 		}
 	} /* end global-nav .nav */
 
+	/* @TODO convert this transition into a sass mixin */
 	.search-form {
 		.search-submit {
 			&:hover, &:active {
@@ -325,11 +326,11 @@ WORDPRESS BODY CLASSES
 			a, a:visited {
 				padding: .5em;
 				display: block;
-				background-color: $light-gray;
-				border: 1px solid darken($light-gray, 15);
+				background-color: $color-light-gray;
+				border: 1px solid darken($color-light-gray, 15);
 
 				&:hover, &:focus {
-					background-color: lighten($light-gray, 40);
+					background-color: lighten($color-light-gray, 40);
 					transition: background-color 0.14s ease-in-out;
 				}
 			}
@@ -433,7 +434,7 @@ POSTS & CONTENT STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-	background-color: $white;
+	background-color: $color-white;
 }
 
 .comment_content p {
@@ -554,7 +555,7 @@ FOOTER STYLES
 		a, a:visited {
 
 			&:hover, &:focus {
-				color: $white;
+				color: $color-white;
 			}
 			&:active {
 				color: lighten($link-color, 90%);
@@ -568,10 +569,10 @@ FOOTER STYLES
 				border-radius: 5px;
 
 				&:hover, &:focus {
-					background-color: lighten($black, 13%);
+					background-color: lighten($color-black, 13%);
 				}
 				&:active {
-					background-color: darken($black, 15%);
+					background-color: darken($color-black, 15%);
 				}
 			}
 		}

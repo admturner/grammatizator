@@ -18,9 +18,9 @@ No one likes a mess.
 BREAKPOINTS
 
 Declaring major and minor breakpoints here.
-We're using content- and design-specific breakpoints, 
+We're using content- and design-specific breakpoints,
 rather than trying to target the ever-changing market
-of devices. We're also using ems instead of pixels to 
+of devices. We're also using ems instead of pixels to
 help account for users who like to zooooooom.
 @see http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/
 
@@ -39,33 +39,31 @@ $break-xl: 50em;
 COLORS
 *********************/
 
-/* Utility */
-$black:             #323934;
-$white:             #fff;
+/* Brand Colors */
+$color-brand-yellow:    #ffe545;
+$color-brand-bluegray:  #5d777d;
+$color-brand-red:       #b24523;
 
-/* Neutrals */
-$light-gray:        #f8f9fa;
-$gray:              #eaedf2;
-$meta-gray:         #9fa6b4;
-$tan:               #eceee5;
+/* Neutral Colors */
+$color-black:           #323934;
+$color-white:           #fff;
+$color-light-gray:      #f8f9fa;
+$color-gray:            #eaedf2;
+$color-meta-gray:       #9fa6b4;
+$color-tan:             #eceee5;
+$color-disabled-gray:   #cfcfcf;
 
-/* Site Colors */
-$yellow:			#ffe545;
-$bluegray:          #5d777d;
-$red:        		#b24523;
-$blue:              #2b65bc;
-$purple:			#39467f; /* @todo Delete - Not using */
+/* Utility Colors */
 
-/* Components */
-$alert-yellow:      #ebe16f;
-$alert-red:         #fbe3e4;
-$alert-green:       #e6efc2;
-$alert-blue:        #d5edf8;
+$color-utility-navigation:  #2b65bc;
+$color-utility-positive:    #e6efc2;
+$color-utility-caution:     #ebe16f;
+$color-utility-negative:    #fbe3e4;
+$color-utility-neutral:     #d5edf8;
 
-$text-color:        $black;
+$text-color:        $color-black;
 
-$link-color:        $blue;
+$link-color:        $color-utility-navigation;
 $link-hover:        lighten($link-color, 25%);
 
-$border-color:      $light-gray;
-$disabled-gray:     #cfcfcf;
+$border-color:      $color-light-gray;

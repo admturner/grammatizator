@@ -20,24 +20,24 @@ you can just remove this stylesheet.
 
 .alert-help {
   @extend %alert;
-  border-color: darken($alert-yellow, 5%);
-  background: $alert-yellow;
+  border-color: darken($color-utility-caution, 5%);
+  background: $color-utility-caution;
 }
 
 .alert-info {
   @extend %alert;
-  border-color: darken($alert-blue, 5%);
-  background: $alert-blue;
+  border-color: darken($color-utility-neutral, 5%);
+  background: $color-utility-neutral;
 }
 
 .alert-error {
   @extend %alert;
-  border-color: darken($alert-red, 5%);
-  background: $alert-red;
+  border-color: darken($color-utility-negative, 5%);
+  background: $color-utility-negative;
 }
 
 .alert-success {
   @extend %alert;
-  border-color: darken($alert-green, 5%);
-  background: $alert-green;
+  border-color: darken($color-utility-positive, 5%);
+  background: $color-utility-positive;
 }

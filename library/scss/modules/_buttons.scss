@@ -30,7 +30,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   font-family: $sans-serif;
   text-decoration: none;
   border-bottom: none !important;
-  color: $white !important; // @todo Find a way to avoid using !important here
+  color: $color-white !important; // @todo Find a way to avoid using !important here
   font-size: 1em;
   font-weight: normal;
   padding: .414em .828em;
@@ -40,7 +40,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   @include transition(background-color 0.14s ease-in-out);
 
   &:hover, &:focus {
-    color: $white;
+    color: $color-white;
     text-decoration: none;
     border-bottom: none;
   }
@@ -54,15 +54,15 @@ and it will create a button dependant on those variables.
 */
 .btn-minimal {
   @extend %btn; // here we load the btn defaults
-  background-color: $meta-gray;
+  background-color: $color-meta-gray;
 
   &:hover,
   &:focus {
-    background-color: darken($meta-gray, 12%);
+    background-color: darken($color-meta-gray, 12%);
   } // end hover
 
   &:active {
-    background-color: darken($meta-gray, 20%);
+    background-color: darken($color-meta-gray, 20%);
   } // end active
 
 } // end minimal button
@@ -71,15 +71,15 @@ and it will create a button dependant on those variables.
 #respond .form-submit input#comment-submit,
 .contact-submit input[type="submit"] {
   @extend %btn; // here we load the btn defaults
-  background-color: $blue;
+  background-color: $color-utility-navigation;
 
   &:hover,
   &:focus {
-    background-color: darken($blue, 20%);
+    background-color: darken($color-utility-navigation, 20%);
   } // end hover
 
   &:active {
-    background-color: lighten($blue, 20%);
+    background-color: lighten($color-utility-navigation, 20%);
   } // end active
 
 } // end blue button

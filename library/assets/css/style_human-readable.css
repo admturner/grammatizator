@@ -513,9 +513,9 @@ No one likes a mess.
 BREAKPOINTS
 
 Declaring major and minor breakpoints here.
-We're using content- and design-specific breakpoints, 
+We're using content- and design-specific breakpoints,
 rather than trying to target the ever-changing market
-of devices. We're also using ems instead of pixels to 
+of devices. We're also using ems instead of pixels to
 help account for users who like to zooooooom.
 @see http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/
 
@@ -532,11 +532,9 @@ $break-xl: 50em;
 /*********************
 COLORS
 *********************/
-/* Utility */
-/* Neutrals */
-/* Site Colors */
-/* @todo Delete - Not using */
-/* Components */
+/* Brand Colors */
+/* Neutral Colors */
+/* Utility Colors */
 /******************************************************************
 Theme Name: Grammatizator
 Author: Adam Turner
@@ -1339,6 +1337,20 @@ a:link, a:visited:link {
 .content-wrap p a:hover, .content-wrap p a:focus, .content-wrap p a:visited:hover, .content-wrap p a:visited:focus {
   border-bottom: 1px solid #d7e3f6;
 }
+.content-wrap p .footnote-link, .content-wrap p .footnote-link:visited {
+  color: white;
+  background-color: #6f9bde;
+  border-radius: .4rem;
+  padding: 0 .5rem;
+  margin-left: .1rem;
+}
+.content-wrap p .footnote-link:hover, .content-wrap p .footnote-link:focus, .content-wrap p .footnote-link:visited:hover, .content-wrap p .footnote-link:visited:focus {
+  color: #6f9bde;
+  background-color: #d7e3f6;
+}
+.content-wrap p .footnote-link sup, .content-wrap p .footnote-link:visited sup {
+  top: -0.2em;
+}
 
 /* end content links */
 /******************************************************************
@@ -1817,8 +1829,9 @@ POSTS & CONTENT STYLES
 .entry-content aside.quote {
   margin-bottom: 1.5em;
 }
-.entry-content aside.poem {
-  padding: 0 1.5em;
+.entry-content aside.poem,
+.entry-content .inset {
+  padding: 1em 1.5em 0;
   border: 1px solid #eaedf2;
 }
 .entry-content dd {
@@ -2033,7 +2046,7 @@ PAGE NAVI STYLES
   padding: 0.75em;
   min-width: 1em;
   display: block;
-  /*color: $meta-gray;*/
+  /*color: $color-meta-gray;*/
 }
 .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
   background-color: #2b65bc;
@@ -2384,6 +2397,7 @@ and small.
   }
   .single .entry-content .intro, .single .entry-content > p:first-of-type {
     font-size: 1.25em;
+    line-height: 1.6;
   }
 
   .wp-caption, .wp-feature {
@@ -2513,6 +2527,7 @@ article content).
     width: 100%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
     /* end global-nav .nav */
+    /* @TODO convert this transition into a sass mixin */
     /* end .search-form */
   }
   .global-nav .nav {

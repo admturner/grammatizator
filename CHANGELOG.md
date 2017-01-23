@@ -51,6 +51,23 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
+## 0.9.3 update 2017-01-22
+
+### Added
+
+- New styling of footnote links in articles to help them stand out and be a little easier to select on mobile
+
+### Fixed
+
+- Remove unclosed `a` tag in the author bio messing with the comments links
+
+### Changed
+
+- Rename color namespaces and organization to align with pattern library
+- Tweak to increase lead paragraph line height
+
+---
+
 ## 0.9.2 update 2016-09-03
 
 ### Fixed

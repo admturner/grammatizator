@@ -9,7 +9,7 @@
  * slow the page load.
  *
  * Dependencies: jQuery
- * 
+ *
  * @since Grammatizator 0.4
  */
 
@@ -117,14 +117,14 @@ jQuery(document).ready(function($) {
   /* Toggly nav menu learned and liberally borrowed from:
    * http://www.filamentgroup.com/lab/responsive-design-approach-for-navigation.html
    * http://http://alistapart.com/
-   * 
+   *
    * This script mostly just watches for clicks on the Menu button and toggles
    * some classes, then CSS does the rest to handle display and styling.
-   * 
+   *
    * @since Grammatizator 0.4
    */
   $('.global-nav').addClass('fancy');
-  
+
   $('.nav-jump').click(function(event){
     var navvy=$("html").hasClass('show-nav');
 
@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
   $('.global-nav').click(function(event){
     event.stopPropagation();
   });
-  
+
   $('body').click(function(){
     $('html').removeClass('show-nav');
   });
