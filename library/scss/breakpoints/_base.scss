@@ -46,7 +46,7 @@ WORDPRESS BODY CLASSES
 .rtl {} /* for sites that are read right to left (i.e. hebrew) */
 .home {
 	.sticky {
-		background-color: $bluegray;
+		background-color: $color-brand-bluegray;
   		margin-top: 1.5em;
   		padding: 0 2%;
   		border-radius: 4px;
@@ -56,7 +56,7 @@ WORDPRESS BODY CLASSES
 	  	}
 
 	  	a, a:visited {
-			color: $white;
+			color: $color-white;
 		}
 	} /* sticky post on home page */
 
@@ -83,7 +83,7 @@ WORDPRESS BODY CLASSES
 .author {
 
 	.byline {
-		border-bottom: 3px solid $gray;
+		border-bottom: 3px solid $color-gray;
 
 		.avatar-wrap {
 			margin-top: 1.5em;
@@ -156,6 +156,24 @@ a, a:visited {
 
 			}
 		}
+
+		.footnote-link, .footnote-link:visited {
+			color: white;
+			background-color: #6f9bde;
+			border-radius: .4rem;
+			padding: 0 .5rem;
+			margin-left: .1rem;
+
+			&:hover, &:focus {
+				color: #6f9bde;
+				background-color: lighten($link-hover, 20%);
+			}
+
+			sup {
+				top: -0.2em;
+			}
+		}
+
 	}
 
 } /* end content links */
@@ -218,17 +236,17 @@ HEADER STYLES
 		padding: 0.5em 0;
 		font-weight: normal;
 		font-size: 2em;
-		background-color: $black;
+		background-color: $color-black;
 		text-transform: uppercase;
 
 		a, a:visited {
 			margin-left: 2%;
-			color: $yellow;
+			color: $color-brand-yellow;
 			border: none;
 
 			// @todo Don't really need this here. Move to larger breakpoint file
 			&:hover, &:focus {
-				color: $meta-gray;
+				color: $color-meta-gray;
 				border: none;
 			}
 		}
@@ -306,7 +324,7 @@ and more scalable.
 } /* end .nav */
 
 .global-nav {
-	background: $white;
+	background: $color-white;
 	background: white(.95);
 
 	.nav {
@@ -315,7 +333,7 @@ and more scalable.
 			display: block;
 
 			a {
-				border-top: 1px solid $meta-gray;
+				border-top: 1px solid $color-meta-gray;
 				font-weight: bold;
 			}
 
@@ -340,11 +358,11 @@ and more scalable.
 			width: 80% !important;
 			width: calc(100% - 64px) !important;
 			margin: 0;
-			background-color: $black;
+			background-color: $color-black;
   			border-radius: 0;
 
   			&:active, &:focus {
-  				background-color: $alert-blue;
+  				background-color: $color-utility-neutral;
   			}
 		}
 
@@ -386,7 +404,7 @@ and more scalable.
 		max-width: 24em;
 		top: 4.594em;
 		right: 0;
-		border-bottom: 3px solid $blue;
+		border-bottom: 3px solid $color-utility-navigation;
 	}
 
 	.nav-jump {
@@ -397,7 +415,7 @@ and more scalable.
 		z-index: 100;
 		width: 2.414em;
 		height: 35px;
-		background-color: $white;
+		background-color: $color-white;
 		background-image: url(/wp-content/themes/grammatizator/library/assets/images/menuwich.svg);
 		background-repeat: no-repeat;
 		background-position: center;
@@ -438,7 +456,7 @@ and more scalable.
 		line-height: 32px;
 		text-align: center;
 		text-indent: 0;
-		background: $white;
+		background: $color-white;
 	}
 } /* end fancy-nav media query */
 
@@ -494,13 +512,13 @@ POSTS & CONTENT STYLES
 
 	header {
 		a, a:visited {
-			color: $black;
+			color: $color-black;
 		}
 	}
 
 
 	footer {
-		border-top: 6px solid $bluegray;
+		border-top: 6px solid $color-brand-bluegray;
 
 		h5, p {
 			margin: 0;
@@ -547,7 +565,7 @@ POSTS & CONTENT STYLES
 			clear: both;
 			margin-bottom: 1.5em;
   			padding-bottom: .75em;
-  			border-bottom: 1px solid lighten($gray, 5%);
+  			border-bottom: 1px solid lighten($color-gray, 5%);
 
 			.avatar-wrap {
 				margin-right: 4%;
@@ -631,7 +649,7 @@ POSTS & CONTENT STYLES
 }
 
 .article-supplement {
-	border-top: 1px solid $gray;
+	border-top: 1px solid $color-gray;
 	padding-top: .75em;
 
 	p {
@@ -640,7 +658,7 @@ POSTS & CONTENT STYLES
 } /* end article supplement */
 
 #sources {
-	border-top: 2px solid $light-gray;
+	border-top: 2px solid $color-light-gray;
 	margin-top: 1.5em;
 
 	p, .footnotes {
@@ -693,29 +711,29 @@ POSTS & CONTENT STYLES
 
 	table {
 		width: 100%;
-		border: 1px solid $gray;
+		border: 1px solid $color-gray;
 		margin-bottom: 1.5em;
 
 		caption {
 			margin: 0 0 7px;
 			font-size: 0.75em;
-			color: $meta-gray;
+			color: $color-meta-gray;
 			text-transform: uppercase;
 			letter-spacing: 1px;
 		}
 	}
 
 	tr {
-		border-bottom: 1px solid $gray;
+		border-bottom: 1px solid $color-gray;
 
 		&:nth-child(even) {
-			background-color: $light-gray;
+			background-color: $color-light-gray;
 		}
 	}
 
 	td {
 		padding: 7px;
-		border-right: 1px solid $gray;
+		border-right: 1px solid $color-gray;
 
 		&:last-child {
 			border-right: 0;
@@ -723,9 +741,9 @@ POSTS & CONTENT STYLES
 	}
 
 	th {
-		background-color: $light-gray;
-		border-bottom: 1px solid $gray;
-		border-right: 1px solid $gray;
+		background-color: $color-light-gray;
+		border-bottom: 1px solid $color-gray;
+		border-right: 1px solid $color-gray;
 
 		&:last-child {
 			border-right: 0;
@@ -744,7 +762,7 @@ POSTS & CONTENT STYLES
 	blockquote {
 		margin: 0 0 .25em 0.5em;
   		padding: 0 0.5em 0 .75em;
-		border-left: 4px solid $bluegray;
+		border-left: 4px solid $color-brand-bluegray;
 	}
 	blockquote p {
 		font-family: $sans-serif;
@@ -752,9 +770,10 @@ POSTS & CONTENT STYLES
 	aside.quote {
 		margin-bottom: 1.5em;
 	}
-	aside.poem {
-		padding: 0 1.5em;
-		border: 1px solid $gray;
+	aside.poem,
+	.inset {
+		padding: 1em 1.5em 0;
+		border: 1px solid $color-gray;
 	}
 
 	dl {}
@@ -769,8 +788,8 @@ POSTS & CONTENT STYLES
 	}
 
 	pre {
-		background: $black;
-		color: $light-gray;
+		background: $color-black;
+		color: $color-light-gray;
 		font-size: 0.9em;
 		padding: 1.5em;
 		margin: 0 0 1.5em;
@@ -968,7 +987,7 @@ PAGE NAVI STYLES
       display: inline-block;
       overflow: hidden;
       border-radius: 3px;
-      border: 1px solid $meta-gray;
+      border: 1px solid $color-meta-gray;
     }
 
     a, span {
@@ -982,11 +1001,11 @@ PAGE NAVI STYLES
       padding: 0.75em;
       min-width: 1em;
       display: block;
-      /*color: $meta-gray;*/
+      /*color: $color-meta-gray;*/
 
       &:hover, &:focus {
-      	background-color: $blue;
-      	color: $white;
+      	background-color: $color-utility-navigation;
+      	color: $color-white;
       	border: none;
       }
     }
@@ -996,7 +1015,7 @@ PAGE NAVI STYLES
     	color: $text-color;
 
     	&:hover, &:focus {
-    		background-color: $white;
+    		background-color: $color-white;
     		color: $text-color;
     	}
     }
@@ -1025,7 +1044,7 @@ COMMENT STYLES
 /* h3 comment title */
 #comments-title {
 	padding: 1em;
-	border-top: 6px solid $light-gray;
+	border-top: 6px solid $color-light-gray;
 
 	/* number of comments span */
 	span {}
@@ -1053,7 +1072,7 @@ COMMENT STYLES
 	overflow: hidden;
 
 	article {
-		border: 1px solid $bluegray;
+		border: 1px solid $color-brand-bluegray;
 		border-radius: 10px;
 		padding: .5em .75em;
 		margin-bottom: 1.5em;
@@ -1082,7 +1101,7 @@ COMMENT STYLES
 			font-style: italic;
 
 			a {
-				color: $red;
+				color: $color-brand-red;
 				text-decoration: none;
 
 				&:hover {
@@ -1150,7 +1169,7 @@ COMMENT STYLES
 	&.pingback {}
 	&.bypostauthor {
 		article {
-			border: 3px solid $red;
+			border: 3px solid $color-brand-red;
 		}
 	}
 	&.comment-author {}
@@ -1211,7 +1230,7 @@ COMMENT FORM STYLES
 .comment-respond {
 	@extend .cf;
 	padding: 1.5em;
-	border-top: 1px solid $light-gray;
+	border-top: 1px solid $color-light-gray;
 }
 
 	#reply-title {
@@ -1219,7 +1238,7 @@ COMMENT FORM STYLES
 	}
 
 	.logged-in-as {
-		color: $meta-gray;
+		color: $color-meta-gray;
 		font-style: italic;
 		margin: 0;
 
@@ -1234,7 +1253,7 @@ COMMENT FORM STYLES
 
 	.form-allowed-tags {
 		padding: 1.5em;
-		background-color: $light-gray;
+		background-color: $color-light-gray;
 		font-size: 0.9em;
 	}
 
@@ -1276,25 +1295,25 @@ SIDEBARS & ASIDES
 .bloginfo {
 	margin: .5em .75em 1em;
 		padding: 0 1em .75em;
-	background-color: lighten($black, 8%);
-	border: 1px solid $bluegray;
+	background-color: lighten($color-black, 8%);
+	border: 1px solid $color-brand-bluegray;
 
 	h3 {
 		text-transform: uppercase;
-		color: $yellow;
+		color: $color-brand-yellow;
 	}
 }
 
 .sidebar {
 	margin: 0 -2%;
 	padding: .5em .75em;
-	background-color: $tan;
+	background-color: $color-tan;
 }
 
 .offset-columns {
 	h3 {
 		text-transform: uppercase;
-		border-bottom: 1px solid $meta-gray;
+		border-bottom: 1px solid $color-meta-gray;
 	}
 }
 
@@ -1302,10 +1321,10 @@ SIDEBARS & ASIDES
 	margin: 0 -2%;
 
 	.bloginfo {
-		background-color: $light-gray;
+		background-color: $color-light-gray;
 
 		h3 {
-			color: $black;
+			color: $color-black;
 		}
 	}
 }
@@ -1313,11 +1332,11 @@ SIDEBARS & ASIDES
 .widgettitle {
 	font-size: 1.4em;
 		margin: .25em 0;
-		color: $red;
+		color: $color-brand-red;
 }
 
 .widget {
-	background-color: $white;
+	background-color: $color-white;
 	background-color: white(.95);
 	margin: 1.5em 0;
 	padding: .25em .75em;
@@ -1352,27 +1371,27 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $black;
-	color: $light-gray;
+	background-color: $color-black;
+	color: $color-light-gray;
 	margin-top: 1.999em;
 
 	.site-description {
-		background-color: $yellow;
+		background-color: $color-brand-yellow;
 		min-width: 320px;
 		margin-top: 0;
 		padding-left: 2%;
 		font-weight: normal;
-		color: $black;
+		color: $color-black;
 	}
 
 	a, a:visited {
-		color: $white;
+		color: $color-white;
 		color: white(.8);
 	}
 
 	p, .bloginfo {
 		a, a:visited {
-			border-bottom: 1px solid $white;
+			border-bottom: 1px solid $color-white;
 			border-bottom: 1px solid white(.5);
 		}
 	}
