@@ -19,10 +19,10 @@ NAVIGATION STYLES
 	margin: 0;
 
 	li {
-		
+
 		a {
 			&:hover, &:focus {
-				color: $white;
+				color: $color-white;
 			}
 		}
 
@@ -70,7 +70,7 @@ NAVIGATION STYLES
 	.nav {
 
 		li {
-		
+
 			a {
 				transition: background-color 0.25s ease-in-out, color .2s ease-in-out;
 
@@ -117,6 +117,7 @@ POSTS & CONTENT STYLES
 		}
 		.intro, > p:first-of-type {
 			font-size: 1.25em;
+			line-height: 1.6;
 		}
 	}
 }
@@ -127,12 +128,12 @@ POSTS & CONTENT STYLES
 } /* end .wp-caption */
 
 .hentry {
-	
+
 	header {
 		a, a:visited {
 
 			&:hover, &:focus {
-				color: lighten($black, 40%);
+				color: lighten($color-black, 40%);
 			}
 		}
 	}
