@@ -63,6 +63,7 @@ Changelog formatting (http://semver.org/):
 
 ### Changed
 
+- Use `gramm-feature` instead of `large` to allow max feature image width of 1024px
 - Rename color namespaces and organization to align with pattern library
 - Tweak to increase lead paragraph line height
 

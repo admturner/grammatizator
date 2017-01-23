@@ -1,9 +1,9 @@
               <?php
                 /**
                  * This is the default post format.
-                 * 
+                 *
                  * In the Loop
-                 * 
+                 *
                  * @since Grammatizator 0.4
                  */
               ?>
@@ -12,8 +12,8 @@
 
                 <header class="article-header">
 
-                  <?php grammatizator_post_thumbnail( 'large' ); ?>
-                  
+                  <?php grammatizator_post_thumbnail( 'gramm-feature' ); ?>
+
                   <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
 
                   <h2 class="entry-title single-title h1" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
@@ -22,7 +22,7 @@
 
                     <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &bull; %2$s',
                        '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>' . gramm_has_multiple_authors(),
-                       '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'                       
+                       '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'
                     ); ?>
 
                   </p>
@@ -34,14 +34,14 @@
                 </header><?php // end article header ?>
 
                 <section class="article-content entry-content cf" itemprop="articleBody">
-                  
+
                   <?php the_content(); ?>
                   <?php // @todo Add Like buttons back in. ?>
 
                 </section> <?php // end article section ?>
 
                 <aside class="article-supplement">
-                  <?php 
+                  <?php
                     grammatizator_post_thumbnail_caption();
 
                     the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' );
@@ -82,4 +82,3 @@
               </article> <?php // end article ?>
 
               <?php comments_template(); ?>
-
