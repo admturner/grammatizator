@@ -1753,6 +1753,7 @@ POSTS & CONTENT STYLES
 }
 #sources p, #sources .footnotes {
   font-size: .9em;
+  margin: 1.5em 0 0 0;
 }
 
 .single .entry-content .intro, .single .entry-content > p:first-of-type {

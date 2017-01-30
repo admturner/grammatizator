@@ -51,6 +51,14 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
+## 0.9.4 update FUTURE
+
+### Changed
+
+- Switched from using bottom to top margin on .sources paragraph elements to allow spacing when no header is present
+
+---
+
 ## 0.9.3 update 2017-01-22
 
 ### Added
