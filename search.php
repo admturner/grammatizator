@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 		<main id="main" class="content-wrap cf" role="main">
-			
+
 			<h1 class="archive-title"><span><?php _e( 'Search Results for:', 'bonestheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -15,7 +15,7 @@
   						<p class="entry-details entry-meta">
 		                    <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &#9830; %2$s',
 		                       '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>',
-		                       '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'                       
+		                       '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'
 		                    ); ?>
 		                </p>
 
@@ -45,19 +45,16 @@
 
 						<article id="post-not-found" class="article-layout hentry cf">
 							<header class="article-header">
-								<h1><?php _e( 'Sorry, No Results.', 'bonestheme' ); ?></h1>
+								<h2><?php _e( 'Sorry, Could\'t Find Any Results', 'bonestheme' ); ?></h2>
 							</header>
 							<section class="entry-content">
-								<p><?php _e( 'Try your search again.', 'bonestheme' ); ?></p>
+								<p>Try checking your spelling and searching again.</p>
+								<p>If you're looking for posts by a specific author, visit the <a href="/about/meet-the-team/">Meet the Team</a> page to find that author.</p>
+								<p>You can also browse posts by subject on the <a href="/topics/">Topics page</a>.</p>
 							</section>
-							<footer class="article-footer">
-									<p><?php _e( 'This is the error message in the search.php template.', 'bonestheme' ); ?></p>
-							</footer>
 						</article>
 
 				<?php endif; ?>
-
-				<?php get_sidebar(); ?>
 
 			</main>
 
