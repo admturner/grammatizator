@@ -1,12 +1,12 @@
 <?php get_header(); ?>
-		
+
 			<main id="main" class="content-wrap cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 				<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="taxonomy-description">', '</div>' );
 				?>
-				
+
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 					<?php gramm_archive_content( 'medium' ); ?>
