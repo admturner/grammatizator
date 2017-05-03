@@ -55,6 +55,7 @@ Changelog formatting (http://semver.org/):
 
 ### Changed
 
+- Updated to show author bio even when author has no published posts
 - Switched from using bottom to top margin on .sources paragraph elements to allow spacing when no header is present
 - Clarified search page error results with suggestions
 - Removed duplicate author bio on author archive page
