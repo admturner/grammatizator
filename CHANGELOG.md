@@ -51,7 +51,7 @@ Changelog formatting (http://semver.org/):
 ---
 -->
 
-## 0.9.4 update FUTURE
+## 0.9.4 update 2017-11-12
 
 ### Changed
 
@@ -59,6 +59,8 @@ Changelog formatting (http://semver.org/):
 - Switched from using bottom to top margin on .sources paragraph elements to allow spacing when no header is present
 - Clarified search page error results with suggestions
 - Removed duplicate author bio on author archive page
+- Switch to custom feature image function
+- Reduce some padding
 
 ---
 
