@@ -48,11 +48,12 @@ WORDPRESS BODY CLASSES
 	.sticky {
 		background-color: $color-brand-bluegray;
   		margin-top: 1.5em;
-  		padding: 0 2%;
+  		/* padding: 0 2%; */
   		border-radius: 4px;
 
 	  	h3 {
 	  		margin: .75em .25em;
+			text-align: center;
 	  	}
 
 	  	a, a:visited {
