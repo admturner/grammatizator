@@ -1,21 +1,21 @@
-<?php 
+<?php
 /**
  * Template Name: Front Page
- * 
+ *
  * To display the semi-static homepage of the site, with a check to
  * prevent using this template on any page that isn't actually the
  * front page of the site.
- * 
+ *
  * @since Grammatizator 0.4
  */
 get_header();
 		if ( !is_front_page() ) :
 			// If not the front page, just get the standard page.php template
 			include( get_page_template() );
-		else : 
+		else :
 			// If it is the front page, then proceed with the template ?>
 			<main id="main" class="content-wrap cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-			
+
 					<?php // Check for sticky posts, display in top-of-page call-out
 					$s = get_option( 'sticky_posts' );
 					$sargs = array(
@@ -28,6 +28,7 @@ get_header();
 					while ( $sticky->have_posts() ) : $sticky->the_post();
 						if ( isset($s[0]) ) { ?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class('sticky article-layout cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+								<?php grammatizator_post_thumbnail( 'gramm-feature' ); ?>
 								<h3 itemprop="headline" rel="bookmark"><a href="<?php the_permalink(); ?>"><?php the_title(); ?> &rarr;</a></h3>
 							</article>
 						<?php }
@@ -46,7 +47,7 @@ get_header();
 						gramm_archive_content( 'large' );
 						$no_duplicates[] = $post->ID;
 					endwhile;
-					else : 
+					else :
 						// No posts found
 					endif;
 					wp_reset_postdata(); ?>
@@ -72,7 +73,7 @@ get_header();
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>write-for-us" class="btn-blue">Write for Nursing Clio &rarr;</a>
 					</div>
 				</aside>
-				
+
 				<div class="offset-columns">
 					<section class="recent-articles">
 						<?php // Left, column 1: More recent posts ?>
@@ -90,7 +91,7 @@ get_header();
 
 							echo '<p class="articles-read-more-link"><a href="' . esc_url( home_url( '/' ) ) . 'articles" class="btn-blue">Read more articles &rarr;</a></p>';
 
-							else : 
+							else :
 								echo '<!-- No posts found -->';
 							endif;
 						wp_reset_postdata(); ?>
@@ -100,7 +101,7 @@ get_header();
 					<?php // @todo Consider making this a widget area as well ?>
 					<?php // USING SIDEBAR MARKUP ?>
 					<aside id="sidebar" class="info-modules sidebar cf" role="complementary">
-						<?php // 1. About Us ; This is the Footer formatting ?> 
+						<?php // 1. About Us ; This is the Footer formatting ?>
 						<div class="about widget">
 							<h4 class="widgettitle">What is Nursing Clio?</h4>
 							<ul>
