@@ -1,84 +1,82 @@
-              <?php
-                /**
-                 * This is the default post format.
-                 *
-                 * In the Loop
-                 *
-                 * @since Grammatizator 0.4
-                 */
-              ?>
+<?php
+/**
+ * This is the default post format.
+ *
+ * In the Loop
+ *
+ * @since 0.4
+ *
+ * @package Grammatizator
+ */
+?>
 
-              <article id="post-<?php the_ID(); ?>" <?php post_class('article-layout cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'article-layout cf' ); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+	<header class="article-header">
+		<?php grammatizator_post_thumbnail( 'gramm-feature' ); ?>
 
-                <header class="article-header">
+		<div class="category-titles">
+			<?php the_category( ', ' ); ?>
+		</div>
 
-                  <?php grammatizator_post_thumbnail( 'gramm-feature' ); ?>
+		<h2 class="entry-title single-title h1" itemprop="headline" rel="bookmark"><?php the_title(); ?></h2>
 
-                  <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
+		<p class="entry-details entry-meta">
+			<?php
+			/* translators: 1: the author page URL, 2: main author name, 3: potential additional author names, 4: the post publish time in Y-m-d format, 5: the post publish time in default format  */
+			printf( __( '<span class="amp">By</span> <a href="%1$s" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">%2$s</a> %3$s &bull; <time class="pubdate updated entry-time" datetime="%4$s" itemprop="datePublished">%5$s</time>', 'bonestheme' ), // wpcs: XSS ok.
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_html( get_the_author_meta( 'display_name' ) ),
+				gramm_has_multiple_authors(),
+				esc_attr( get_the_time( 'Y-m-d' ) ),
+				esc_html( get_the_time( get_option( 'date_format' ) ) )
+			);
+			?>
+		</p>
 
-                  <h2 class="entry-title single-title h1" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
+		<div class="sharing-container">
+			<p>Sharing</p>
+			<?php
+			if ( function_exists( 'sharing_display' ) ) {
+				sharing_display( '', true );
+			}
+			?>
+		</div>
+	</header>
 
-                  <p class="entry-details entry-meta">
+	<section class="article-content entry-content cf" itemprop="articleBody">
+		<?php the_content(); ?>
+	</section>
 
-                    <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &bull; %2$s',
-                       '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>' . gramm_has_multiple_authors(),
-                       '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'
-                    ); ?>
+	<aside class="article-supplement">
+		<?php grammatizator_post_thumbnail_caption(); ?>
+		<?php the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+	</aside>
 
-                  </p>
+	<footer class="article-footer">
+		<h4>About the Author</h4>
+		<?php // @todo Move this to /library/inc/template-tags.php
+		$multiauthor_values = get_post_custom_values( 'Additional author username' );
+		if ( ! $multiauthor_values ) {
+			gramm_list_authors( 'include=' . get_the_author_meta( 'ID' ) . '&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' );
+		} else {
+			// First create array with standard post author ID
+			$authors = get_the_author_meta( 'ID' );
 
-                  <div class="sharing-container">
-                    <p>Sharing</p> <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
-                  </div>
+			// Now loop through custom meta values
+			foreach ( $multiauthor_values as $key => $value ) {
+				// Get each additional author's metadata
+				$addauthor = get_user_by( 'login', $value );
 
-                </header><?php // end article header ?>
+				// Push additional author's user ID to the array
+				$authors .= ', ' . $addauthor->ID;
+			}
 
-                <section class="article-content entry-content cf" itemprop="articleBody">
+			// Feed array to custom list authors function
+			gramm_list_authors( 'include=' . $authors . '&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' );
+		}
+		?>
+	</footer>
+</article>
 
-                  <?php the_content(); ?>
-                  <?php // @todo Add Like buttons back in. ?>
-
-                </section> <?php // end article section ?>
-
-                <aside class="article-supplement">
-                  <?php
-                    grammatizator_post_thumbnail_caption();
-
-                    the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' );
-                    /* Adds Jetpack "Like" button iframe back in.
-                    // @todo Uncomment if we need this crufty crap (don't forget to activate the JP likes module)
-                    if ( class_exists( 'Jetpack_Likes' ) ) {
-                      $gramm_likes = new Jetpack_Likes;
-                      echo $gramm_likes->post_likes( '' );
-                    } */
-                  ?>
-                </aside>
-
-                <footer class="article-footer">
-
-                  <h4>About the Author</h4>
-
-                  <?php // @todo Move this to /library/inc/template-tags.php
-                    $multiauthor_values = get_post_custom_values( 'Additional author username' );
-                    if ( !$multiauthor_values ) {
-                      gramm_list_authors( 'include=' . get_the_author_meta( 'ID' ) . '&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' );
-                    } else {
-                      // First create array with standard post author ID
-                      $authors = get_the_author_meta( 'ID' );
-                      // Now loop through custom meta values
-                      foreach ( $multiauthor_values as $key => $value ) {
-                        // Get each additional author's metadata
-                        $addauthor = get_user_by( 'login', $value );
-                        // Push additional author's user ID to the array
-                        $authors .= ', ' . $addauthor->ID;
-                      }
-                      // Feed array to custom list authors function
-                      gramm_list_authors( 'include=' . $authors . '&layout=byline&heading_tag=h5&show_grammtitle=0&avatarsize=128' );
-                    }
-                  ?>
-
-                </footer> <?php // end article footer ?>
-
-              </article> <?php // end article ?>
-
-              <?php comments_template(); ?>
+<?php
+comments_template();

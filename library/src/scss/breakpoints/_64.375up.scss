@@ -1,0 +1,153 @@
+/*
+Theme Name: Grammatizator
+Author: Adam Turner
+
+Stylesheet: 64.375em | 1030px Width Stylsheet
+
+This is roughly a standard desktop size.
+*/
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.content-wrap {
+	max-width: 63.884em;
+	padding: 0 2%;
+}
+
+.blog .content-wrap {
+	width: cp(722.875, 1022.146);
+	margin: 1.5em auto;
+}
+
+/* The offset columns. Maybe clean up how these are called */
+.comments-container,
+.home .recent-articles {
+	width: cp(722.875, 1022.146);
+	float: left;
+	display: inline;
+}
+
+.sidebar {
+	width: cp(280, 1022.146);
+	float: right;
+	display: inline;
+	margin-top: 3em;
+}
+
+h1,
+.h1 {
+	font-size: 2.827em;
+	line-height: 1.333em;
+}
+
+.home {
+
+	.latest-articles {
+
+		article:first-of-type {
+			margin: 0 auto;
+
+			header {
+
+				figure {
+					float: left;
+					max-width: 53.48%;
+					margin-right: 3%;
+				}
+			}
+		}
+
+		article:not(:first-of-type) {
+			float: left;
+			margin: 0 2%;
+			width: 46%;
+		}
+	}
+}
+
+.page {
+
+	.the-team-container {
+		margin-left: -20.7%;
+		margin-right: -20.7%;
+
+		.byline {
+			width: 100%;
+		}
+
+		.author-grid {
+			width: 18%;
+			margin-left: 1%;
+			margin-right: 1%;
+		}
+	}
+
+	.topic-categories {
+		margin: 0 -20.7%;
+
+		.cat-item {
+			width: 22%;
+			margin: 0 1%;
+
+			a,
+			a:visited {
+				padding: .5em 0;
+			}
+		}
+	}
+}
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+.sharing-container {
+	float: right;
+	max-width: cp(127.884, 1022.146);
+	margin-top: .75em;
+	font-size: 1em;
+}
+
+.article-layout {
+
+	.article-content,
+	.article-supplement,
+	.byline {
+		width: 70.72%;
+		margin: 0 auto 1.5em;
+	}
+}
+
+.archive-layout {
+	margin: 1.5em auto;
+
+	header figure {
+		float: left;
+		max-width: 53.48%;
+		margin-right: 3%;
+	}
+}
+
+.entry-content {
+
+	.alignleft,
+	img.alignleft {
+		margin-left: -20.7%;
+	}
+
+	.alignright,
+	img.alignright {
+		margin-right: -20.7%;
+	}
+}
+
+.gallery {
+	margin: 0 -20.7%;
+}
+
+.footer .footer-wrap {
+	margin: 2.827em auto;
+	max-width: 63.884em;
+}

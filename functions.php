@@ -36,15 +36,14 @@
  *  - User Profile Fields
  *  - Jetpack Adjustments
  *
- * @package WordPress
- * @subpackage Grammatizator
- * @since Grammatizator 0.4
+ * @since 0.4
+ *
+ * @package Grammatizator
  *
  * @todo Generalize: Add function_exists() wrappers to allow use of Grammatizator as a parent theme
  * @todo Move template tags to library/inc/template-tags.php
  */
 
-/************** LOAD DEPENDENCIES **************/
 /**
  * Load Bones Core
  *
@@ -53,7 +52,7 @@
 require_once get_template_directory() . '/library/inc/bones.php';
 
 /**
- * Customize The Wordpress Admin
+ * Customize The WordPress Admin
  *
  * @since Bones 1.71
  */
@@ -72,7 +71,31 @@ require_once get_template_directory() . '/library/inc/template-tags.php';
  */
 require_once get_template_directory() . '/library/inc/shortcodes.php';
 
-/***************** LAUNCH BONES ***************/
+add_action( 'after_setup_theme', 'bones_ahoy' );
+add_action( 'wp_enqueue_scripts', 'gramm_fonts' );
+add_action( 'customize_register', 'bones_theme_customizer' );
+add_action( 'show_user_profile', 'gramm_add_profile_fields' );
+add_action( 'edit_user_profile', 'gramm_add_profile_fields' );
+add_action( 'personal_options_update', 'gramm_save_profile_fields' );
+add_action( 'edit_user_profile_update', 'gramm_save_profile_fields' );
+add_action( 'loop_start', 'gram_remove_jpshare' );
+
+add_filter( 'image_size_names_choose', 'gramm_custom_image_sizes' );
+add_filter( 'img_caption_shortcode', 'gramm_image_caption_filter', 10, 3 );
+add_filter( 'avatar_defaults', 'nc_default_avatar' );
+add_filter( 'jetpack_open_graph_tags', 'gramm_jpog_add_twitter_creator', 11 );
+add_filter( 'jetpack_sharing_twitter_related', 'gramm_jpog_add_related', 10, 2 );
+
+/**
+ * Creates a script version.
+ *
+ * @since 0.9.5
+ */
+function gramm_get_theme_version() {
+	$version = '0.9.5';
+	return $version;
+}
+
 /**
  * Author: Eddie Machado
  * URL: http://themble.com/bones/
@@ -82,53 +105,55 @@ require_once get_template_directory() . '/library/inc/shortcodes.php';
  * of the WordPress core functions (like the bloated <head> section).
  *
  * @since Bones 1.71
-*/
+ */
 function bones_ahoy() {
+	//Allow editor style.
+	add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
 
-  //Allow editor style.
-  add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
+	// Get language support going, if you need it.
+	load_theme_textdomain( 'bonestheme', get_template_directory() . '/library/translation' );
 
-  // Get language support going, if you need it
-  load_theme_textdomain( 'bonestheme', get_template_directory() . '/library/translation' );
+	// Launching Bones operation cleanup.
+	add_action( 'init', 'bones_head_cleanup' );
 
-  // Launching Bones operation cleanup
-  add_action( 'init', 'bones_head_cleanup' );
-  // A better title
-  add_filter( 'wp_title', 'rw_title', 10, 3 );
-  // remove WP version from RSS
-  add_filter( 'the_generator', 'bones_rss_version' );
-  // remove pesky injected css for recent comments widget
-  add_filter( 'wp_head', 'bones_remove_wp_widget_recent_comments_style', 1 );
-  // clean up comment styles in the head
-  add_action( 'wp_head', 'bones_remove_recent_comments_style', 1 );
-  // clean up gallery output in wp
-  add_filter( 'gallery_style', 'bones_gallery_style' );
+	// A better title.
+	add_filter( 'wp_title', 'rw_title', 10, 3 );
 
-  // enqueue base scripts and styles
-  add_action( 'wp_enqueue_scripts', 'bones_scripts_and_styles', 999 );
-  // ie conditional wrapper
+	// Remove WP version from RSS.
+	add_filter( 'the_generator', 'bones_rss_version' );
 
-  // launching this stuff after theme setup
-  bones_theme_support();
+	// Remove pesky injected css for recent comments widget.
+	add_filter( 'wp_head', 'bones_remove_wp_widget_recent_comments_style', 1 );
 
-  // adding sidebars to Wordpress (these are created in functions.php)
-  add_action( 'widgets_init', 'bones_register_sidebars' );
+	// Clean up comment styles in the head.
+	add_action( 'wp_head', 'bones_remove_recent_comments_style', 1 );
 
-  // cleaning up random code around images
-  add_filter( 'the_content', 'bones_filter_ptags_on_images' );
-  // cleaning up excerpt
-  add_filter( 'excerpt_more', 'bones_excerpt_more' );
+	// Clean up gallery output in wp.
+	add_filter( 'gallery_style', 'bones_gallery_style' );
 
-  // Enable support for HTML5 markup.
-  add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form' ) );
+	// Enqueue base scripts and styles.
+	add_action( 'wp_enqueue_scripts', 'bones_scripts_and_styles', 999 );
 
-} // end bones ahoy
+	// Launching this stuff after theme setup.
+	bones_theme_support();
 
-// let's get this party started
-add_action( 'after_setup_theme', 'bones_ahoy' );
+	// Adding sidebars to WordPress (these are created in functions.php).
+	add_action( 'widgets_init', 'bones_register_sidebars' );
 
+	// Cleaning up random code around images.
+	add_filter( 'the_content', 'bones_filter_ptags_on_images' );
 
-/********** ENQUEUE STYLES AND SCRIPTS ***********/
+	// Cleaning up excerpt.
+	add_filter( 'excerpt_more', 'bones_excerpt_more' );
+
+	// Enable support for HTML5 markup.
+	add_theme_support( 'html5', array(
+		'comment-list',
+		'search-form',
+		'comment-form',
+	) );
+}
+
 /**
  * Enqueue Google Fonts
  *
@@ -139,11 +164,9 @@ add_action( 'after_setup_theme', 'bones_ahoy' );
  * @since Grammatizator 0.4
  */
 function gramm_fonts() {
-  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400italic,700italic,400,700');
+	wp_enqueue_style( 'googleFonts', 'https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400italic,700italic,400,700', array(), gramm_get_theme_version() );
 }
-add_action('wp_enqueue_scripts', 'gramm_fonts');
 
-/************* OEMBED SIZE OPTIONS *************/
 /**
  * Set default media width for if it's missing
  *
@@ -152,8 +175,6 @@ add_action('wp_enqueue_scripts', 'gramm_fonts');
 if ( ! isset( $content_width ) ) {
 	$content_width = 723;
 }
-
-/*************** IMAGE OPTIONS *****************/
 
 /**
  * Add Cumstom Image Sizes
@@ -182,12 +203,11 @@ add_image_size( 'gramm-feature', 1024 );
  * @todo Adjust to match the above sizes
  */
 function gramm_custom_image_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'gramm-small' => __('Small (362px)', 'bonestheme'),
-        'gramm-feature' => __('Feature (1024px)', 'bonestheme')
-    ) );
+	return array_merge( $sizes, array(
+		'gramm-small'   => __( 'Small (362px)', 'bonestheme' ),
+		'gramm-feature' => __( 'Feature (1024px)', 'bonestheme' ),
+	) );
 }
-add_filter( 'image_size_names_choose', 'gramm_custom_image_sizes' );
 
 /**
  * Use HTML5 figure and figcaption for captioned images
@@ -205,47 +225,58 @@ add_filter( 'image_size_names_choose', 'gramm_custom_image_sizes' );
  *
  * @since Grammatizator 0.4
  */
-function gramm_image_caption_filter( $val, $attr, $content = null ) {
+function gramm_image_caption_filter( $val, $atts, $content = null ) {
+	// Not worried about captions in feeds, so just return the output immediately.
+	if ( is_feed() ) {
+		return $val;
+	}
 
-  // Not worried about captions in feeds, so just return the output immediately.
-  if ( is_feed() )
-    return $val;
+	$defaults = array(
+		'id'      => '',
+		'align'   => 'aligncenter',
+		'width'   => '',
+		'caption' => '',
+	);
 
-  extract( shortcode_atts( array(
-    'id'      => '',
-    'align'   => 'aligncenter',
-    'width'   => '',
-    'caption' => ''
-  ), $attr ) );
+	$args = shortcode_atts( $defaults, $atts, 'gblockquote' );
 
-  if ( 1 > (int) $width || empty( $caption ) )
-    return $val;
+	if ( 1 > (int) $args['width'] || empty( $args['caption'] ) ) {
+		return $val;
+	}
 
-  if ( $id )
-    $id = esc_attr( $id );
+	if ( $args['id'] ) {
+		$args['id'] = esc_attr( $args['id'] );
+	}
 
-  return '<figure id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject" style="width: ' . (0 + (int) $width) . 'px">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="wp-caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+	$return = sprintf( '<figure id="%1$s" aria-describedby="figcaption_%1$s" class="wp-caption %2$s" itemscope itemtype="http://schema.org/ImageObject" style="width: %3$dpx">%4$s<figcaption id="figcaption_$1%s" class="wp-caption-text" itemprop="description">%5$s</figcaption></figure>',
+		esc_attr( $args['id'] ),
+		esc_attr( $args['align'] ),
+		esc_attr( 0 + (int) $args['width'] ),
+		do_shortcode( $content ),
+		wp_kses_post( $args['caption'] )
+	);
+
+	return $return;
 }
-add_filter( 'img_caption_shortcode', 'gramm_image_caption_filter', 10, 3 );
 
 /**
- * Add custom default avatar
+ * Add custom default avatar.
  *
  * @todo Generalize: Revise to make generalized to Grammatizator theme
  * @since Grammatizator 0.4
  */
-function nc_default_avatar ( $avatar_defaults ) {
-    // Set URL where the image for the new avatar is located
-    $nc_avatar_url = get_template_directory_uri() . '/library/images/default-nc-avatar.png';
-    // Set the label for the field on the Settings >> Discussion page
-    $avatar_defaults[$nc_avatar_url] = "Nursing Clio";
-    return $avatar_defaults;
-}
-add_filter( 'avatar_defaults', 'nc_default_avatar' );
+function nc_default_avatar( $avatar_defaults ) {
+	// Set URL where the image for the new avatar is located
+	$nc_avatar_url = get_template_directory_uri() . '/library/images/default-nc-avatar.png';
 
-/************* ACTIVE SIDEBARS *****************/
+	// Set the label for the field on the Settings >> Discussion page
+	$avatar_defaults[ $nc_avatar_url ] = 'Nursing Clio';
+
+	return $avatar_defaults;
+}
+
 /**
- * Register sidebars & widgetizes areas
+ * Register sidebars & widgetizes areas.
  *
  * To add more sidebars or widgetized areas, just copy and edit the
  * above sidebar code. Change the name to whatever your new sidebar's
@@ -256,64 +287,79 @@ add_filter( 'avatar_defaults', 'nc_default_avatar' );
  * @todo Generalize: Consider adding some more optional sidebar locations for a more general Grammatizator theme (maybe footer and homepage modules should be in widgets?)
  */
 function bones_register_sidebars() {
-	register_sidebar(array(
-		'id' => 'sidebar1',
-		'name' => __( 'Sidebar 1', 'bonestheme' ),
-		'description' => __( 'The first (primary) sidebar.', 'bonestheme' ),
+	register_sidebar( array(
+		'id'            => 'sidebar1',
+		'name'          => __( 'Sidebar 1', 'bonestheme' ),
+		'description'   => __( 'The first (primary) sidebar.', 'bonestheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-} // don't remove this bracket!
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => '</h4>',
+	) );
+}
 
-/************* COMMENT LAYOUT ******************/
 /**
- * Bones comment layout template
+ * Bones comment layout template.
  *
  * The comment template by the Bones starter theme.
  *
  * @since Bones 1.71
  */
 function bones_comments( $comment, $args, $depth ) {
-   $GLOBALS['comment'] = $comment; ?>
-  <div id="comment-<?php comment_ID(); ?>" <?php comment_class( 'cf' ); ?>>
-    <article class="cf">
-      <header class="comment-author vcard">
-        <?php
-        /**
-         * Bone's JS-optimized gravatar loading
-         *
-         * Uses the new HTML5 data-attribute combined with some
-         * javascript (in library/js/scripts.js) to display comment
-         * gravatars on larger screens only. This means that mobile
-         * sites load a default avatar, and then larger screens (hacky
-         * equivalent to higher bandwidth) swap out the "real" one.
-         */
-        ?>
-        <?php $bgauthemail = get_comment_author_email(); ?>
-        <div class="grav">
-          <img data-gravatar="https://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=64" class="load-gravatar avatar avatar-64 photo" height="64" width="64" src="<?php echo get_template_directory_uri(); ?>/library/images/default-avatar.png" />
-        </div>
-        <?php printf(__( '<cite class="fn">%1$s</cite>', 'bonestheme' ), get_comment_author_link() ) ?>
-        <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'bonestheme' )); ?> </a></time>
-      </header>
-      <?php if ($comment->comment_approved == '0') : ?>
-        <div class="alert alert-info">
-          <p><?php _e( 'Thanks for sharing! Your comment awaits moderation. Please check back soon.', 'bonestheme' ) ?></p>
-        </div>
-      <?php endif; ?>
-      <section class="comment_content cf">
-        <?php comment_text() ?>
-      </section>
-      <?php edit_comment_link(__( '(Edit comment.)', 'bonestheme' ), '', ''); ?>
-      <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-    </article>
-  <?php // </li> is added by WordPress automatically ?>
-<?php
-} // don't remove this bracket!
+	//$GLOBALS['comment'] = $comment;
 
-/************ ARCHIVE PAGE LAYOUT **************/
+	?>
+	<div id="comment-<?php comment_ID(); ?>" <?php comment_class( 'cf' ); ?>>
+		<article class="cf">
+			<header class="comment-author vcard">
+				<?php
+				/*
+				 * Bone's JS-optimized gravatar loading.
+				 *
+				 * Uses the new HTML5 data-attribute combined with some
+				 * javascript (in library/js/scripts.js) to display comment
+				 * gravatars on larger screens only. This means that mobile
+				 * sites load a default avatar, and then larger screens (hacky
+				 * equivalent to higher bandwidth) swap out the "real" one.
+				 */
+				$bgauthemail = get_comment_author_email();
+				?>
+				<div class="grav">
+					<img data-gravatar="https://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); // wpcs: XSS ok. ?>?s=64" class="load-gravatar avatar avatar-64 photo" height="64" width="64" src="<?php echo esc_url( get_template_directory_uri() ); ?>/library/images/default-avatar.png" />
+				</div>
+
+				<?php
+				/* translators: 1: the comment author name and URL */
+				printf( __( '<cite class="fn">%1$s&nbsp;</cite>', 'bonestheme' ), // wpcs: XSS ok.
+					esc_url( get_comment_author_link() )
+				);
+				?>
+
+				<time datetime="<?php echo esc_attr( comment_time( 'Y-m-j' ) ); ?>"><a href="<?php esc_url( htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ); ?>"><?php comment_time( __( 'F jS, Y', 'bonestheme' ) ); ?> </a></time>
+			</header>
+
+			<?php if ( '0' === $comment->comment_approved ) : ?>
+				<div class="alert alert-info">
+					<p><?php esc_html_e( 'Thanks for sharing! Your comment awaits moderation. Please check back soon.', 'bonestheme' ) ?></p>
+				</div>
+			<?php endif; ?>
+
+			<section class="comment_content cf">
+				<?php comment_text() ?>
+			</section>
+
+			<?php edit_comment_link( __( '(Edit comment.)', 'bonestheme' ), '', '' ); ?>
+
+			<?php
+			comment_reply_link( array_merge( $args, array(
+				'depth'     => $depth,
+				'max_depth' => $args['max_depth'],
+			) ) );
+			?>
+		</article>
+		<?php
+}
+
 /**
  * Grammatizator archive page layout template
  *
@@ -324,36 +370,50 @@ function bones_comments( $comment, $args, $depth ) {
  * @todo Generalize: Move this - to /post-formats/ perhaps?
  * @since Grammatizator 0.4
  */
-function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
-  <article id="post-<?php the_ID(); ?>" <?php post_class('archive-layout cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
-    <header class="article-header">
-      <?php if ( !empty( $featuresize ) ) {
-          grammatizator_post_thumbnail( $featuresize );
-      } ?>
+function gramm_archive_content( $featuresize = '', $caption = false ) {
+	?>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'archive-layout cf' ); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+		<header class="article-header">
+			<?php
+			if ( ! empty( $featuresize ) ) {
+				grammatizator_post_thumbnail( $featuresize );
+			}
+			?>
 
-      <div class="category-titles"><?php printf( __( '', 'bonestheme' ).'%1$s', get_the_category_list(', ') ); ?></div>
-      <h2 class="entry-title single-title" itemprop="headline" rel="bookmark"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-      <p class="entry-details entry-meta">
-        <?php printf( __( '<span class="amp">By</span>', 'bonestheme' ).' %1$s &bull; %2$s',
-           '<a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_meta( 'display_name' ) . '</a>' . gramm_has_multiple_authors(),
-           '<time class="pubdate updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>'
-        ); ?>
-      </p>
-    </header><?php // end article header ?>
-    <section class="article-content excerpt entry-content cf" itemprop="articleBody">
-      <?php the_excerpt(); ?>
-    </section>
-    <aside class="article-supplement">
-      <?php the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-    </aside>
-    <footer class="article-footer">
-    </footer>
-  </article><?php // end archive page excerpt format
+			<div class="category-titles">
+				<?php get_the_category_list( ', ' ); ?>
+			</div>
+
+			<h2 class="entry-title single-title" itemprop="headline" rel="bookmark">
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			</h2>
+			<p class="entry-details entry-meta">
+				<?php
+				/* translators: 1: the author page URL, 2: main author name, 3: potential additional author names, 4: the post publish time in Y-m-d format, 5: the post publish time in default format  */
+				printf( __( '<span class="amp">By</span> <a href="%1$s" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">%2$s</a> %3$s &bull; <time class="pubdate updated entry-time" datetime="%4$s" itemprop="datePublished">%5$s</time>', 'bonestheme' ), // wpcs: XSS ok.
+					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+					esc_html( get_the_author_meta( 'display_name' ) ),
+					gramm_has_multiple_authors(),
+					esc_attr( get_the_time( 'Y-m-d' ) ),
+					esc_html( get_the_time( get_option( 'date_format' ) ) )
+				);
+				?>
+			</p>
+		</header>
+
+		<section class="article-content excerpt entry-content cf" itemprop="articleBody">
+			<?php the_excerpt(); ?>
+		</section>
+
+		<aside class="article-supplement">
+			<?php the_tags( '<p class="tag-titles"><span>' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+		</aside>
+	</article>
+	<?php
 }
 
-/*********** AUTHOR LIST FUNCTIONS *************/
 /**
- * Custom List Users
+ * Custom List Users.
  *
  * Custom function to generate a list of blog authors,
  * built based on WordPress' native wp_list_users function,
@@ -366,116 +426,126 @@ function gramm_archive_content( $featuresize = '', $caption = FALSE ) { ?>
  * bio (user description field) then enter 9999.
  *
  * @todo Generalize: Figure out what is general functionality and what is NC-specific
+ *
  * @uses get_users();
  * @uses wp_trim_words();
+ *
  * @since Grammatizator 0.6
  */
 function gramm_list_authors( $args = '' ) {
-  global $wpdb;
+	global $wpdb;
 
-  $defaults = array(
-      'orderby' => 'name',
-      'order' => 'ASC',
-      'role' => '',
-      'include' => array(),
-      'show_fullname' => true,
-      'show_grammtitle' => true,
-      'social_links' => true,
-      'biolength' => 55,
-      'avatarsize' => 90,
-      'layout' => '',
-      'heading_tag' => 'h3',
-      'echo' => true
-  );
-  $args = wp_parse_args( $args, $defaults );
+	$defaults = array(
+		'orderby'         => 'name',
+		'order'           => 'ASC',
+		'role'            => '',
+		'include'         => array(),
+		'show_fullname'   => true,
+		'show_grammtitle' => true,
+		'social_links'    => true,
+		'biolength'       => 55,
+		'avatarsize'      => 90,
+		'layout'          => '',
+		'heading_tag'     => 'h3',
+		'echo'            => true,
+	);
 
-  $return = '';
+	$args = wp_parse_args( $args, $defaults );
 
-  // Use this to get the paramenters we need for get_users() out of the default $args
-  $query_args = wp_array_slice_assoc( $args, array( 'orderby', 'order', 'role', 'include' ) );
-  // Used to request only an array of user IDs from get_users()
-  $query_args['fields'] = 'ids';
-  $authors = get_users( $query_args );
+	$return = '';
 
-  foreach ( $authors as $authorid ) {
-    $author = get_userdata( $authorid );
+	// Use this to get the paramenters we need for get_users() out of the default $args
+	$query_args = wp_array_slice_assoc( $args, array( 'orderby', 'order', 'role', 'include' ) );
 
-    // Show full name by default, but has option for display name instead, and defaults there if first or last is empty
-    if ( $args['show_fullname'] && $author->first_name && $author->last_name ) {
-      $name = "$author->first_name $author->last_name";
-    } else {
-      $name = $author->display_name;
-    }
+	// Used to request only an array of user IDs from get_users()
+	$query_args['fields'] = 'ids';
+	$authors              = get_users( $query_args );
 
-    // If the user has a bio save it, otherwise overwrite the previous one in the loop with null
-    if ( get_the_author_meta( 'description', $author->ID ) ) {
-      $bio = get_the_author_meta( 'description', $author->ID );
-    } else {
-      $bio = '';
-    }
+	foreach ( $authors as $authorid ) {
+		$author = get_userdata( $authorid );
 
-    // If the user has Nursing Clio title filled in, otherwise set it to Contributor as default
-    // TODO Remove nctitle functionality to external plugin
-    if ( $args['show_grammtitle'] ) {
-      if ( get_the_author_meta( 'grammtitle', $author->ID ) ) {
-        $nctitle = '<p class="nc-title">' . get_the_author_meta( 'grammtitle', $author->ID ) . '</p>';
-      } else {
-        $nctitle = '<p class="nc-title">Contributor</p>';
-      }
-    } else {
-      $nctitle = '';
-    }
+		// Show full name by default, but has option for display name instead, and defaults there if first or last is empty.
+		if ( $args['show_fullname'] && $author->first_name && $author->last_name ) {
+			$name = $author->first_name . ' ' . $author->last_name;
+		} else {
+			$name = $author->display_name;
+		}
 
-    // If user has Twitter field filled in prep it, otherwise reset
-    if ( $args['social_links'] && get_the_author_meta( 'twitter', $author->ID ) ) {
-      $twit = '<p class="social-links"><a class="twitter" href="https://twitter.com/' . get_the_author_meta( 'twitter', $author->ID ) . '" title="' . esc_attr( sprintf(__("%s on Twitter"), $author->display_name) ) . '">@' . get_the_author_meta( 'twitter', $author->ID ) . '</a></p>';
-    } else {
-      $twit = '';
-    }
+		// If the user has a bio save it, otherwise overwrite the previous one in the loop with null.
+		if ( get_the_author_meta( 'description', $author->ID ) ) {
+			$bio = get_the_author_meta( 'description', $author->ID );
+		} else {
+			$bio = '';
+		}
 
-    $authorlink = '<a class="fn" href="' . get_author_posts_url( $author->ID, $author->user_nicename ) . '" title="' . esc_attr( sprintf(__("Posts by %s"), $author->display_name) ) . '">' . $name . '</a>';
+		// If the user has Nursing Clio title filled in, otherwise set it to Contributor as default.
+		// @todo Remove nctitle functionality to external plugin.
+		if ( $args['show_grammtitle'] ) {
+			if ( get_the_author_meta( 'grammtitle', $author->ID ) ) {
+				$nctitle = '<p class="nc-title">' . get_the_author_meta( 'grammtitle', $author->ID ) . '</p>';
+			} else {
+				$nctitle = '<p class="nc-title">Contributor</p>';
+			}
+		} else {
+			$nctitle = '';
+		}
 
-    // Start output
-    $return .= '<section id="author-id-' . $author->ID . '" class="author ' . $args['layout'] . ' vcard cf">';
-      if ( $args['avatarsize'] > 0 ) {
-        // Do if avatarsize is greater than 0
-        $return .= '<div class="avatar-wrap avatar-size-' . $args['avatarsize'] . 'px">';
-        $return .= get_avatar( $author->ID, $args['avatarsize'] );
-        $return .= '</div>';
-      }
+		// If user has Twitter field filled in prep it, otherwise reset.
+		if ( $args['social_links'] && get_the_author_meta( 'twitter', $author->ID ) ) {
+			/* translators: the author display name */
+			$twit = '<p class="social-links"><a class="twitter" href="https://twitter.com/' . get_the_author_meta( 'twitter', $author->ID ) . '" title="' . sprintf( __( '%s on Twitter' ), esc_attr( $author->display_name ) ) . '">@' . get_the_author_meta( 'twitter', $author->ID ) . '</a></p>';
+		} else {
+			$twit = '';
+		}
 
-      $return .= '<div class="bio-wrap">';
-      $return .= '<' . $args['heading_tag'] . '>' . $authorlink . '</' . $args['heading_tag'] . '>';
-      $return .= $nctitle;
-      $return .= $twit;
+		/* translators: the author display name */
+		$authorlink = '<a class="fn" href="' . get_author_posts_url( $author->ID, $author->user_nicename ) . '" title="' . sprintf( __( 'Posts by %s' ), esc_attr( $author->display_name ) ) . '">' . esc_html( $name ) . '</a>';
 
-      if ( $args['biolength'] > 0 && $bio ) {
-        $return .= '<p class="author-bio">';
-        // Trim if desired
-        if ( $args['biolength'] < 9995 ) {
-          $authrole = get_the_author_meta( 'roles', $author->ID );
-          if ( in_array('contributor', $authrole) ) {
-            $morelink = get_author_posts_url( $author->ID, $author->user_nicename );
-          } else {
-            $morelink = esc_url( get_site_url() . '/about/meet-the-team/#author-id-' . $author->ID );
-          }
+		// Start output
+		$return .= '<section id="author-id-' . $author->ID . '" class="author ' . $args['layout'] . ' vcard cf">';
 
-          $more = '&hellip; <a href="' . $morelink . '" title="' . esc_attr( 'Read ' . $author->display_name . '&rsquo;s full bio' ) . '">' . ( !empty($author->first_name) ? $author->first_name : $author->display_name) . '&rsquo;s full bio &rarr;</a>';
-          $bio = wp_trim_words( $bio, $args['biolength'], $more );
-        }
-        $return .= wptexturize( $bio );
-        $return .= '</p>';
-      }
+		if ( $args['avatarsize'] > 0 ) {
+			// Do if avatarsize is greater than 0
+			$return .= '<div class="avatar-wrap avatar-size-' . $args['avatarsize'] . 'px">';
+			$return .= get_avatar( $author->ID, $args['avatarsize'] );
+			$return .= '</div>';
+		}
 
-      $return .= '</div>';
-    $return .= '</section>'; // End output
-  } // End foreach loop
+		$return .= '<div class="bio-wrap">';
+		$return .= '<' . $args['heading_tag'] . '>' . $authorlink . '</' . $args['heading_tag'] . '>';
+		$return .= $nctitle;
+		$return .= $twit;
 
-  if ( ! $args['echo'] ) {
-    return $return;
-  }
+		if ( $args['biolength'] > 0 && $bio ) {
+			$return .= '<p class="author-bio">';
 
-  echo $return;
+			// Trim if desired
+			if ( $args['biolength'] < 9995 ) {
+				$authrole = get_the_author_meta( 'roles', $author->ID );
+
+				if ( in_array( 'contributor', $authrole, true ) ) {
+					$morelink = get_author_posts_url( $author->ID, $author->user_nicename );
+				} else {
+					$morelink = esc_url( get_site_url() . '/about/meet-the-team/#author-id-' . $author->ID );
+				}
+
+				$more = '&hellip; <a href="' . $morelink . '" title="' . esc_attr( 'Read ' . $author->display_name . '&rsquo;s full bio' ) . '">' . ( ! empty( $author->first_name ) ? $author->first_name : $author->display_name ) . '&rsquo;s full bio &rarr;</a>';
+				$bio  = wp_trim_words( $bio, $args['biolength'], $more );
+			}
+
+			$return .= wptexturize( $bio );
+			$return .= '</p>';
+		}
+
+		$return .= '</div>';
+		$return .= '</section>';
+	}
+
+	if ( ! $args['echo'] ) {
+		return $return;
+	}
+
+	echo $return; // wpcs: XSS ok.
 }
 
 /**
@@ -488,19 +558,23 @@ function gramm_list_authors( $args = '' ) {
  * @since Grammatizator 0.8
  */
 function gramm_has_multiple_authors() {
-  $multiauthor_values = get_post_custom_values( 'Additional author username' );
-  if ( $multiauthor_values ) {
-    $penult = count($multiauthor_values) - 1;
-    $return = '';
-    foreach ( $multiauthor_values as $key => $value ) {
-      $addauthor = get_user_by( 'login', $value );
-      $return .= ($key != $penult ? ', ' : ', and ') . ' <a href="' . get_author_posts_url( $addauthor->ID ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . $addauthor->first_name. ' ' . $addauthor->last_name . '</a>';
-    }
-    return $return;
-  }
+	$multiauthor_values = get_post_custom_values( 'Additional author username' );
+
+	if ( $multiauthor_values ) {
+		$penult = count( $multiauthor_values ) - 1;
+		$return = '';
+
+		foreach ( $multiauthor_values as $key => $value ) {
+			$addauthor = get_user_by( 'login', $value );
+			$return   .= ( $key !== $penult ? ', ' : ', and ' ) . ' <a href="' . get_author_posts_url( $addauthor->ID ) . '" class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . $addauthor->first_name . ' ' . $addauthor->last_name . '</a>';
+		}
+
+		return $return;
+	}
+
+	return false;
 }
 
-/************** DONATE MODULE ******************/
 /**
  * A Donate Module
  *
@@ -510,25 +584,18 @@ function gramm_has_multiple_authors() {
  * @todo Generalize: Figure out how to make this a widget
  * @since Grammatizator 0.4
  */
-function gramm_donate_module() { ?>
-  <div class="call-to-action">
-    <h5>Like what we do?</h5>
-    <h4 class="widgettitle">Want to help us keep the typewriters humming?</h4>
-    <a class="btn-blue" href="donate">Donate</a>
-    <p><a href="donate">How we use donations &rarr;</a></p>
-    <p><small><em>And thanks!</em></small></p>
-  </div>
-  <?php /*
-    $asks = array(
-      Want to buy us a cup of coffee?
-      Want to help us power the Internet?
-      Want to help us keep the lights on?
-    );
-    <button link:paypal?>Donate</button>
-  */
+function gramm_donate_module() {
+	?>
+	<div class="call-to-action">
+		<h5>Like what we do?</h5>
+		<h4 class="widgettitle">Want to help us keep the typewriters humming?</h4>
+		<a class="btn-blue" href="donate">Donate</a>
+		<p><a href="donate">How we use donations &rarr;</a></p>
+		<p><small><em>And thanks!</em></small></p>
+	</div>
+	<?php
 }
 
-/************* THEME CUSTOMIZE *****************/
 /**
  * A good tutorial for creating your own Sections, Controls and Settings:
  * http://code.tutsplus.com/series/a-guide-to-the-wordpress-theme-customizer--wp-33722
@@ -538,33 +605,16 @@ function gramm_donate_module() { ?>
  * http://code.tutsplus.com/tutorials/digging-into-the-theme-customizer-components--wp-27162
  *
  * Bones To do:
- * - Create a js for the postmessage transport method
- * - Create some sanitize functions to sanitize inputs
- * - Create some boilerplate Sections, Controls and Settings
+ *   - Create a js for the postmessage transport method
+ *   - Create some sanitize functions to sanitize inputs
+ *   - Create some boilerplate Sections, Controls and Settings
  *
  * @since Bones 1.71
  */
-function bones_theme_customizer($wp_customize) {
-  // $wp_customize calls go here.
-  //
-  // Uncomment the below lines to remove the default customize sections
-
-  // $wp_customize->remove_section('title_tagline');
-  // $wp_customize->remove_section('colors');
-  // $wp_customize->remove_section('background_image');
-  // $wp_customize->remove_section('static_front_page');
-  // $wp_customize->remove_section('nav');
-
-  // Uncomment the below lines to remove the default controls
-  // $wp_customize->remove_control('blogdescription');
-
-  // Uncomment the following to change the default section titles
-  // $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
-  // $wp_customize->get_section('background_image')->title = __( 'Images' );
+function bones_theme_customizer( $wp_customize ) {
+	// $wp_customize calls go here.
 }
-add_action( 'customize_register', 'bones_theme_customizer' );
 
-/************* USER PROFILE FIELDS *************/
 /**
  * Add new user profile fields
  *
@@ -578,129 +628,141 @@ add_action( 'customize_register', 'bones_theme_customizer' );
  * @since Grammatizator 0.4
  */
 function gramm_add_profile_fields( $user ) {
+	// Check to see if user already has a User Title.
+	$value = get_the_author_meta( 'grammtitle', $user->ID );
 
-  // Check to see if user already has a User Title
-  $value = get_the_author_meta('grammtitle', $user->ID);
+	wp_nonce_field( 'gramm_add_profile_fields_update', '_gramm_profile_nonce' );
 
-  // If not, assign default User Titles depending on user role
-  if ( !empty($value) ) {
-    $value = get_the_author_meta('grammtitle', $user->ID);
-  } else {
-    if ( !current_user_can( 'delete_posts' ) ) {
-      // subscriber = nursing clio guest author
-      $value = 'Guest Author';
-    } elseif ( !current_user_can( 'publish_posts' ) ) {
-      // contributor = nursing clio regular author
-      $value = 'Author';
-    } elseif ( !current_user_can( 'remove_users' ) ) {
-      // editor = nursing clio editor
-      $value = 'Editor, Author';
-    } else {
-      // admins can take care of themselves
-      $value = '';
-    }
-  } ?>
-  <h3>Additional Info</h3>
-  <table class="form-table">
-    <tbody>
-      <tr class="user-gravatar-wrap">
-        <th>
-          Your Picture<br>
-          <?php echo get_avatar( get_the_author_meta( 'user_email', $user->ID ), 80 ); ?>
-        </th>
-        <td>WordPress uses Gravatar for its profile pictures ("avatars"). Please visit <a href="http://en.gravatar.com/" target="_blank">the Gravatar website</a> to upload your picture. Make sure you set up your gravatar to link with the same email address you use here (<?php the_author_meta( 'user_email', $user->ID ); ?>).</td>
-      </tr>
-      <tr class="user-grammtitle-wrap">
-        <th><label for="grammtitle">User Title</label></th>
-          <td>
-            <input type="text" name="grammtitle" id="grammtitle" value="<?php echo esc_attr( $value ); ?>" <?php if ( !current_user_can( 'delete_others_posts' ) ) { echo ' disabled="disabled" '; } ?> class="regular-text" />
-            <?php if ( current_user_can( 'delete_others_posts' ) ) { echo '<span class="description">' . bloginfo( 'name' ) . ' role (Guest Author, for example). <strong>Separate with commas.</strong></span>'; } ?>
-          </td>
-        </tr>
-      <tr class="user-twitter-wrap">
-        <th><label for="twitter">Twitter</label></th>
-        <td>
-          <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" />
-          <span class="description">Your Twitter username (without the "@" symbol).</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<?php }
+	// If not, assign default User Titles depending on user role.
+	if ( ! empty( $value ) ) {
+		$value = get_the_author_meta( 'grammtitle', $user->ID );
+	} else {
+		if ( ! current_user_can( 'delete_posts' ) ) {
+			// subscriber = nursing clio guest author
+			$value = 'Guest Author';
+		} elseif ( ! current_user_can( 'publish_posts' ) ) {
+			// contributor = nursing clio regular author
+			$value = 'Author';
+		} elseif ( ! current_user_can( 'remove_users' ) ) {
+			// editor = nursing clio editor
+			$value = 'Editor, Author';
+		} else {
+			// admins can take care of themselves
+			$value = '';
+		}
+	}
 
-add_action( 'show_user_profile', 'gramm_add_profile_fields' );
-add_action( 'edit_user_profile', 'gramm_add_profile_fields' );
-
-// Save the new user data
-function gramm_save_profile_fields( $user_id ) {
-  // first check permissions
-  if ( !current_user_can( 'edit_user', $user_id ) )
-    return false;
-
-  // sanitize Twitter handle to remove `@` symbol
-  $grammtitle = sanitize_text_field( $_POST['grammtitle'] );
-  $twitter = sanitize_text_field( str_replace( '@', '', $_POST['twitter'] ) );
-
-  update_user_meta( $user_id, 'twitter', $twitter );
-  update_user_meta( $user_id, 'grammtitle', $grammtitle );
+	?>
+	<h3>Additional Info</h3>
+	<table class="form-table">
+		<tbody>
+			<tr class="user-gravatar-wrap">
+				<th>
+					Your Picture<br>
+					<?php echo get_avatar( get_the_author_meta( 'user_email', $user->ID ), 80 ); ?>
+				</th>
+				<td>WordPress uses Gravatar for its profile pictures ("avatars"). Please visit <a href="http://en.gravatar.com/">the Gravatar website</a> to upload your picture. Make sure you set up your gravatar to link with the same email address you use here (<?php the_author_meta( 'user_email', $user->ID ); ?>).</td>
+			</tr>
+			<tr class="user-grammtitle-wrap">
+				<th>
+					<label for="grammtitle">User Title</label>
+				</th>
+				<td>
+					<input type="text" name="grammtitle" id="grammtitle" value="<?php echo esc_attr( $value ); ?>" <?php if ( ! current_user_can( 'delete_others_posts' ) ) { echo ' disabled="disabled" '; } ?> class="regular-text" />
+					<?php if ( current_user_can( 'delete_others_posts' ) ) { echo '<span class="description">' . bloginfo( 'name' ) . ' role (Guest Author, for example). <strong>Separate with commas.</strong></span>'; } ?>
+				</td>
+			</tr>
+			<tr class="user-twitter-wrap">
+				<th>
+					<label for="twitter">Twitter</label>
+				</th>
+				<td>
+					<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" />
+					<span class="description">Your Twitter username (without the "@" symbol).</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<?php
 }
 
-add_action( 'personal_options_update', 'gramm_save_profile_fields' );
-add_action( 'edit_user_profile_update', 'gramm_save_profile_fields' );
-
-/************* JETPACK ADJUSTMENTS *************/
 /**
- * Remove Jetpack Share Insert
+ * Save the new user data.
+ *
+ */
+function gramm_save_profile_fields( $user_id ) {
+	// First check permissions.
+	if ( ! current_user_can( 'edit_user', $user_id ) ) {
+		return false;
+	}
+
+	if ( ! isset( $_POST['_gramm_profile_nonce'] ) ) {
+		wp_die( 'nonce not found' );
+	}
+
+	if ( ! wp_verify_nonce( $_POST['_gramm_profile_nonce'], 'gramm_add_profile_fields_update' ) ) {
+		wp_die( 'nonce not verified' );
+	}
+
+	// Sanitize Twitter handle to remove `@` symbol.
+	$grammtitle = sanitize_text_field( $_POST['grammtitle'] );
+	$twitter    = sanitize_text_field( str_replace( '@', '', $_POST['twitter'] ) );
+
+	update_user_meta( $user_id, 'twitter', $twitter );
+	update_user_meta( $user_id, 'grammtitle', $grammtitle );
+}
+
+/**
+ * Remove Jetpack Share Insert.
  *
  * Prevents auto display of Jetpack sharing links and
- * "like" button, to allow for manual insertion
+ * "like" button, to allow for manual insertion.
  *
- * @since Grammatizator 0.7
+ * @since 0.7
  */
 function gram_remove_jpshare() {
-    remove_filter( 'the_content', 'sharing_display', 19 );
-    remove_filter( 'the_excerpt', 'sharing_display', 19 );
+	remove_filter( 'the_content', 'sharing_display', 19 );
+	remove_filter( 'the_excerpt', 'sharing_display', 19 );
 
-    if ( class_exists( 'Jetpack_Likes' ) ) {
-        remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
-    }
+	if ( class_exists( 'Jetpack_Likes' ) ) {
+		remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
+	}
 }
-add_action( 'loop_start', 'gram_remove_jpshare' );
 
 /**
  * Add post author twitter handle to OG meta
  *
  */
 function gramm_jpog_add_twitter_creator( $og_tags ) {
-  global $post;
-  $p = $post;
+	global $post;
 
-  if ( is_single() ) {
-    if ( get_the_author_meta( 'twitter', $p->post_author ) ) {
-      $og_tags['twitter:creator'] = esc_attr( '@' . get_the_author_meta( 'twitter', $p->post_author ) );
-    }
-  } else {
-    // if not a post page, set the og:image property to the site logo
-    $og_tags['og:image'] = esc_url( get_template_directory_uri() . '/library/images/nc-icon_300x300.jpg' );
-  }
+	$p = $post;
 
-  // always include <meta property="fb:app_id" content="your_app_id" />
-  $og_tags['fb:app_id'] = esc_attr( '1685806704992498' );
+	if ( is_single() ) {
+		if ( get_the_author_meta( 'twitter', $p->post_author ) ) {
+			$og_tags['twitter:creator'] = esc_attr( '@' . get_the_author_meta( 'twitter', $p->post_author ) );
+		}
+	} else {
+		// If not a post page, set the og:image property to the site logo.
+		$og_tags['og:image'] = esc_url( get_template_directory_uri() . '/library/images/nc-icon_300x300.jpg' );
+	}
 
-  return $og_tags;
+	// Always include <meta property="fb:app_id" content="your_app_id" />
+	$og_tags['fb:app_id'] = esc_attr( '1685806704992498' );
+
+	return $og_tags;
 }
-add_filter( 'jetpack_open_graph_tags', 'gramm_jpog_add_twitter_creator', 11 );
 
 function gramm_jpog_add_related( $related, $post_ID ) {
-  global $post;
-  $p = $post;
+	global $post;
 
-  if ( is_single() ) {
-    if ( get_the_author_meta( 'twitter', $p->post_author ) ) {
-      $related[ get_the_author_meta( 'twitter', $p->post_author ) ] = '';
-    }
-  }
+	$p = $post;
 
-  return $related;
+	if ( is_single() ) {
+		if ( get_the_author_meta( 'twitter', $p->post_author ) ) {
+			$related[ get_the_author_meta( 'twitter', $p->post_author ) ] = '';
+		}
+	}
+
+	return $related;
 }
-add_filter( 'jetpack_sharing_twitter_related', 'gramm_jpog_add_related', 10, 2 );

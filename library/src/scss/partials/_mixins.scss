@@ -1,0 +1,69 @@
+/*
+Theme Name: Grammatizator
+Author: Adam Turner
+
+Stylesheet: Mixins Stylesheet
+*/
+
+@mixin transition($transition...) {
+	$prefixes: ("-webkit-", "" );
+	@each $prefix in $prefixes {
+		#{$prefix}transition: $transition;
+	}
+}
+
+/*********************
+CSS3 GRADIENTS
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include box-sizing(border-box); */
+@mixin box-sizing( $type: border-box ) {
+	box-sizing: $type;
+}
+
+/*********************
+CSS3 DROP SHADOWS
+*********************/
+
+/*
+ * @requires top-shadow and bottom-shadow
+ * functions in _functions.scss
+ */
+
+@mixin topshadow( $depth ) {
+	@if $depth < 1 {
+		box-shadow: none;
+	}
+	@else if $depth > 5 {
+		@warn "Invalid $depth `#{$depth}` for mixin `card`.";
+	}
+	@else {
+		box-shadow: top-shadow($depth);
+	}
+}
+
+@mixin bottomshadow( $depth ) {
+	@if $depth < 1 {
+		box-shadow: none;
+	}
+	@else if $depth > 5 {
+		@warn "Invalid $depth `#{$depth}` for mixin `card`.";
+	}
+	@else {
+		box-shadow: bottom-shadow($depth);
+	}
+}

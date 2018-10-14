@@ -1,0 +1,74 @@
+/*
+Theme Name: Grammatizator
+Author: Adam Turner
+
+Stylesheet: Print Stylesheet
+*/
+
+* {
+	background: transparent !important;
+	color: #000 !important;
+	text-shadow: none !important;
+}
+
+a,
+a:visited {
+	color: #444 !important;
+	text-decoration: underline;
+
+	// Show links on printed pages
+	&:after {
+		content: " (" attr(href) ")";
+	}
+
+	// Show title on printed pages
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+}
+
+.ir a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+	content: "";
+}
+
+pre,
+blockquote {
+	border: 1px solid #999;
+	page-break-inside: avoid;
+}
+
+thead {
+	display: table-header-group;
+}
+
+tr,
+img {
+	page-break-inside: avoid;
+}
+
+img {
+	max-width: 100% !important;
+}
+
+p,
+h2,
+h3 {
+	orphans: 3;
+	widows: 3;
+}
+
+h2,
+h3 {
+	page-break-after: avoid;
+}
+
+/* Hide content people who print don't need to see */
+.sidebar,
+.page-navigation,
+.wp-prev-next,
+.respond-form,
+nav {
+	display: none;
+}

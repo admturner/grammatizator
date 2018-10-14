@@ -1,0 +1,49 @@
+{
+  "name": "grammatizator",
+  "version": "0.9.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nursingclio/grammatizator"
+  },
+  "author": "Adam Turner",
+  "contributors": [
+    {
+      "name": "Nursing Clio"
+    }
+  ],
+  "license": "GPL-2.0+",
+  "browserslist": [
+    "> 1%",
+    "ie 8-11",
+    "Firefox ESR"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.1.x",
+    "cpx": "^1.5.x",
+    "cssnano": "^4.1.x",
+    "eslint": "^5.6.x",
+    "eslint-config-wordpress": "^2.0.x",
+    "mkdirp": "^0.5.x",
+    "node-sass": "^4.9.x",
+    "postcss-cli": "^6.0.x",
+    "rimraf": "^2.6.x",
+    "stylelint": "^9.6.x",
+    "svgo": "^1.1.x",
+    "uglify-es": "^3.3.x"
+  },
+  "scripts": {
+    "clean": "rimraf library/{css/,js/scripts.js}",
+    "phpcs": "vendor/bin/phpcs -v --colors --extensions=php --ignore=\"*/vendor/*,*/node_modules/*\" --standard=phpcs.ruleset.xml *.php post-formats/ library/inc/",
+    "lintjs": "eslint library/src/js/**",
+    "uglify": "mkdirp library/js && uglifyjs library/src/js/*.js -o library/js/scripts.js -m -c",
+    "lintscss": "stylelint \"library/src/scss/**/*.scss\"",
+    "sass": "mkdirp library/css && node-sass --output-style expanded library/src/scss -o library/css",
+    "postsass": "postcss library/css/style.css -u autoprefixer --no-map -o ./style.css && postcss library/css/*.css --map --use autoprefixer --use cssnano --replace",
+    "svgo": "mkdirp library/assets/images && svgo -f library/src/svg -o library/assets/images",
+    "build:css": "npm run lintscss -s && npm run sass -s",
+    "build:js": "npm run lintjs -s && npm run uglify -s",
+    "build:images": "npm run svgo -s",
+    "test": "npm run phpcs -s && npm run lintjs -s && npm run lintscss -s",
+    "build": "npm run build:css && npm run build:js && npm run build:images"
+  }
+}

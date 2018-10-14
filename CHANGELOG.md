@@ -21,35 +21,30 @@ Changelog formatting (http://semver.org/):
 ### Removed (for deprecated features removed in this release)
 -->
 
----
+## 0.9.5 (2018-10-08)
 
-<!-- ## 1.5 unreleased (the future)
+**Begin End of Life transition**: The theme will be phased out in the coming year. Critical maintenance and upkeep updates will continue in the meantime.
 
-### To Do
+### Fixed
 
-- Decide what kind of commenting system we want to use for the long haul.
-- Decide whether JetPack is really what we want
+* JS and CSS linting and standards.
+* PHP cleaning up and coding standards fixes. Many of them.
+* Use NC favicons.
 
----
+### Changed
 
-## 1.0 release! (the future)
+* Simplified SCSS color variable names.
 
-### To Do
+### Added
 
-- Move too-specific content from functions.php into a Nursing Clio plugin (see http://justintadlock.com/archives/2010/12/30/wordpress-theme-function-files) [Search: todo Generalize]
-- Update README.md to reflect move of NC-specific functions to plugin
-- BUG: Comments (on old posts, at least, listed as None even when there are comments)
-- Finish styling image galleries (especially to account for multiple image sizes)
-- Run validator assessments and correct as needed
-- Replace hard-coded Contributors list on Meet the Team page with dynamic list (and correctly assign contributor authors to posts currently attributed to Nursing Clio user).
-- Get makefile working
-- Compress JS
-- Add Autoprefixer to makefile workflow (just in case)
-- Check all files for needed updates (the 404 page and author archive page (all archive pages), for example, and error message in search.php).
-- Keep working on making JetPack share with Twitter button include both site handle and author handle in auto text (see https://github.com/Automattic/jetpack/blob/master/modules/sharedaddy/sharing-sources.php and https://github.com/Automattic/Co-Authors-Plus-Social-Pack/blob/master/co-authors-plus-social-pack.php)
+* Tools using NPM and Composer to run testing, processing, and building.
+* Build tools configuration files.
+* Utility and logo SVGs.
 
----
--->
+### Removed
+
+* The "human readable" CSS file. Not really needed at this point.
+* Unneeded to-do items (in light of theme sunsetting).
 
 ## 0.9.4 update 2017-11-12
 

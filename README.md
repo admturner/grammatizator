@@ -1,4 +1,8 @@
-# Grammatizator 0.9.2
+# Grammatizator
+
+**Begin End of Life transition**: The theme will be phased out in the coming year. Critical maintenance and upkeep updates will continue in the meantime.
+
+---
 
 A word-centric and minimalist theme for WordPress, built atop the great [Bones](http://themble.com/bones) starter theme by Eddie Machado (learn more about Bones [below](#about-bones)). This isn't a child theme, but it can be used as a parent theme. It's built using HTML5 and aims to maximize accessibility and responsiveness. If you notice bugs, holes, or Things That Could Be Better, I'm entirely open to contribution. Just let me know. :)
 
@@ -14,6 +18,24 @@ Contact me via Twitter: [@admturner](https://twitter.com/admturner)
 Please submit bugs and/or fixes to: <https://github.com/admturner/grammatizator/issues>. Please read (and adhere to) the guidelines for contributions detailed in CONTRIBUTING.md.
 
 To view release & update notes, read the CHANGELOG.md file in the main folder.
+
+### Development Setup
+
+### Initial Setup
+
+1. Install the NPM dependencies.
+2. Install the Composer dependencies.
+3. Ensure PHP coding standards are properly sniffed.
+4. Ensure Sass files are properly linted.
+
+In a terminal:
+
+~~~
+npm install
+composer install
+npm run phpcs
+npm run lintscss
+~~~
 
 ### Licensing
 

@@ -1,0 +1,99 @@
+/*Theme Name: Grammatizator
+Author: Adam Turner
+
+Stylesheet: 31.952em | 511.227px and Up Stylesheet
+*/
+
+.nav {
+	margin: 0;
+
+	li {
+
+		a {
+
+			&:hover,
+			&:focus {
+				color: $white;
+			}
+		}
+
+		ul.sub-menu,
+		ul.children {
+
+			li {
+
+				a {
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+}
+
+.global-nav {
+
+	.nav {
+
+		li {
+
+			a {
+				transition: background-color .25s ease-in-out, color .2s ease-in-out;
+
+				&:hover,
+				&:focus {
+					background-color: $link-color;
+				}
+			}
+		}
+	}
+}
+
+.author-grid {
+	width: 32%;
+}
+
+.entry-content {
+
+	p {
+		font-size: 1.125em;
+		margin: 0 0 1.5em;
+	}
+}
+
+.single {
+
+	.entry-content {
+
+		.article-header {
+			margin-bottom: .5em;
+		}
+
+		.intro,
+		p:first-of-type {
+			font-size: 1.25em;
+		}
+	}
+}
+
+.wp-caption {
+	margin-bottom: 1.25em;
+}
+
+.hentry {
+
+	header {
+
+		a,
+		a:visited {
+
+			&:hover,
+			&:focus {
+				color: lighten($black, 40%);
+			}
+		}
+	}
+
+	footer {
+		margin-bottom: 1.5em;
+	}
+}

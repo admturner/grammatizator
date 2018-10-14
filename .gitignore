@@ -4,6 +4,26 @@
 # https://github.com/github/gitignore/blob/master/Global/
 # See also: https://help.github.com/articles/ignoring-files/
 
+# Project #
+###########
+node_modules
+composer.lock
+vendor
+tmp/
+temp/
+/phpunit.xml
+/tests/phpunit/data/plugins/wordpress-importer
+/tests/phpunit/data/.trac-ticket-cache*
+/tests/qunit/compiled.html
+/src/.wp-tests-version
+/npm-debug.log
+/tests/phpunit/build
+/wp-cli.local.yml
+*.codekit
+*.bak
+*.[Cc]ache
+*.php.in
+
 # Compiled source #
 ###################
 *.com
@@ -43,13 +63,13 @@
 *.msi
 *.msm
 *.msp
- 
+
 # Logs and databases #
 ######################
 *.log
 *.sql
 *.sqlite
- 
+
 # OS generated files #
 ######################
 
